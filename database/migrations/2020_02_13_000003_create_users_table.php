@@ -12,13 +12,12 @@ class CreateUsersTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->string('email')->unique();
-            $table->String('position');
-            $table->double('salary',8, 2);
+            $table->String('position')->nullable();
+            $table->integer('department');
+            $table->double('salary',8, 2)->default(1200);
             $table->string('phoneNumber');
             $table->string('Avater')->default("default.jpg");
             $table->string('password');
-            $table->datetime('email_verified_at')->nullable();
-            $table->string('remember_token')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

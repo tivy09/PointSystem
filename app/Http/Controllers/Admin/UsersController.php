@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use Brian2694\Toastr\Facades\Toastr;
 use Symfony\Component\HttpFoundation\Response;
 use App\Role;
+use App\department;
 use App\User;
 use App\Email;
 use App\Salary;
@@ -35,11 +36,11 @@ class UsersController extends Controller
     public function create()
     {
         abort_if(Gate::denies('user_create'), Response::HTTP_FORBIDDEN, '403 Forbidden');
-
+        $department=department::all();
         $roles = Role::all()->pluck('title', 'id');
         $LastID = DB::table('users')->max('id');
 
-        return view('admin.users.create', compact('roles', 'LastID'));
+        return view('admin.users.create', compact('roles', 'LastID'))->with('departments',$department);
     }
 
     public function store(StoreUserRequest $request)

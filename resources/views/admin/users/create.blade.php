@@ -50,9 +50,12 @@
                 <span class="help-block">{{ trans('cruds.user.fields.password_helper') }}</span>
             </div>
             <div class="form-group">
-                <label class="required" for="class_id">Department</label>
-                <select class="form-control select2 {{ $errors->has('class') ? 'is-invalid' : '' }}" name="class_id" id="class_id">
-                    
+                <label class="required" for="department">Department</label>
+                <select class="form-control select2" name="department" id="department">
+                    <option value="">Select A Department</option>
+                @foreach($departments as $department)
+                    <option value="{{ $department->id }}">{{ $department->name }}</option>
+                @endforeach
                 </select>
                 @if($errors->has('class'))
                     <div class="invalid-feedback">
@@ -64,13 +67,10 @@
             @if(!request()->has('student'))
                 <div class="form-group">
                     <label class="required" for="roles">{{ trans('cruds.user.fields.roles') }}</label>
-                    <div style="padding-bottom: 4px">
-                        <span class="btn btn-info btn-xs select-all" style="border-radius: 0">{{ trans('global.select_all') }}</span>
-                        <span class="btn btn-info btn-xs deselect-all" style="border-radius: 0">{{ trans('global.deselect_all') }}</span>
-                    </div>
-                    <select class="form-control select2 {{ $errors->has('roles') ? 'is-invalid' : '' }}" name="roles[]" id="roles" multiple required>
+                    <select class="form-control select2" name="roles[]" id="roles" required>
+                            <option value="">Select one Roles</option>
                         @foreach($roles as $id => $roles)
-                            <option value="{{ $id }}" {{ in_array($id, old('roles', [])) ? 'selected' : '' }}>{{ $roles }}</option>
+                            <option value="{{ $id }}">{{ $roles }}</option>
                         @endforeach
                     </select>
                     @if($errors->has('roles'))
