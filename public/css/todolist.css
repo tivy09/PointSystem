@@ -1,0 +1,14 @@
+.delete {
+    margin-left: 0px;
+    text-decoration: line-through;
+}
+
+.herf {
+    color: black;
+    text-decoration: none;
+}
+
+.herf:hover {
+    color: black;
+    text-decoration: none;
+}

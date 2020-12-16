@@ -8,9 +8,6 @@ Route::get('/login', function () {
     return view('auth.login');
 });
 
-// Auth::routes(['register' => false]);
-// Admin
-
 Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'middleware' => ['auth']], function () {
     Route::get('/', 'HomeController@index')->name('home');
     // Permissions
@@ -103,4 +100,5 @@ Route::post('/Job/approved/{id}',[      'uses'=>'JobAppController@approved',    
 Route::get('/Job/delete/{id}',[         'uses'=>'JobAppController@destroy',             'as'=>'admin.Job.destroy']);
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::post('/home/store',[ 'uses'=>'TodolistController@store', 'as'=>'user.todo.store']);
+Route::get('/home', [App\Http\Controllers\TodolistController::class, 'index'])->name('home');

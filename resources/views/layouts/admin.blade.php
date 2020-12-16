@@ -22,10 +22,12 @@
     <link rel="stylesheet" href="http://cdn.bootcss.com/toastr.js/latest/css/toastr.min.css"> 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link href="{{ asset('css/custom.css') }}" rel="stylesheet" />
+    <link href="{{ asset('css/todolist.css') }}" rel="stylesheet" />
     <link href="{{ asset('css/email.css') }}" rel="stylesheet" />
     <link href="{{ asset('css/model.css') }}" rel="stylesheet">
     <link href="{{ asset('css/hide.css') }}" rel="stylesheet">
     <script src="{{ asset('js/email.js')}}"></script>
+    <script src="{{ asset('js/todolist.js')}}"></script>
     <script src="{{ asset('js/leave.js')}}"></script>
     <script src="{{ asset('js/model.js') }}" defer></script>
     <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
