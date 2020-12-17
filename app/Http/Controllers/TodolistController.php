@@ -64,7 +64,8 @@ class TodolistController extends Controller
      */
     public function edit($id)
     {
-        //
+        $todo = todolist::all()->where('id', $id);
+        return view('edit')->with('todos',$todo);
     }
 
     /**
@@ -76,7 +77,13 @@ class TodolistController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $todo = todolist::find($id);
+        $todo->description = $request->description;
+        $todo->save();
+
+        Toastr::success('Event has been Updated! 😊','Success');
+
+        return redirect()->route('home');
     }
 
     /**
@@ -87,6 +94,33 @@ class TodolistController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $todo = todolist::find($id);
+        $todo->is_delete = 3;
+        $todo->save();
+
+        Toastr::success('Event has been deleted! 😊','Success');
+
+        return redirect()->route('home');
+    }
+
+    public function delete($id)
+    {
+        $todo = todolist::find($id);
+        $todo->delete();
+
+        Toastr::success('Event has been deleted! 😊','Success');
+
+        return redirect()->route('home');
+    }
+
+    public function complete($id)
+    {
+        $todo = todolist::find($id);
+        $todo->is_delete = 1;
+        $todo->save();
+
+        Toastr::success('Event has been Complete! 😊','Success');
+
+        return redirect()->route('home');
     }
 }

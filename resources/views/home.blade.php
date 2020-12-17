@@ -1,9 +1,14 @@
 @extends('layouts.admin')
 @section('content')
+
+@php 
+    $current = date('Y-m-d');
+@endphp
+
 <div class="content">
     <div class="row">
         <div class="col-lg-12">
-            <div class="card">
+            <div class="card" style="width: 300px;">
                 <div class="card-header">
                     Dashboard
                 </div>
@@ -34,46 +39,46 @@
                                 </form>
                             </tr>
                             @foreach($todos as $todo)
-                                @if($todo->user_id == Auth::user()->id)
-                                <tr style="padding-top: 10px; border-bottom: 1px solid #ddd; height: 46px;">
-                                    <td colspan="1" style="width: 80px; padding: 0.5rem;">
-                                        @if($todo->is_delete == 3 || $todo->is_delete == 2)
-                                            <img src="{{ asset('icon/x.svg') }}" alt="" width="23" height="23">
-                                        @elseif($todo->is_delete == 1)
-                                            <img src="{{ asset('icon/check2.svg') }}" alt="" width="20" height="20">
-                                        @elseif($todo->is_delete == null)
-                                        
-                                        @endif
-                                    </td>
-                                    <td colspan="2" style="width: 370px;">
-                                        @if($todo->is_delete == 3 || $todo->is_delete == 2)
-                                            <h5><b class="delete" style="margin-left: 0px">{{ $todo->description }}</b></h5>
-                                        @elseif($todo->is_delete == 1)
-                                            <h5><b class="delete" style="margin-left: 0px">{{ $todo->description }}</b></h5>
-                                        @elseif($todo->is_delete == null)
-                                            <h5><b><a href="" class="herf">{{ $todo->description }}</a></b></h5>
-                                        @endif
-                                    </td>
-                                    <td colspan="1" style="width: 150px;">
-                                        @if($todo->is_delete == null)
-                                            <a href="">
-                                                <span class="badge badge-pill badge-warning">Edit</span>
-                                            </a>
-
-                                            <a href="" onclick="return confirm('Sure Want Delete?')">
-                                                <span class="badge badge-pill badge-danger">Delete</span>
-                                            </a>
-                                        @elseif($todo->is_delete == 3 || $todo->is_delete == 2)
-                                            <a href="">
-                                                <span class="badge badge-pill badge-danger">Rejected</span>
-                                            </a>
-                                        @elseif($todo->is_delete == 1)
-                                            <span class="badge badge-pill badge-success">Approved</span>
-                                        @endif
-                                    </td>
-                                </tr>
+                                @if($todo->user_id == Auth::user()->id && $todo->is_delete != 3)
+                                    @if($todo->CurrentDate == $current)
+                                    <tr style="padding-top: 10px; border-bottom: 1px solid #ddd; height: 46px;">
+                                        <td colspan="1" style="width: 80px; padding: 0.5rem;">
+                                            @if($todo->is_delete == 1)
+                                                <img src="{{ asset('icon/check2.svg') }}" alt="" width="20" height="20">
+                                            @elseif($todo->is_delete == null)
+                                            
+                                            @endif
+                                        </td>
+                                        <td colspan="2" style="width: 370px;">
+                                            @if($todo->is_delete == 1)
+                                                <h5><b class="delete" style="margin-left: 0px">{{ $todo->description }}</b></h5>
+                                            @elseif($todo->is_delete == null)
+                                                <h5><b><a href="{{ route('user.todo.complete', ['id' => $todo->id]) }}" class="herf">{{ $todo->description }}</a></b></h5>
+                                            @endif
+                                        </td>
+                                        <td colspan="1" style="width: 150px;">
+                                            @if($todo->is_delete == null)
+                                                <a href="{{ route('user.todo.edit', ['id' => $todo->id]) }}">
+                                                    <span class="badge badge-pill badge-warning" style="height: 25.25px;padding-top: 8px;">Edit</span>
+                                                </a>
+                                                <a href="{{ route('user.todo.destroy', ['id' => $todo->id]) }}" onclick="return confirm('Sure Want Delete?')">
+                                                    <span class="badge badge-pill badge-danger" style="height: 25.25px;padding-top: 8px;">Delete</span>
+                                                </a>
+                                            @elseif($todo->is_delete == 1)
+                                                <span class="badge badge-pill badge-success" style="height: 25.25px;padding-top: 8px;">Complete</span>
+                                            @endif
+                                        </td>
+                                    </tr>
+                                    @endif
                                 @endif
                             @endforeach
+                                <tr style="height: 50px;">
+                                    <td colspan="4" style="padding-top: 20px; padding-left: 407px;">
+                                        <span class="badge badge-pill badge-success" style="height: 25.25px;padding-top: 8px;">
+                                            <a onclick="document.getElementById('id01').style.display = 'block';">Event History</a>
+                                        </span>
+                                    </td>
+                                </tr>
                         </table>
                     </div>
                 </div>
@@ -81,8 +86,39 @@
         </div>
     </div>
 </div>
-@endsection
-@section('scripts')
-@parent
+
+<div>
+    <div id="id01" class="modal">
+        <div class="modal-content animate">
+            <div class="modalcontainer" style="min-height: 196px; max-height: 232px; overflow: scroll; white-space: normal;">
+                <h2 style="margin-left: 150px;">Event History</h2>
+                <table>
+                    <tr>
+                        <th>Event</th>
+                        <th>Date</th>
+                        <th>Status</th>
+                    </tr>
+                    @foreach($todos as $todo)
+                        @if($todo->user_id == Auth::user()->id)
+                            @if($todo->CurrentDate < $current)
+                    <tr style="border-bottom: 1px solid #ddd;">
+                        <td style="width: 230px;">{{$todo->description}}</td>
+                        <td style="width: 230px;">{{$todo->CurrentDate}}</td>
+                        <td>
+                            @if($todo->is_delete == null || $todo->is_delete == 3)
+                                <span class="badge badge-pill badge-warning" style="height: 20px;padding-top: 5px;">Uncomplete</span>
+                            @else
+                                <span class="badge badge-pill badge-success" style="height: 20px;padding-top: 5px;">Complete</span>
+                            @endif
+                        </td>
+                    </tr>
+                            @endif
+                        @endif
+                    @endforeach
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
 
 @endsection

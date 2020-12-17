@@ -27,7 +27,6 @@
     <link href="{{ asset('css/model.css') }}" rel="stylesheet">
     <link href="{{ asset('css/hide.css') }}" rel="stylesheet">
     <script src="{{ asset('js/email.js')}}"></script>
-    <script src="{{ asset('js/todolist.js')}}"></script>
     <script src="{{ asset('js/leave.js')}}"></script>
     <script src="{{ asset('js/model.js') }}" defer></script>
     <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
