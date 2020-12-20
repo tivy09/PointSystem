@@ -1,16 +1,10 @@
 <?php
-
 namespace Database\Seeders;
 use App\job_hirings;
 use Illuminate\Database\Seeder;
 
 class JobHiringsTableSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     *
-     * @return void
-     */
     public function run()
     {
         $job_hirings = [

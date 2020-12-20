@@ -70,107 +70,31 @@ class PermissionsTableSeeder extends Seeder
             ],
             [
                 'id'    => '16',
-                'title' => 'user_access',
-            ],
-            [
-                'id'    => '17',
-                'title' => 'lesson_create',
-            ],
-            [
-                'id'    => '18',
-                'title' => 'lesson_edit',
-            ],
-            [
-                'id'    => '19',
-                'title' => 'lesson_show',
-            ],
-            [
-                'id'    => '20',
-                'title' => 'lesson_delete',
-            ],
-            [
-                'id'    => '21',
-                'title' => 'lesson_access',
-            ],
-            [
-                'id'    => '22',
-                'title' => 'school_class_create',
-            ],
-            [
-                'id'    => '23',
-                'title' => 'school_class_edit',
-            ],
-            [
-                'id'    => '24',
-                'title' => 'school_class_show',
-            ],
-            [
-                'id'    => '25',
-                'title' => 'school_class_delete',
-            ],
-            [
-                'id'    => '26',
-                'title' => 'school_class_access',
-            ],
-            [
-                'id'    => '27',
-                'title' => 'venue_create',
-            ],
-            [
-                'id'    => '28',
-                'title' => 'venue_edit',
-            ],
-            [
-                'id'    => '29',
-                'title' => 'venue_show',
-            ],
-            [
-                'id'    => '30',
-                'title' => 'venue_delete',
-            ],
-            [
-                'id'    => '31',
-                'title' => 'venue_access',
-            ],
-            [
-                'id'    => '32',
                 'title' => 'event_create',
             ],
             [
-                'id'    => '33',
+                'id'    => '17',
                 'title' => 'event_edit',
             ],
             [
-                'id'    => '34',
+                'id'    => '18',
                 'title' => 'event_show',
             ],
             [
-                'id'    => '35',
+                'id'    => '19',
                 'title' => 'event_delete',
             ],
             [
-                'id'    => '36',
+                'id'    => '20',
                 'title' => 'event_access',
             ],
             [
-                'id'    => '37',
-                'title' => 'meeting_create',
+                'id'    => '21',
+                'title' => 'project_status',
             ],
             [
-                'id'    => '38',
-                'title' => 'meeting_edit',
-            ],
-            [
-                'id'    => '39',
-                'title' => 'meeting_show',
-            ],
-            [
-                'id'    => '40',
-                'title' => 'meeting_delete',
-            ],
-            [
-                'id'    => '41',
-                'title' => 'meeting_access',
+                'id'    => '22',
+                'title' => 'project_create',
             ],
         ];
 

@@ -25,9 +25,6 @@ class JobAppController extends Controller
         ->leftjoin('job_hirings', 'job_hirings.id', '=', 'jobs.is_approved')
         ->select('job_apps.name as PosiName', 'job_hirings.name as HiriName', 'jobs.*')
         ->get();
-
-
-
         return view('admin.Job.index')->with('jobs',$job);
     }
 

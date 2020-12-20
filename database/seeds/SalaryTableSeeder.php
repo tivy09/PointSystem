@@ -1,16 +1,10 @@
 <?php
-
 namespace Database\Seeders;
 use App\salary;
 use Illuminate\Database\Seeder;
 
 class SalaryTableSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     *
-     * @return void
-     */
     public function run()
     {
         $salarys = [

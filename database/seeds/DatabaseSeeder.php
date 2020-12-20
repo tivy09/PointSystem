@@ -12,6 +12,13 @@ class DatabaseSeeder extends Seeder
             PermissionRoleTableSeeder::class,
             UsersTableSeeder::class,
             RoleUserTableSeeder::class,
+            // SalaryTableSeeder::class,
+            // DepartmentTableSeeder::class,
+            // JobAppTableSeeder::class,
+            // JobTypeTableSeeder::class,
+            // JobsTableSeeder::class,
+            // JobLocationTableSeeder::class,
+            // JobHiringsTableSeeder::class
         ]);
     }
 }

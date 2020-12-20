@@ -1,16 +1,11 @@
 <?php
-
 namespace Database\Seeders;
+
 use App\department;
 use Illuminate\Database\Seeder;
 
 class DepartmentTableSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     *
-     * @return void
-     */
     public function run()
     {
         $departments = [

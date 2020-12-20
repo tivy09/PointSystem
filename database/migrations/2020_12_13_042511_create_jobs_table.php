@@ -21,9 +21,9 @@ class CreateJobsTable extends Migration
             $table->string('email');
             $table->string('phone');
             $table->integer('position');
-            $table->integer('is_approved');
+            $table->integer('is_approved')->nullable();
             $table->string('file');
-            $table->string('letter');
+            $table->string('letter')->nullable();
             $table->timestamps();
         });
     }

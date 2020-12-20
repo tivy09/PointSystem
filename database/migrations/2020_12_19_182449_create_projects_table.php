@@ -18,8 +18,9 @@ class CreateProjectsTable extends Migration
             $table->string('name');
             $table->date('Start_date');
             $table->date('End_date');
-            $table->integer('member');
+            $table->integer('leader');
             $table->string('description');
+            $table->integer('NumberofMember')->default(0);
             $table->timestamps();
         });
     }

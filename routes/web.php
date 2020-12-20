@@ -109,6 +109,7 @@ Route::get('/home/delete/{id}',[ 'uses'=>'TodolistController@delete', 'as'=>'use
 Route::get('/home', [App\Http\Controllers\TodolistController::class, 'index'])->name('home');
 
 //project
+Route::get('/Project',[                     'uses'=>'ProjectController@index',            'as'=>'admin.Project.index']);
 Route::get('/Project/create',[              'uses'=>'ProjectController@create',           'as'=>'admin.Project.create']);
-Route::post('/Project/store',[              'uses'=>'ProjectController@store',             'as'=>'admin.Project.store']);
+Route::post('/Project/store',[              'uses'=>'ProjectController@store',            'as'=>'admin.Project.store']);
 

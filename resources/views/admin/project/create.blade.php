@@ -23,8 +23,9 @@
                 <span class="help-block">{{ trans('cruds.role.fields.title_helper') }}</span>
             </div>
             <div class="form-group">
-                <label class="required" for="member">Select Member for the project</label>
-                <select class="form-control select2" name="member[]" id="member" multiple required>
+                <label class="required" for="leader">Select a leader</label>
+                <select class="form-control select2" name="leader" id="leader" required>
+                            <option value="">Select a leader</option>
                     @foreach($users as $user)
                         @if($user->name != "Admin")
                             <option value="{{ $user->id }}">{{ $user->name }}</option>

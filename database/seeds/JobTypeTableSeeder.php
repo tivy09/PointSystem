@@ -1,16 +1,10 @@
 <?php
-
 namespace Database\Seeders;
 use App\job_type;
 use Illuminate\Database\Seeder;
 
 class JobTypeTableSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     *
-     * @return void
-     */
     public function run()
     {
         $job_types = [

@@ -17,7 +17,14 @@ class ProjectController extends Controller
      */
     public function index()
     {
-        //
+        $project=DB::table('projects')
+        ->leftjoin('users', 'users.id', '=', 'projects.leader')
+        ->select('users.name as username', 'projects.*')
+        ->get();
+
+        $status = 60;
+
+        return view('admin.project.index',compact('status'))->with('projects',$project);
     }
 
     /**
@@ -27,7 +34,8 @@ class ProjectController extends Controller
      */
     public function create()
     {
-        //
+        $user = User::all();
+        return view('admin.project.create')->with('users',$user);
     }
 
     /**
@@ -38,7 +46,17 @@ class ProjectController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $project = project::create([
+            'name' => $request->name,
+            'Start_date' => $request->Start_date,
+            'End_date' => $request->End_date,
+            'leader' => $request->leader,
+            'description' => $request->description,
+        ]);
+
+        Toastr::success('Project has been recorded! 🙂','Success');
+
+        return redirect()->route('home');
     }
 
     /**
