@@ -5,18 +5,17 @@ namespace App;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class project extends Model
+class Project_Task extends Model
 {
     use HasFactory;
 
-    public $table = 'projects';
+    public $table = 'project__tasks';
 
     protected $fillable = [
         'name',
         'Start_date',
-        'End_date',
-        'leader',
-        'NumberofMember',
+        'Project_id',
         'description',
+        'status',
     ];
 }

@@ -1,13 +1,5 @@
 @extends('layouts.admin')
 @section('content')
-<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"> -->
-<div style="margin-bottom: 10px;" class="row">
-    <div class="col-lg-12">
-        <a class="btn btn-success" href="{{ route('admin.Project.create') }}">
-            {{ trans('global.add') }} New Project
-        </a>
-    </div>
-</div>
 <div class="card">
     <div class="card-header">
         Project {{ trans('global.list') }}
@@ -28,7 +20,7 @@
                             Project Leader
                         </th>
                         <th style="width: 400px;">
-                            Status
+                            Description
                         </th>
                         <th>
                             Action
@@ -37,6 +29,7 @@
                 </thead>
                 <tbody>
                     @foreach($projects as $project)
+                        @if($project->employeeID != Auth::user()->id)
                         <tr>
                             <td>
                                 {{ $loop -> index+1 }}
@@ -48,26 +41,20 @@
                                 {{ $project->username }}
                             </td>
                             <td>
-                                <div class="progress" style="height: 25px; background-color: white">
-                                    <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:{{ $status }}%">
-                                    {{ $status }}%
-                                    </div>
-                                </div>
+                                {{ $project->description }}
                             </td>
                             <td style="width: 150px;">
-                                <a class="btn btn-xs btn-success" href="{{ route('admin.Project.createTask', ['id' => $project->id])}}">
-                                    Create Task
-                                </a>
-
-                                <a class="btn btn-xs btn-primary" href="{{ route('admin.Project.show', ['id' => $project->id])}}">
-                                    {{ trans('global.view') }}
-                                </a>
-
-                                <a class="btn btn-xs btn-info" href="">
-                                    {{ trans('global.delete') }}
-                                </a>
+                                <form action="{{ route('admin.Project.Enroll')}}" method="post">
+                                @csrf
+                                    <input type="hidden" name="employee_id" value="{{ Auth::user()->id }}">
+                                    <input type="hidden" name="project_id" value="{{ $project->id }}">
+                                    <button type="submit" class="btn btn-xs btn-success">
+                                        Enroll Me
+                                    </button>
+                                </form>
                             </td>
                         </tr>
+                        @endif
                     @endforeach
                 </tbody>
             </table>

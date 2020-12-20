@@ -47,33 +47,17 @@
                 </ul>
             </li>
             @endcan
-            <!-- Department -->
-            <li class="nav-item">
-                <a href="{{ route('admin.department.index') }}" class="nav-link">
-                    <i class="nav-icon fas fa-fw">
-                        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-envelope-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                            <path fill-rule="evenodd" d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414.05 3.555zM0 4.697v7.104l5.803-3.558L0 4.697zM6.761 8.83l-6.57 4.027A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586l-1.239-.757zm3.436-.586L16 11.801V4.697l-5.803 3.546z"/>
-                        </svg>
-                    </i> Department
-                </a>
-            </li>
-            <!-- Department -->
-            <li class="nav-item">
-                <a href="{{ route('admin.Project.index') }}" class="nav-link">
-                    <i class="nav-icon fas fa-fw">
-                        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-envelope-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                            <path fill-rule="evenodd" d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414.05 3.555zM0 4.697v7.104l5.803-3.558L0 4.697zM6.761 8.83l-6.57 4.027A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586l-1.239-.757zm3.436-.586L16 11.801V4.697l-5.803 3.546z"/>
-                        </svg>
-                    </i> Project
-                </a>
-            </li>
-            <!-- Job -->
+            <!-- Compnay Controller -->
             <li class="nav-item nav-dropdown">
                 <a class="nav-link  nav-dropdown-toggle" href="#">
-                    <i class="fa-fw fas fa-calendar nav-icon"></i>Job
+                    <i class="fa-fw fas fa-calendar nav-icon"></i>Compnay Controller
                 </a>
                 
                 <ul class="nav-dropdown-items">
+                    <li class="nav-item">
+                        <a href="{{ route('admin.department.index') }}" class="nav-link {{ request()->is('admin/system-calendar') || request()->is('admin/system-calendar/*') ? 'active' : '' }}">
+                            <i class="nav-icon fa-fw fas fa-calendar"></i> Department </a>
+                    </li>
                     <li class="nav-item">
                         <a href="{{ route('admin.Job.index') }}" class="nav-link {{ request()->is('admin/system-calendar') || request()->is('admin/system-calendar/*') ? 'active' : '' }}">
                             <i class="nav-icon fa-fw fas fa-calendar"></i> Job Application</a>
@@ -81,6 +65,27 @@
                     <li class="nav-item">
                         <a href="{{ route("admin.JobApp.index") }}" class="nav-link {{ request()->is('admin/events') || request()->is('admin/events/*') ? 'active' : '' }}">
                             <i class="fa-fw fas fa-cogs nav-icon"></i> Job Controller</a>
+                    </li>
+                </ul>
+            </li>
+            <!-- Project -->
+            <li class="nav-item nav-dropdown">
+                <a class="nav-link  nav-dropdown-toggle" href="#">
+                    <i class="fa-fw fas fa-calendar nav-icon"></i>Project
+                </a>
+                
+                <ul class="nav-dropdown-items">
+                    <li class="nav-item">
+                        <a href="{{ route('admin.Project.index') }}" class="nav-link {{ request()->is('admin/system-calendar') || request()->is('admin/system-calendar/*') ? 'active' : '' }}">
+                            <i class="nav-icon fa-fw fas fa-calendar"></i> Project List </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{ route('admin.Project.indexList') }}" class="nav-link {{ request()->is('admin/system-calendar') || request()->is('admin/system-calendar/*') ? 'active' : '' }}">
+                            <i class="nav-icon fa-fw fas fa-calendar"></i> Project Enroll </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{ route("admin.JobApp.index") }}" class="nav-link {{ request()->is('admin/events') || request()->is('admin/events/*') ? 'active' : '' }}">
+                            <i class="fa-fw fas fa-cogs nav-icon"></i> Project Task</a>
                     </li>
                 </ul>
             </li>

@@ -23,6 +23,11 @@
                 <span class="help-block">{{ trans('cruds.role.fields.title_helper') }}</span>
             </div>
             <div class="form-group">
+                <label class="required" for="NumberofMember">Total Number Project Member</label>
+                <input class="form-control" type="number" name="NumberofMember" id="NumberofMember" value="" required>
+                <span class="help-block">{{ trans('cruds.role.fields.title_helper') }}</span>
+            </div>
+            <div class="form-group">
                 <label class="required" for="leader">Select a leader</label>
                 <select class="form-control select2" name="leader" id="leader" required>
                             <option value="">Select a leader</option>

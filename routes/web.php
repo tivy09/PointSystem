@@ -112,4 +112,10 @@ Route::get('/home', [App\Http\Controllers\TodolistController::class, 'index'])->
 Route::get('/Project',[                     'uses'=>'ProjectController@index',            'as'=>'admin.Project.index']);
 Route::get('/Project/create',[              'uses'=>'ProjectController@create',           'as'=>'admin.Project.create']);
 Route::post('/Project/store',[              'uses'=>'ProjectController@store',            'as'=>'admin.Project.store']);
+Route::get('/Project/createTask/{id}',[     'uses'=>'ProjectController@createTask',       'as'=>'admin.Project.createTask']);
+Route::post('/Project/storeTask',[          'uses'=>'ProjectController@storeTask',        'as'=>'admin.Project.storeTask']);
+Route::get('/Project/show/{id}',[           'uses'=>'ProjectController@show',             'as'=>'admin.Project.show']);
+Route::get('/Project/list',[                'uses'=>'ProjectController@indexList',        'as'=>'admin.Project.indexList']);
+Route::post('/Project/Enroll',[         'uses'=>'ProjectController@Enroll',           'as'=>'admin.Project.Enroll']);
+
 
