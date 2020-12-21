@@ -49,7 +49,7 @@
                             <td>
                                 @if($task->status != null)
                                     <div class="progress" style="height: 25px; background-color: white">
-                                        <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: {{ $task->status }}%">
+                                        <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: {{ $task->status }}%; color: black;">
                                         {{ $task->status }}%
                                         </div>
                                     </div>
@@ -62,8 +62,8 @@
                                 @endif
                             </td>
                             <td style="width: 170px;">
-                            @if($task->user_id == null)
-                                <form action="{{ route('admin.Project.EnrollTask',['id' => $task->id])}}" method="post">
+                            @if($task->user_id == null && $task->status == null)
+                                <form action="{{ route('admin.Project.EnrollTask',['id' => $task->id]) }}" method="post">
                                 @csrf
                                     <input type="hidden" name="employee_id" value="{{ Auth::user()->id }}">
                                     <button type="submit" class="btn btn-xs btn-success">
@@ -74,10 +74,27 @@
                                 <form action="{{ route('admin.Project.Action', ['id' => $task->id]) }}" id="myformQQ + {{$task->id}}" method="post" onchange="submitForm()">
                                 @csrf
                                     <select class="form-control select2" name="status">
+                                    @if($task->status == 50)
+                                        <option value="">Select a Status</option>
+                                        <option value="0">Unfinish</option>
+                                        <option value="50" selected>In Progress</option>
+                                        <option value="100">Finish</option>
+                                    @elseif($task->status == 100)
+                                        <option value="">Select a Status</option>
+                                        <option value="0">Unfinish</option>
+                                        <option value="50">In Progress</option>
+                                        <option value="100" selected>Finish</option>
+                                    @elseif($task->status == null)
                                         <option value="">Select a Status</option>
                                         <option value="0">Unfinish</option>
                                         <option value="50">In Progress</option>
                                         <option value="100">Finish</option>
+                                    @elseif($task->status == 0)
+                                        <option value="">Select a Status</option>
+                                        <option value="0" selected>Unfinish</option>
+                                        <option value="50">In Progress</option>
+                                        <option value="100">Finish</option>
+                                    @endif
                                     </select>
                                 </form>
                                 <script>
@@ -85,6 +102,8 @@
                                     document.getElementById('myformQQ + {{$task->id}}').submit();
                                 }
                                 </script>
+                                @elseif($task->user_id != Auth::user()->id)
+                                    <span class="badge badge-pill badge-warning">Already Selected</span>
                             @endif
                             </td>
                         </tr>

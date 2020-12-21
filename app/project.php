@@ -18,5 +18,6 @@ class project extends Model
         'leader',
         'NumberofMember',
         'description',
+        'random',
     ];
 }

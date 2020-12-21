@@ -117,8 +117,8 @@
                             </td>
                             <td>
                                 <div class="progress" style="height: 25px; background-color: white">
-                                    <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:60%">
-                                    60%
+                                    <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:{{ $task->status }}%">
+                                    {{ $task->status }}%
                                     </div>
                                 </div>
                             </td>

@@ -25,9 +25,13 @@ class ProjectController extends Controller
         ->select('users.name as username', 'projects.*')
         ->get();
 
-        $status = 60;
+        // $task = Project_Task::all()->where('Project_id', 1)->sum('status');
+        // $Counttask = Project_Task::all()->where('Project_id', 1)->count('status');
+        // $total = (($task)/($Counttask * 100)) * 100;
+        // $totalString = number_format($total, 0);
+        // dd($task, $Counttask, $total);
 
-        return view('admin.project.index',compact('status'))->with('projects',$project);
+        return view('admin.project.index')->with('projects',$project);
     }
 
     public function indexList()
@@ -110,6 +114,7 @@ class ProjectController extends Controller
      */
     public function store(Request $request)
     {
+        $string = rand(1, 100);
         $project = project::create([
             'name' => $request->name,
             'Start_date' => $request->Start_date,
@@ -117,6 +122,7 @@ class ProjectController extends Controller
             'leader' => $request->leader,
             'NumberofMember' => $request->NumberofMember,
             'description' => $request->description,
+            'random' => $string,
         ]);
 
         Toastr::success('Project has been recorded! 🙂','Success');
