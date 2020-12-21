@@ -116,6 +116,10 @@ Route::get('/Project/createTask/{id}',[     'uses'=>'ProjectController@createTas
 Route::post('/Project/storeTask',[          'uses'=>'ProjectController@storeTask',        'as'=>'admin.Project.storeTask']);
 Route::get('/Project/show/{id}',[           'uses'=>'ProjectController@show',             'as'=>'admin.Project.show']);
 Route::get('/Project/list',[                'uses'=>'ProjectController@indexList',        'as'=>'admin.Project.indexList']);
-Route::post('/Project/Enroll',[         'uses'=>'ProjectController@Enroll',           'as'=>'admin.Project.Enroll']);
+Route::post('/Project/Enroll',[             'uses'=>'ProjectController@Enroll',           'as'=>'admin.Project.Enroll']);
+Route::get('/Project/Task',[                'uses'=>'ProjectController@indexTask',        'as'=>'admin.Project.indexTask']);
+Route::post('/Project/Task/enroll/{id}',[   'uses'=>'ProjectController@EnrollTask',       'as'=>'admin.Project.EnrollTask']);
+Route::post('/Project/Task/Action/{id}',[   'uses'=>'ProjectController@Action',           'as'=>'admin.Project.Action']);
+
 
 

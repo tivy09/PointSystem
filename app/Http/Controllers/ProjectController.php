@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use DB;
+use Auth;
 use App\User;
 use App\project;
 use App\Project_Task;
@@ -40,6 +41,18 @@ class ProjectController extends Controller
         return view('admin.project.Employeelist')->with('projects',$project);
     }
 
+    public function indexTask()
+    {
+        $currentUserID = Auth::user()->id;
+        $task=DB::table('project_lists')
+        ->leftjoin('project__tasks', 'project__tasks.Project_id', '=', 'project_lists.project_id')
+        ->leftjoin('projects', 'projects.id', '=', 'project_lists.project_id')
+        ->select('projects.name as ProName', 'project__tasks.id as taskID', 'project__tasks.*')
+        ->where('project_lists.employee_id','=',$currentUserID)
+        ->get();
+        return view('admin.project.indexTask')->with('tasks',$task);
+    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -76,6 +89,17 @@ class ProjectController extends Controller
         
         Toastr::success('Project has been Enroll ! 🙂','Success');
         return redirect()->route('admin.Project.indexList');
+    }
+
+    public function EnrollTask($id, Request $request)
+    {
+
+        $task = Project_Task::find($id);
+        $task->user_id = $request->employee_id;
+        $task->save();
+        
+        Toastr::success('Project Task has been Enroll ! 🙂','Success');
+        return redirect()->route('admin.Project.indexTask');
     }
 
     /**
@@ -136,6 +160,17 @@ class ProjectController extends Controller
         ->get();
 
         return view('admin.project.show')->with('projects',$project)->with('tasks',$task);
+    }
+
+    public function Action($id, Request $request)
+    {
+        $task = Project_Task::find($id);
+        $task->status = $request->status;
+        $task->save();
+
+        Toastr::success('Project Task Status has been recorded! 🙂','Success');
+
+        return redirect()->route('admin.Project.indexTask');
     }
 
     /**

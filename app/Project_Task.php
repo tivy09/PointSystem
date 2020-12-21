@@ -15,6 +15,7 @@ class Project_Task extends Model
         'name',
         'Start_date',
         'Project_id',
+        'user_id',
         'description',
         'status',
     ];

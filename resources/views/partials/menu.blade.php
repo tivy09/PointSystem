@@ -84,7 +84,7 @@
                             <i class="nav-icon fa-fw fas fa-calendar"></i> Project Enroll </a>
                     </li>
                     <li class="nav-item">
-                        <a href="{{ route("admin.JobApp.index") }}" class="nav-link {{ request()->is('admin/events') || request()->is('admin/events/*') ? 'active' : '' }}">
+                        <a href="{{ route('admin.Project.indexTask') }}" class="nav-link {{ request()->is('admin/events') || request()->is('admin/events/*') ? 'active' : '' }}">
                             <i class="fa-fw fas fa-cogs nav-icon"></i> Project Task</a>
                     </li>
                 </ul>

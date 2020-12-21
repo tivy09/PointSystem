@@ -15,3 +15,7 @@ function myFunction() {
     }
 
 }
+
+function submitForm() {
+    document.getElementById('myformQQ').submit();
+}
