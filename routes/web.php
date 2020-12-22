@@ -4,6 +4,18 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/new1', function () {
+    return view('New.index1');
+});
+
+Route::get('/new2', function () {
+    return view('New.index2');
+});
+
+Route::get('/new3', function () {
+    return view('New.index3');
+});
+
 Route::get('/login', function () {
     return view('auth.login');
 });

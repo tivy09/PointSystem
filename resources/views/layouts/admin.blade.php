@@ -36,7 +36,7 @@
     @yield('styles')
     <script>
         @if(Session::has('success'))
-        toastr.success('{{ Session::get('success')}}')
+            toastr.success('{{ Session::get('success')}}')
         @endif
     </script>
 </head>
@@ -46,13 +46,9 @@
         <button class="navbar-toggler sidebar-toggler d-lg-none mr-auto" type="button" data-toggle="sidebar-show">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <button class="navbar-toggler sidebar-toggler d-md-down-none" type="button" data-toggle="sidebar-lg-show" style="width: 27px">
+        <button class="navbar-toggler sidebar-toggler d-md-down-none" type="button" data-toggle="sidebar-lg-show" style="width: 27px; margin-bottom: 14px;">
             <span class="navbar-toggler-icon"></span>
-        </button> @if(Session::has('success'))
-        <div class="alert alert-success" role="alert" style="margin-top: 0px;margin-bottom: 0px;">
-            {{ Session::get('success')}}
-        </div>
-        @endif
+        </button>
         <ul class="nav navbar-nav ml-auto">
             @if(count(config('panel.available_languages', [])) > 1)
             <li class="nav-item dropdown d-md-down-none">
@@ -65,6 +61,43 @@
                 </div>
             </li>
             @endif
+        </ul>
+
+        <ul class="navbar-nav ml-auto dropdown">
+            <button onclick="dropdownLogout()" class="dropbtn">
+                {{ Auth::user()->name }} <i class="fa fa-caret-down"></i>
+            </button>
+
+            <div id="myDropdown" class="dropdown-content">
+                <a href="" class="nav-link" style="padding-left: 10px;" onclick="event.preventDefault(); document.getElementById('logoutform').submit();">
+                    <i class="nav-icon fas fa-fw fa-sign-out-alt"></i>Information
+                </a>
+                <a href="" class="nav-link" style="padding-left: 10px;" onclick="event.preventDefault(); document.getElementById('logoutform').submit();">
+                    <i class="nav-icon fas fa-fw fa-sign-out-alt"></i>{{ trans('global.logout') }}
+                </a>
+            </div>
+            <script>
+                /* When the user clicks on the button, 
+                toggle between hiding and showing the dropdown content */
+                function dropdownLogout() {
+                    document.getElementById("myDropdown").classList.toggle("show");
+                }
+
+                // Close the dropdown if the user clicks outside of it
+                window.onclick = function(event) {
+                if (!event.target.matches('.dropbtn')) {
+                    var dropdowns = document.getElementsByClassName("dropdown-content");
+                    var i;
+                    for (i = 0; i < dropdowns.length; i++) {
+                        var openDropdown = dropdowns[i];
+                            if (openDropdown.classList.contains('show')) {
+                                openDropdown.classList.remove('show');
+                            }
+                        }
+                    }
+                }
+            </script>
+            <!-- {{ Auth::user()->email }} -->
         </ul>
     </header>
     

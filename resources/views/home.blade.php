@@ -17,15 +17,15 @@
                     <div class="slideshow-container">
 
                         <div class="mySlides fade">
-                            <a href=""><img src="{{ asset('slideshow/img_mountains_wide.jpg') }}" style="width:100%"></a>
+                            <a href="{{ url('/new1') }}"><img src="{{ asset('slideshow/img_mountains_wide.jpg') }}" style="width:100%"></a>
                         </div>
 
                         <div class="mySlides fade">
-                            <a href=""><img src="{{ asset('slideshow/img_snow_wide.jpg') }}" style="width:100%"></a>
+                            <a href="{{ url('/new2') }}"><img src="{{ asset('slideshow/img_snow_wide.jpg') }}" style="width:100%"></a>
                         </div>
 
                         <div class="mySlides fade">
-                            <a href=""><img src="{{ asset('slideshow/img_woods_wide.jpg') }}" style="width:100%"></a>
+                            <a href="{{ url('/new3') }}"><img src="{{ asset('slideshow/img_woods_wide.jpg') }}" style="width:100%"></a>
                         </div>
 
                     </div>
@@ -39,7 +39,7 @@
             </div>
         </div>
         <div class="col-lg-6">
-            <div class="card" style="min-height: 200px; max-height: 330px; overflow: scroll; white-space: normal;">
+            <div class="card" style="min-height: 330px; max-height: 330px; overflow: scroll; white-space: normal;">
                 <div class="card-body">
                     <div>
                         <table style="border-spacing: 0.5rem;">

@@ -49,7 +49,7 @@
             @endcan
             <!-- Compnay Controller -->
             <li class="nav-item nav-dropdown">
-                <a class="nav-link  nav-dropdown-toggle" href="#">
+                <a class="nav-link nav-dropdown-toggle" href="#">
                     <i class="fa-fw fas fa-calendar nav-icon"></i>Compnay Controller
                 </a>
                 
