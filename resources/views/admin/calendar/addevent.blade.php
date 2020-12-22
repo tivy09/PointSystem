@@ -23,6 +23,7 @@
                 <label>End date</label>
                 <input type="datetime-local" class="form-control" name="end_date" id="">
             </div>
+            <input type="hidden" name="user_id" id="user_id" value="{{ Auth::user()->id }}">
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>
     </div>

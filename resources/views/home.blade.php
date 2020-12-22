@@ -7,23 +7,44 @@
 
 <div class="content">
     <div class="row">
-        <div class="col-lg-12">
-            <div class="card" style="width: 300px;">
+        <div class="col-lg-6">
+            <div class="card" style="height: 330px">
                 <div class="card-header">
                     Dashboard
                 </div>
 
                 <div class="card-body">
-                    {{ Auth::user()->email }}
+                    <div class="slideshow-container">
+
+                        <div class="mySlides fade">
+                            <a href=""><img src="{{ asset('slideshow/img_mountains_wide.jpg') }}" style="width:100%"></a>
+                        </div>
+
+                        <div class="mySlides fade">
+                            <a href=""><img src="{{ asset('slideshow/img_snow_wide.jpg') }}" style="width:100%"></a>
+                        </div>
+
+                        <div class="mySlides fade">
+                            <a href=""><img src="{{ asset('slideshow/img_woods_wide.jpg') }}" style="width:100%"></a>
+                        </div>
+
+                    </div>
+                    <br>
+                    <div style="text-align:center">
+                        <span class="dot"></span> 
+                        <span class="dot"></span> 
+                        <span class="dot"></span> 
+                    </div>
                 </div>
             </div>
-
-            <div class="card" style="width: 600px;">
+        </div>
+        <div class="col-lg-6">
+            <div class="card" style="min-height: 200px; max-height: 330px; overflow: scroll; white-space: normal;">
                 <div class="card-body">
                     <div>
-                        <table style="border-spacing: 0.5rem; ">
+                        <table style="border-spacing: 0.5rem;">
                             <tr>
-                                <th colspan="4" style="padding-left: 200px;"><h2>To Do List</h2></th>
+                                <th colspan="4" style="padding-left: 180px;"><h2>To Do List</h2></th>
                             </tr>
                             <tr>
                                 <form action="{{ route('user.todo.store') }}" method="post">
@@ -34,6 +55,7 @@
 
                                     <td colspan="1" style="width: 150px; padding: 0.5rem;">
                                         <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
+                                        <input type="hidden" name="CurrentDate" value="{{ date('Y-m-d') }}">
                                         <button type="submit">Add</button>
                                     </td>
                                 </form>
@@ -100,7 +122,7 @@
                     </tr>
                     @foreach($todos as $todo)
                         @if($todo->user_id == Auth::user()->id)
-                            @if($todo->CurrentDate < $current)
+                            @if($todo->CurrentDate < $current || $todo->is_delete == 3)
                     <tr style="border-bottom: 1px solid #ddd;">
                         <td style="width: 230px;">{{$todo->description}}</td>
                         <td style="width: 230px;">{{$todo->CurrentDate}}</td>
@@ -120,5 +142,8 @@
         </div>
     </div>
 </div>
-
+<script>
+var slideIndex = 0;
+showSlides();
+</script>
 @endsection

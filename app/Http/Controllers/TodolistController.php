@@ -37,6 +37,7 @@ class TodolistController extends Controller
     public function store(Request $request)
     {
         $todo = todolist::create([
+            'CurrentDate'=>$request->CurrentDate,
             'description'=>$request->description,
             'user_id'=>$request->user_id,
         ]);
