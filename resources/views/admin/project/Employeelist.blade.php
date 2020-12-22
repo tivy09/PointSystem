@@ -29,10 +29,9 @@
                 </thead>
                 <tbody>
                     @foreach($projects as $project)
-                        @if($project->employeeID != Auth::user()->id)
                         <tr>
                             <td>
-                                {{ $loop -> index+1 }}
+                                {{ $loop->index+1 }}
                             </td>
                             <td>
                                 {{ $project->name }}
@@ -44,6 +43,7 @@
                                 {{ $project->description }}
                             </td>
                             <td style="width: 150px;">
+                            @if($project->employeeID != Auth::user()->id)
                                 <form action="{{ route('admin.Project.Enroll')}}" method="post">
                                 @csrf
                                     <input type="hidden" name="employee_id" value="{{ Auth::user()->id }}">
@@ -52,9 +52,12 @@
                                         Enroll Me
                                     </button>
                                 </form>
+                            @elseif($project->employeeID == Auth::user()->id)
+                                <span class="badge badge-pill badge-success">Already Enroll</span>
+                            @endif
                             </td>
                         </tr>
-                        @endif
+                        
                     @endforeach
                 </tbody>
             </table>
