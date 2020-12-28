@@ -4,15 +4,15 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/new1', function () {
+Route::get('/home/new1', function () {
     return view('New.index1');
 });
 
-Route::get('/new2', function () {
+Route::get('/home/new2', function () {
     return view('New.index2');
 });
 
-Route::get('/new3', function () {
+Route::get('/home/new3', function () {
     return view('New.index3');
 });
 

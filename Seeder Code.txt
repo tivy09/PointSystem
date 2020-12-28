@@ -1,0 +1,7 @@
+php artisan db:seed --class=SalaryTableSeeder
+php artisan db:seed --class=JobTypeTableSeeder
+php artisan db:seed --class=JobsTableSeeder
+php artisan db:seed --class=JobLocationTableSeeder
+php artisan db:seed --class=JobHiringsTableSeeder
+php artisan db:seed --class=JobAppTableSeeder
+php artisan db:seed --class=DepartmentTableSeeder

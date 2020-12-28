@@ -17,15 +17,15 @@
                     <div class="slideshow-container">
 
                         <div class="mySlides fade">
-                            <a href="{{ url('/new1') }}"><img src="{{ asset('slideshow/img_mountains_wide.jpg') }}" style="width:100%"></a>
+                            <a href="{{ url('/home/new1') }}"><img src="{{ asset('slideshow/img_mountains_wide.jpg') }}" style="height: 200px; width:100%"></a>
                         </div>
 
                         <div class="mySlides fade">
-                            <a href="{{ url('/new2') }}"><img src="{{ asset('slideshow/img_snow_wide.jpg') }}" style="width:100%"></a>
+                            <a href="{{ url('/home/new2') }}"><img src="{{ asset('slideshow/img_snow_wide.jpg') }}" style="height: 200px; width:100%"></a>
                         </div>
 
                         <div class="mySlides fade">
-                            <a href="{{ url('/new3') }}"><img src="{{ asset('slideshow/img_woods_wide.jpg') }}" style="width:100%"></a>
+                            <a href="{{ url('/home/new3') }}"><img src="{{ asset('slideshow/img_woods_wide.jpg') }}" style="height: 200px; width:100%"></a>
                         </div>
 
                     </div>
