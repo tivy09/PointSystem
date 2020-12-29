@@ -48,7 +48,7 @@
                             {{$job->deName }}
                         </td>
                         <td>
-                            {{$job->CPeople }}
+                            {{$job->JobCPeople }}
                         </td>
                         <td>
                             <a class="btn btn-xs btn-primary" href="{{ route('admin.JobApp.show', ['id' => $job->id]) }}">

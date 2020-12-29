@@ -1,5 +1,6 @@
 @extends('layouts.admin')
 @section('content')
+
 <div class="card">
     <div class="card-header">
         Project {{ trans('global.list') }}
@@ -19,8 +20,11 @@
                         <th style="width: 125px;">
                             Project Leader
                         </th>
-                        <th style="width: 400px;">
+                        <th style="width: 250px;">
                             Description
+                        </th>
+                        <th style="width: 150px;">
+                            Number Of the Member
                         </th>
                         <th>
                             Action
@@ -34,17 +38,20 @@
                                 {{ $loop->index+1 }}
                             </td>
                             <td>
-                                {{ $project->name }}
+                                {{ $project->Name }}
                             </td>
                             <td>
                                 {{ $project->username }}
                             </td>
                             <td>
-                                {{ $project->description }}
+                                {{ $project->Description }}
+                            </td>
+                            <td>
+                                {{ $project->NumberofMember }}
                             </td>
                             <td style="width: 150px;">
-                            @if($project->employeeID != Auth::user()->id)
-                                <form action="{{ route('admin.Project.Enroll')}}" method="post">
+                            @if($count != $project->id)
+                                <form action="{{ route('admin.Project.enrollProjectList') }}" method="post">
                                 @csrf
                                     <input type="hidden" name="employee_id" value="{{ Auth::user()->id }}">
                                     <input type="hidden" name="project_id" value="{{ $project->id }}">
@@ -52,16 +59,16 @@
                                         Enroll Me
                                     </button>
                                 </form>
-                            @elseif($project->employeeID == Auth::user()->id)
+                            @elseif($count == $project->id)
                                 <span class="badge badge-pill badge-success">Already Enroll</span>
                             @endif
                             </td>
                         </tr>
-                        
                     @endforeach
                 </tbody>
             </table>
         </div>
     </div>
 </div>
+
 @endsection

@@ -15,11 +15,12 @@ class CreateProjectsTable extends Migration
     {
         Schema::create('projects', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+            $table->string('Name');
             $table->date('Start_date');
             $table->date('End_date');
-            $table->integer('leader');
-            $table->string('description');
+            $table->integer('Leader_id');
+            $table->string('Description');
+            $table->integer('Random')->nullable();
             $table->integer('NumberofMember')->default(0);
             $table->timestamps();
         });

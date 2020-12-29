@@ -13,6 +13,7 @@ class CreateUsersTable extends Migration
             $table->string('name');
             $table->string('email')->unique();
             $table->String('position')->nullable();
+            $table->String('project_id')->nullable();
             $table->integer('department');
             $table->double('salary',8, 2)->default(1200);
             $table->string('phoneNumber');

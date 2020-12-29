@@ -34,6 +34,7 @@ class User extends Authenticatable
         'email',
         'password',
         'position',
+        'project_id',
         'department',
         'phoneNumber',
         'created_at',

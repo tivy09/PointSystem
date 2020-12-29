@@ -76,15 +76,15 @@
                 
                 <ul class="nav-dropdown-items">
                     <li class="nav-item">
-                        <a href="{{ route('admin.Project.index') }}" class="nav-link {{ request()->is('admin/system-calendar') || request()->is('admin/system-calendar/*') ? 'active' : '' }}">
+                        <a href="{{ route('admin.Project.indexProject') }}" class="nav-link">
                             <i class="nav-icon fa-fw fas fa-calendar"></i> Project List </a>
                     </li>
                     <li class="nav-item">
-                        <a href="{{ route('admin.Project.indexList') }}" class="nav-link {{ request()->is('admin/system-calendar') || request()->is('admin/system-calendar/*') ? 'active' : '' }}">
+                        <a href="{{ route('admin.Project.indexProjectList') }}" class="nav-link">
                             <i class="nav-icon fa-fw fas fa-calendar"></i> Project Enroll </a>
                     </li>
                     <li class="nav-item">
-                        <a href="{{ route('admin.Project.indexTask') }}" class="nav-link {{ request()->is('admin/events') || request()->is('admin/events/*') ? 'active' : '' }}">
+                        <a href="{{ route('admin.Project.indexProjectTask') }}" class="nav-link">
                             <i class="fa-fw fas fa-cogs nav-icon"></i> Project Task</a>
                     </li>
                 </ul>

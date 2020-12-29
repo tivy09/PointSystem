@@ -14,14 +14,17 @@
                         <th style="width: 8px;">
                             No.
                         </th>
-                        <th style="width: 100px;">
+                        <th style="width: 200px;">
                             Task Title
                         </th>
                         <th style="width: 130px;">
                             Task Start Date
                         </th>
-                        <th style="width: 130px;">
+                        <th style="width: 400px;">
                             Description
+                        </th>
+                        <th style="width: 50px;">
+                            Principal
                         </th>
                         <th>
                             Status
@@ -44,16 +47,23 @@
                                 {{ $task->Start_date }}
                             </td>
                             <td>
-                                {{ $task->description }}
+                                {{ $task->Description }}
                             </td>
                             <td>
-                                @if($task->status != null)
+                            @if($task->User_id == null)
+                                No Person in charge
+                            @else
+                                {{ $task->User_id	 }}
+                            @endif
+                            </td>
+                            <td>
+                                @if($task->Status != null)
                                     <div class="progress" style="height: 25px; background-color: white">
-                                        <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: {{ $task->status }}%; color: black;">
-                                        {{ $task->status }}%
+                                        <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: {{ $task->Status }}%; color: black;">
+                                        {{ $task->Status }}%
                                         </div>
                                     </div>
-                                @elseif($task->status == null)
+                                @elseif($task->Status == null)
                                     <div class="progress" style="height: 25px; background-color: white">
                                         <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 0%; color: black;">
                                         0%
@@ -62,34 +72,34 @@
                                 @endif
                             </td>
                             <td style="width: 170px;">
-                            @if($task->user_id == null && $task->status == null)
-                                <form action="{{ route('admin.Project.EnrollTask',['id' => $task->id]) }}" method="post">
+                            @if($task->User_id == null && $task->Status == null)
+                                <form action="{{ route('admin.Project.enrollProjectTask',['id' => $task->id]) }}" method="post">
                                 @csrf
                                     <input type="hidden" name="employee_id" value="{{ Auth::user()->id }}">
                                     <button type="submit" class="btn btn-xs btn-success">
                                         Enroll Me
                                     </button>
                                 </form>
-                            @elseif($task->user_id == Auth::user()->id)
-                                <form action="{{ route('admin.Project.Action', ['id' => $task->id]) }}" id="myformQQ + {{$task->id}}" method="post" onchange="submitForm()">
+                            @elseif($task->User_id == Auth::user()->id)
+                                <form action="{{ route('admin.Project.ProjectTaskAction', ['id' => $task->id]) }}" id="myformQQ + {{$task->id}}" method="post" onchange="submitForm()">
                                 @csrf
-                                    <select class="form-control select2" name="status">
-                                    @if($task->status == 50)
+                                    <select class="form-control select2" name="Status">
+                                    @if($task->Status == 50)
                                         <option value="">Select a Status</option>
                                         <option value="0">Unfinish</option>
                                         <option value="50" selected>In Progress</option>
                                         <option value="100">Finish</option>
-                                    @elseif($task->status == 100)
+                                    @elseif($task->Status == 100)
                                         <option value="">Select a Status</option>
                                         <option value="0">Unfinish</option>
                                         <option value="50">In Progress</option>
                                         <option value="100" selected>Finish</option>
-                                    @elseif($task->status == null)
+                                    @elseif($task->Status == null)
                                         <option value="">Select a Status</option>
                                         <option value="0">Unfinish</option>
                                         <option value="50">In Progress</option>
                                         <option value="100">Finish</option>
-                                    @elseif($task->status == 0)
+                                    @elseif($task->Status == 0)
                                         <option value="">Select a Status</option>
                                         <option value="0" selected>Unfinish</option>
                                         <option value="50">In Progress</option>
@@ -98,12 +108,12 @@
                                     </select>
                                 </form>
                                 <script>
-                                function submitForm() {
-                                    document.getElementById('myformQQ + {{$task->id}}').submit();
-                                }
+                                    function submitForm() {
+                                        document.getElementById('myformQQ + {{$task->id}}').submit();
+                                    }
                                 </script>
-                                @elseif($task->user_id != Auth::user()->id)
-                                    <span class="badge badge-pill badge-warning">Already Selected</span>
+                            @elseif($task->User_id != Auth::user()->id)
+                                <span class="badge badge-pill badge-warning">Already Selected</span>
                             @endif
                             </td>
                         </tr>

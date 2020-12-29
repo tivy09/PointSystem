@@ -5,19 +5,19 @@ namespace App;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class project extends Model
+class Project extends Model
 {
     use HasFactory;
-
+    
     public $table = 'projects';
 
     protected $fillable = [
-        'name',
+        'Name',
         'Start_date',
         'End_date',
-        'leader',
+        'Leader_id',
         'NumberofMember',
-        'description',
-        'random',
+        'Description',
+        'Random',
     ];
 }

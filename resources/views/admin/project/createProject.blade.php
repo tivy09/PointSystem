@@ -7,11 +7,11 @@
     </div>
 
     <div class="card-body">
-        <form method="POST" action="{{ route('admin.Project.store') }}" enctype="multipart/form-data">
+        <form method="POST" action="{{ route('admin.Project.storeProject') }}" enctype="multipart/form-data">
             @csrf
             <div class="form-group">
                 <label class="required" for="name">Project Name</label>
-                <input class="form-control" type="text" name="name" id="name" value="" required>
+                <input class="form-control" type="text" name="Name" id="Name" value="" required>
                 <span class="help-block">{{ trans('cruds.role.fields.title_helper') }}</span>
             </div>
             <div class="form-group">
@@ -28,23 +28,12 @@
                 <span class="help-block">{{ trans('cruds.role.fields.title_helper') }}</span>
             </div>
             <div class="form-group">
-                <label class="required" for="leader">Select a leader</label>
-                <select class="form-control select2" name="leader" id="leader" required>
-                            <option value="">Select a leader</option>
-                    @foreach($users as $user)
-                        @if($user->name != "Admin")
-                            <option value="{{ $user->id }}">{{ $user->name }}</option>
-                        @endif
-                    @endforeach
-                </select>
-                <span class="help-block">{{ trans('cruds.role.fields.permissions_helper') }}</span>
-            </div>
-            <div class="form-group">
-                <label class="required" for="description">Project Description</label>
-                <textarea class="form-control" name="description" id="description" cols="30" rows="10"></textarea>
+                <label class="required" for="Description">Project Description</label>
+                <textarea class="form-control" name="Description" id="Description" cols="30" rows="10"></textarea>
                 <span class="help-block">{{ trans('cruds.role.fields.title_helper') }}</span>
             </div>
             <div class="form-group">
+                <input type="hidden" name="Leader_id" value="{{ Auth::user()->id }}">
                 <button class="btn btn-danger" type="submit">
                     {{ trans('global.save') }}
                 </button>
@@ -52,7 +41,5 @@
         </form>
     </div>
 </div>
-
-
 
 @endsection

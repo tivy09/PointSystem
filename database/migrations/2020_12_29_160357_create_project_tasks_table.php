@@ -13,13 +13,15 @@ class CreateProjectTasksTable extends Migration
      */
     public function up()
     {
-        Schema::create('project__tasks', function (Blueprint $table) {
+        Schema::create('project_tasks', function (Blueprint $table) {
             $table->id();
             $table->string('name');
             $table->integer('Project_id');
+            $table->integer('User_id')->nullable();
+            $table->integer('Leader_id')->nullable();
             $table->date('Start_date');
-            $table->string('description');
-            $table->string('status')->nullable();
+            $table->string('Description');
+            $table->string('Status')->nullable();
             $table->timestamps();
         });
     }
@@ -31,6 +33,6 @@ class CreateProjectTasksTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('project__tasks');
+        Schema::dropIfExists('project_tasks');
     }
 }
