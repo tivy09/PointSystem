@@ -124,6 +124,8 @@ Route::get('/home', [App\Http\Controllers\TodolistController::class, 'index'])->
 Route::get('/Project',[                     'uses'=>'ProjectController@indexProject',            'as'=>'admin.Project.indexProject']);
 Route::get('/Project/create',[              'uses'=>'ProjectController@createProject',           'as'=>'admin.Project.createProject']);
 Route::post('/Project/store',[              'uses'=>'ProjectController@storeProject',            'as'=>'admin.Project.storeProject']);
+Route::get('/Project/delete/{id}',[         'uses'=>'ProjectController@deleteProject',           'as'=>'admin.Project.deleteProject']);
+Route::get('/Project/deleteRecord/{id}',[   'uses'=>'ProjectController@deleteProjectRecord',     'as'=>'admin.Project.deleteProjectRecord']);
 Route::get('/Project/Task',[                'uses'=>'ProjectController@indexProjectTask',        'as'=>'admin.Project.indexProjectTask']);
 Route::get('/Project/createTask/{id}',[     'uses'=>'ProjectController@createProjectTask',       'as'=>'admin.Project.createProjectTask']);
 Route::post('/Project/storeTask',[          'uses'=>'ProjectController@storeProjectTask',        'as'=>'admin.Project.storeProjectTask']);
@@ -131,3 +133,5 @@ Route::post('/Project/Task/Enroll/{id}',[   'uses'=>'ProjectController@enrollPro
 Route::post('/Project/Task/Action/{id}',[   'uses'=>'ProjectController@ProjectTaskAction',       'as'=>'admin.Project.ProjectTaskAction']);
 Route::get('/Project/List',[                'uses'=>'ProjectController@indexProjectList',        'as'=>'admin.Project.indexProjectList']);
 Route::post('/Project/List/Enroll',[        'uses'=>'ProjectController@enrollProjectList',       'as'=>'admin.Project.enrollProjectList']);
+Route::get('/Project/Evaluation',[          'uses'=>'ProjectController@indexProjectEvaluation',  'as'=>'admin.Project.Evaluation']);
+Route::get('/Project/Evaluation/Record/{id}',[          'uses'=>'ProjectController@ProjectEvaluationRecord',  'as'=>'admin.Project.EvaluationRecord']);

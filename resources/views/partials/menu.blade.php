@@ -76,10 +76,18 @@
                 </a>
                 
                 <ul class="nav-dropdown-items">
+                @can('project_create')
                     <li class="nav-item">
                         <a href="{{ route('admin.Project.indexProject') }}" class="nav-link">
                             <i class="nav-icon fa-fw fas fa-calendar"></i> Project List </a>
                     </li>
+                @endcan
+                @can('project_evaluation')
+                    <li class="nav-item">
+                        <a href="{{ route('admin.Project.Evaluation') }}" class="nav-link">
+                            <i class="nav-icon fa-fw fas fa-calendar"></i> Project Evaluation </a>
+                    </li>
+                @endcan
                     <li class="nav-item">
                         <a href="{{ route('admin.Project.indexProjectList') }}" class="nav-link">
                             <i class="nav-icon fa-fw fas fa-calendar"></i> Project Enroll </a>

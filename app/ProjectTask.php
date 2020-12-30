@@ -19,5 +19,6 @@ class ProjectTask extends Model
         'Leader_id',
         'Description',
         'Status',
+        'Status2',
     ];
 }

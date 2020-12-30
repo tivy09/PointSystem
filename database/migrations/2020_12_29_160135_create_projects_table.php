@@ -20,8 +20,8 @@ class CreateProjectsTable extends Migration
             $table->date('End_date');
             $table->integer('Leader_id');
             $table->string('Description');
-            $table->integer('Random')->nullable();
             $table->integer('NumberofMember')->default(0);
+            $table->string('Status2')->nullable();
             $table->timestamps();
         });
     }

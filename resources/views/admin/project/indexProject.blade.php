@@ -48,13 +48,17 @@
                                 {{ $project->username }}
                             </td>
                             <td>
+                                @php
+                                    $string = rand(1, 50);
+                                @endphp
                                 <div class="progress" style="height: 25px; background-color: white">
-                                    <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:{{ $project->Random }}%">
-                                    {{$project->Random }}%
+                                    <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:{{ $string }}%">
+                                    {{ $string }}%
                                     </div>
                                 </div>
                             </td>
                             <td style="width: 150px;">
+                                @if($project->Status2 == null)
                                 <a class="btn btn-xs btn-success" href="{{ route('admin.Project.createProjectTask', ['id' => $project->id])}}">
                                     Create Task
                                 </a>
@@ -63,9 +67,15 @@
                                     {{ trans('global.view') }}
                                 </a>
 
-                                <a class="btn btn-xs btn-info" href="">
+                                <a class="btn btn-xs btn-info" href="{{ route('admin.Project.deleteProject', ['id' => $project->id])}}" onclick="return confirm('Sure You Want End this Project?')">
                                     {{ trans('global.delete') }}
                                 </a>
+                                @elseif($project->Status2 == 1)
+                                <span class="badge badge-pill badge-warning">Already End</span>
+                                <a class="btn btn-xs btn-info" href="{{ route('admin.Project.deleteProjectRecord', ['id' => $project->id])}}" onclick="return confirm('Sure You Want Delete?')">
+                                    {{ trans('global.delete') }} Record
+                                </a>
+                                @endif
                             </td>
                         </tr>
                     @endforeach

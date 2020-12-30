@@ -28,7 +28,6 @@ class ProjectController extends Controller
 
     public function storeProject(Request $request)
     {
-        $string = rand(1, 50);
         $project = Project::create([
             'Name' => $request->Name,
             'Start_date' => $request->Start_date,
@@ -36,10 +35,34 @@ class ProjectController extends Controller
             'Leader_id' => $request->Leader_id,
             'NumberofMember' => $request->NumberofMember,
             'Description' => $request->Description,
-            'Random' => $string,
         ]);
 
         Toastr::success('Project has been recorded! 🙂','Success');
+
+        return redirect()->route('admin.Project.indexProject');
+    }
+
+    public function deleteProject($id)
+    {
+        $project = Project::find($id);
+        $project->Status2 = 1;
+        $project->save();
+
+        $project = DB::table('project_tasks')->where('Project_id', $id)->update(['Status2' => 1]);
+
+        Toastr::success('Project has been End! 🙂','Success');
+
+        return redirect()->route('admin.Project.indexProject');
+    }
+
+    public function deleteProjectRecord($id)
+    {
+        $project = Project::find($id);
+        $project->delete();
+
+        DB::table('project_tasks')->where('Project_id', '=', $id)->delete();
+        
+        Toastr::success('Project Record has been Deleted! 🙂','Success');
 
         return redirect()->route('admin.Project.indexProject');
     }
@@ -68,6 +91,7 @@ class ProjectController extends Controller
         ->get();
         return view('admin.project.indexProjectTask')->with('tasks',$task)->with('usernames',$username);
     }
+
     public function createProjectTask($id)
     {
     	$project = project::all()->where('id',$id);
@@ -102,7 +126,7 @@ class ProjectController extends Controller
 		$task = ProjectTask::find($id);
         $task->Status = $request->Status;
         $task->save();
-        
+
         Toastr::success('Project Task Status has been recorded! 🙂','Success');
 
         return redirect()->route('admin.Project.indexProjectTask');	
@@ -138,5 +162,22 @@ class ProjectController extends Controller
         $project->NumberofMember = $subtotal;
         $project->save();
         return redirect()->route('admin.Project.indexProjectList');
+    }
+
+    //Evaluation
+    public function indexProjectEvaluation()
+    {
+    	$currentUserID = Auth::user()->id;
+        $task = DB::table('project_tasks')
+        ->select('project_tasks.*')
+        ->where('project_tasks.Leader_id','=',$currentUserID)
+        ->get();
+        
+        return view('admin.project.indexProjectEvaluation')->with('tasks',$task);
+    }
+
+    public function ProjectEvaluationRecord()
+    {
+        return view('admin.project.EvaluationRecord');
     }
 }

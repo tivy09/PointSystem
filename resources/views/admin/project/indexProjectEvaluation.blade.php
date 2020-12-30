@@ -72,52 +72,9 @@
                                 @endif
                             </td>
                             <td style="width: 170px;">
-                            @if($task->Status2 == 1)
-                                <span class="badge badge-pill badge-warning">Project Already End</span>
-                            @elseif($task->User_id == null && $task->Status == null)
-                                <form action="{{ route('admin.Project.enrollProjectTask',['id' => $task->id]) }}" method="post">
-                                @csrf
-                                    <input type="hidden" name="employee_id" value="{{ Auth::user()->name }}">
-                                    <button type="submit" class="btn btn-xs btn-success">
-                                        Enroll Me
-                                    </button>
-                                </form>
-                                
-                            @elseif($task->User_id == Auth::user()->name)
-                                <form action="{{ route('admin.Project.ProjectTaskAction', ['id' => $task->id]) }}" id="myformQQ{{$task->id}}" method="post" onchange="submitForm()">
-                                @csrf
-                                    <select class="form-control select2" name="Status">
-                                    @if($task->Status == 50)
-                                        <option value="">Select a Status</option>
-                                        <option value="0">Unfinish</option>
-                                        <option value="50" selected>In Progress</option>
-                                        <option value="100">Finish</option>
-                                    @elseif($task->Status == 100)
-                                        <option value="">Select a Status</option>
-                                        <option value="0">Unfinish</option>
-                                        <option value="50">In Progress</option>
-                                        <option value="100" selected>Finish</option>
-                                    @elseif($task->Status == null)
-                                        <option value="">Select a Status</option>
-                                        <option value="0">Unfinish</option>
-                                        <option value="50">In Progress</option>
-                                        <option value="100">Finish</option>
-                                    @elseif($task->Status == 0)
-                                        <option value="">Select a Status</option>
-                                        <option value="0" selected>Unfinish</option>
-                                        <option value="50">In Progress</option>
-                                        <option value="100">Finish</option>
-                                    @endif
-                                    </select>
-                                </form>
-                                <script>
-                                    function submitForm() {
-                                        document.getElementById('myformQQ{{$task->id}}').submit();
-                                    }
-                                </script>
-                            @elseif($task->User_id != Auth::user()->name)
-                                <span class="badge badge-pill badge-warning">Already Selected</span>
-                            @endif
+                                <a class="btn btn-xs btn-primary" href="{{ route('admin.Project.EvaluationRecord', ['id' => $task->id]) }}">
+                                    Evaluation
+                                </a>
                             </td>
                         </tr>
                     @endforeach
