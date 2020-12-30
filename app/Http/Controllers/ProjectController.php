@@ -59,8 +59,14 @@ class ProjectController extends Controller
     	->select('project_tasks.*')
     	->where('project_tasks.Project_id', '=', $users)
     	->where('users.id','=',$currentUserID)
-    	->get();
-        return view('admin.project.indexProjectTask')->with('tasks',$task);
+        ->get();
+        
+        $username = DB::table('project_tasks')
+        ->leftjoin('users', 'users.id', '=', 'project_tasks.User_id')
+        ->select('users.name as username')
+        ->where('project_tasks.Project_id', '=', $users)
+        ->get();
+        return view('admin.project.indexProjectTask')->with('tasks',$task)->with('usernames',$username);
     }
     public function createProjectTask($id)
     {
@@ -96,7 +102,7 @@ class ProjectController extends Controller
 		$task = ProjectTask::find($id);
         $task->Status = $request->Status;
         $task->save();
-
+        
         Toastr::success('Project Task Status has been recorded! 🙂','Success');
 
         return redirect()->route('admin.Project.indexProjectTask');	

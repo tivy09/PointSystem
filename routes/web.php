@@ -127,7 +127,7 @@ Route::post('/Project/store',[              'uses'=>'ProjectController@storeProj
 Route::get('/Project/Task',[                'uses'=>'ProjectController@indexProjectTask',        'as'=>'admin.Project.indexProjectTask']);
 Route::get('/Project/createTask/{id}',[     'uses'=>'ProjectController@createProjectTask',       'as'=>'admin.Project.createProjectTask']);
 Route::post('/Project/storeTask',[          'uses'=>'ProjectController@storeProjectTask',        'as'=>'admin.Project.storeProjectTask']);
-Route::post('/Project/Task/Enroll/{id}',[   'uses'=>'ProjectController@enrollProjectTask',        'as'=>'admin.Project.enrollProjectTask']);
-Route::post('/Project/Task/Action/{id}',[   'uses'=>'ProjectController@ProjectTaskAction',        'as'=>'admin.Project.ProjectTaskAction']);
+Route::post('/Project/Task/Enroll/{id}',[   'uses'=>'ProjectController@enrollProjectTask',       'as'=>'admin.Project.enrollProjectTask']);
+Route::post('/Project/Task/Action/{id}',[   'uses'=>'ProjectController@ProjectTaskAction',       'as'=>'admin.Project.ProjectTaskAction']);
 Route::get('/Project/List',[                'uses'=>'ProjectController@indexProjectList',        'as'=>'admin.Project.indexProjectList']);
-Route::post('/Project/List/Enroll',[        'uses'=>'ProjectController@enrollProjectList',        'as'=>'admin.Project.enrollProjectList']);
+Route::post('/Project/List/Enroll',[        'uses'=>'ProjectController@enrollProjectList',       'as'=>'admin.Project.enrollProjectList']);

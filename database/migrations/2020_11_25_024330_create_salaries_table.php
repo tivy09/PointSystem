@@ -17,7 +17,7 @@ class CreateSalariesTable extends Migration
             $table->bigIncrements('id');
             $table->unsignedBigInteger('employee_id');
             $table->bigInteger('Salary_amount');
-            $table->integer('tax');
+            $table->integer('tax')->default(6);
             $table->timestamps();
         });
     }

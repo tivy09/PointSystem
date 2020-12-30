@@ -50,12 +50,12 @@
                                 {{ $task->Description }}
                             </td>
                             <td>
-                            @if($task->User_id == null)
-                                No Person in charge
-                            @else
-                                {{ $task->User_id	 }}
-                            @endif
-                            </td>
+                                @if($task->User_id == null)
+                                    No Person in charge
+                                @else
+                                    {{ $task->User_id }}
+                                @endif
+                                </td>
                             <td>
                                 @if($task->Status != null)
                                     <div class="progress" style="height: 25px; background-color: white">
@@ -75,13 +75,14 @@
                             @if($task->User_id == null && $task->Status == null)
                                 <form action="{{ route('admin.Project.enrollProjectTask',['id' => $task->id]) }}" method="post">
                                 @csrf
-                                    <input type="hidden" name="employee_id" value="{{ Auth::user()->id }}">
+                                    <input type="hidden" name="employee_id" value="{{ Auth::user()->name }}">
                                     <button type="submit" class="btn btn-xs btn-success">
                                         Enroll Me
                                     </button>
                                 </form>
-                            @elseif($task->User_id == Auth::user()->id)
-                                <form action="{{ route('admin.Project.ProjectTaskAction', ['id' => $task->id]) }}" id="myformQQ + {{$task->id}}" method="post" onchange="submitForm()">
+                                
+                            @elseif($task->User_id == Auth::user()->name)
+                                <form action="{{ route('admin.Project.ProjectTaskAction', ['id' => $task->id]) }}" id="myformQQ{{$task->id}}" method="post" onchange="submitForm()">
                                 @csrf
                                     <select class="form-control select2" name="Status">
                                     @if($task->Status == 50)
@@ -109,10 +110,10 @@
                                 </form>
                                 <script>
                                     function submitForm() {
-                                        document.getElementById('myformQQ + {{$task->id}}').submit();
+                                        document.getElementById('myformQQ{{$task->id}}').submit();
                                     }
                                 </script>
-                            @elseif($task->User_id != Auth::user()->id)
+                            @elseif($task->User_id != Auth::user()->name)
                                 <span class="badge badge-pill badge-warning">Already Selected</span>
                             @endif
                             </td>
