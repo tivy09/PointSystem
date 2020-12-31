@@ -112,8 +112,6 @@
                     </i> {{ trans('global.systemCalendar') }}
                         </a>
                     </li>
-                    @can('user_management_access')
-                        @can('event_access')
                         <li class="nav-item">
                             <a href="{{ route("admin.calendar.index") }}" class="nav-link {{ request()->is('admin/events') || request()->is('admin/events/*') ? 'active' : '' }}">
                                 <i class="fa-fw fas fa-cogs nav-icon">
@@ -121,8 +119,6 @@
                                 </i> {{ trans('cruds.event.title') }}
                             </a>
                         </li> 
-                        @endcan 
-                    @endcan
                 </ul>
             </li>
             <!-- Leave -->

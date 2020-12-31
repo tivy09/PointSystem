@@ -176,8 +176,9 @@ class ProjectController extends Controller
         return view('admin.project.indexProjectEvaluation')->with('tasks',$task);
     }
 
-    public function ProjectEvaluationRecord()
+    public function ProjectEvaluationRecord($id)
     {
-        return view('admin.project.EvaluationRecord');
+        $task = ProjectTask::all()->where('id',$id);
+        return view('admin.project.EvaluationRecord')->with('tasks', $task);
     }
 }

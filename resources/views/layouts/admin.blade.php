@@ -26,6 +26,7 @@
     <link href="{{ asset('css/email.css') }}" rel="stylesheet" />
     <link href="{{ asset('css/model.css') }}" rel="stylesheet">
     <link href="{{ asset('css/hide.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/Evaluation.css') }}" rel="stylesheet">
     <script src="{{ asset('js/email.js')}}"></script>
     <script src="{{ asset('js/leave.js')}}"></script>
     <script src="{{ asset('js/model.js') }}" defer></script>
