@@ -6,6 +6,7 @@ use Auth;
 use App\User;
 use App\Project;
 use App\ProjectTask;
+use App\ProjectEvaluation;
 use Brian2694\Toastr\Facades\Toastr;
 use Illuminate\Http\Request;
 
@@ -180,5 +181,27 @@ class ProjectController extends Controller
     {
         $task = ProjectTask::all()->where('id',$id);
         return view('admin.project.EvaluationRecord')->with('tasks', $task);
+    }
+
+    public function storeProjectEvaluation(Request $request)
+    {
+        
+        $evaluation = ProjectEvaluation::create([
+            'employee_name'=>$request->employee_name,
+            'Knowledge'=>$request->Knowledge,
+            'Quality'=>$request->Quality,
+            'Productivity'=>$request->Productivity,
+            'Dependability'=>$request->Dependability,
+            'Attendance'=>$request->Attendance,
+            'Relations'=>$request->Relations,
+            'Commitment'=>$request->Commitment,
+            'Supervisory'=>$request->Supervisory,
+            'Appraisal'=>$request->Appraisal,
+            'TotalScore'=>0,
+            'feedback'=>$request->feedback,
+        ]);
+
+        Toastr::success('Evaluation has been recorded! 🙂','Success');
+        return redirect()->route('admin.Project.Evaluation');
     }
 }
