@@ -18,6 +18,8 @@ function none() {
 // Get the modal
 var modal = document.getElementById('id01');
 var modal1 = document.getElementById('id02');
+var modal2 = document.getElementById('id03');
+var modal3 = document.getElementById('id04');
 
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function(event) {
@@ -27,11 +29,17 @@ window.onclick = function(event) {
     if (event.target == modal1) {
         modal1.style.display = "none";
     }
+    if (event.target == modal2) {
+        modal2.style.display = "none";
+    }
+    if (event.target == modal3) {
+        modal3.style.display = "none";
+    }
 }
 
 function loading() {
+    document.getElementById('id04').style.display = 'block';
     var num = Math.floor(Math.random() * 5000) + 1000;
-    modelViewer.animationName = "Running";
     console.log(num);
     myVar = setTimeout(aleat, num);
 }
@@ -51,14 +59,51 @@ function aleat() {
     modal.style.display = "none";
 }
 
+function email() {
+    document.getElementById("keyword").value = "Email";
+}
+
+function leave() {
+    document.getElementById("keyword").value = "Apply for Vacation";
+}
+
+function salary() {
+    document.getElementById("keyword").value = "Salary";
+}
+
+function createProject() {
+    document.getElementById("keyword").value = "Create Project";
+}
+
+function Manual() {
+    document.getElementById("keyword").value = "User Manual";
+}
+
 function serach() {
     var keyword = document.getElementById('keyword').value;
     var add = "http://localhost:8000/";
     switch (keyword) {
         case "login":
-            location.href = add + keyword;
+            location.href = add + 'login';
             break;
         case "welcome":
+            location.href = add;
+            break;
+        case "Email":
+            location.href = add + 'Email';
+            break;
+        case "Apply for Vacation":
+            location.href = add + 'leave/create';
+            break;
+        case "Salary":
+            //user information
+            location.href = add;
+            break;
+        case "Create Project":
+            location.href = add + 'Project/create';
+            break;
+        case "User Manual":
+            // user manual
             location.href = add;
             break;
         default:

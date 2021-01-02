@@ -136,6 +136,22 @@
                         <label for="Search"><b>Search Somethings</b></label>
                         <input type="text" id="keyword" placeholder="like Email, Job Salary Calculate and so.....">
                         <button type="button" onclick="loading()">Search</button>
+                        <div>
+                            <p style="text-decoration: underline;">Recommended Option</p>
+                            <a onclick="createProject()" class="button3" style="color: #fff;">Create Project</a>
+                            <a onclick="Manual()" class="button3" style="color: #fff;">User Manual</a>
+                            <a onclick="leave()" class="button3" style="color: #fff;">Apply for Vacation</a>
+                            <a onclick="salary()" class="button3" style="color: #fff;">Salary</a>
+                            <a onclick="email()" class="button3" style="color: #fff;">Email</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="id04" class="modal"">
+                <div class="modal-content animate">
+                    <div class="modalcontainer">
+                        <model-viewer id="model" src="{{ asset('model/RobotExpressive.glb') }}" alt="A 3D model of an astronaut" animation-name="Running" style="width: 400px; height: 400px;margin-left: 25px;" autoplay></model-viewer>
+                        <p style="margin-left: 180px; font-size: 25px;">Loading...</p>
                     </div>
                 </div>
             </div>
@@ -143,7 +159,7 @@
                 <div class="modal-content animate">
                     <div class="modalcontainer">
                         <label for="result"><b>Result</b></label>
-                        <p>Nothings</p>
+                        <p>Nothings, Maybe You can try the botton at the below.😁</p>
                     </div>
                 </div>
             </div>

@@ -97,7 +97,7 @@
                                 <tr style="height: 50px;">
                                     <td colspan="4" style="padding-top: 20px; padding-left: 407px;">
                                         <span class="badge badge-pill badge-success" style="height: 25.25px;padding-top: 8px;">
-                                            <a onclick="document.getElementById('id01').style.display = 'block';">Event History</a>
+                                            <a onclick="document.getElementById('id03').style.display = 'block';">Event History</a>
                                         </span>
                                     </td>
                                 </tr>
@@ -110,9 +110,9 @@
 </div>
 
 <div>
-    <div id="id01" class="modal">
-        <div class="modal-content animate">
-            <div class="modalcontainer" style="min-height: 196px; max-height: 232px; overflow: scroll; white-space: normal;">
+    <div id="id03" class="modal1">
+        <div class="modal-content1 animate1">
+            <div class="modalcontainer1" style="min-height: 196px; max-height: 232px; overflow: scroll; white-space: normal;">
                 <h2 style="margin-left: 150px;">Event History</h2>
                 <table>
                     <tr>
