@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use DB;
 use Auth;
 use App\User;
+use App\Email;
 use App\Project;
 use App\ProjectTask;
 use App\ProjectEvaluation;
@@ -179,13 +180,32 @@ class ProjectController extends Controller
 
     public function ProjectEvaluationRecord($id)
     {
-        $task = ProjectTask::all()->where('id',$id);
+        $task = DB::table('users')
+        ->leftjoin('project_tasks', 'project_tasks.User_id', '=', 'users.name')
+        ->select('users.email as useremail', 'project_tasks.*')
+        ->where('project_tasks.id', '=', $id)
+        ->get();
+
         return view('admin.project.EvaluationRecord')->with('tasks', $task);
     }
 
     public function storeProjectEvaluation(Request $request)
     {
-        
+        //calculate
+        $Knowledge = $request->Knowledge;
+        $Quality = $request->Quality;
+        $Productivity = $request->Productivity;
+        $Dependability = $request->Dependability;
+        $Attendance = $request->Attendance;
+        $Relations = $request->Relations;
+        $Commitment = $request->Commitment;
+        $Supervisory = $request->Supervisory;
+        $Appraisal = $request->Appraisal;
+
+        $total = 0;
+        $subtotal = $Quality + $Productivity + $Dependability + $Attendance + $Relations + $Commitment + $Supervisory + $Appraisal;
+        $total = $subtotal/9;
+
         $evaluation = ProjectEvaluation::create([
             'employee_name'=>$request->employee_name,
             'Knowledge'=>$request->Knowledge,
@@ -197,8 +217,27 @@ class ProjectController extends Controller
             'Commitment'=>$request->Commitment,
             'Supervisory'=>$request->Supervisory,
             'Appraisal'=>$request->Appraisal,
-            'TotalScore'=>0,
+            'TotalScore'=>$total,
             'feedback'=>$request->feedback,
+        ]);
+
+        //Email
+        if ($total <= 9 || $total >= 7) {
+            $MSG = "“Don’t Let Yesterday Take Up Too Much of Today.” – Will Rogers";
+        } elseif($total == 6 || $total == 5) {
+            $MSG = "“Everything you’ve ever wanted is on the other side of fear.” - George Addai";
+        } elseif ($total <= 4 || $total >= 2) {
+            $MSG = "“If you aim at nothing, you will hit it every time.” – Zig Zigler";
+        }
+        
+
+        $addEmail=Email::create([
+            'form_email'=>'Manager',
+            'to_email'=>$request->employee_email,
+            'EmailSender'=>'Manager',
+            'Email_title'=>'Evaluation Project Task',
+            'Email_file'=>'',
+            'Email_MSG'=>$MSG,
         ]);
 
         Toastr::success('Evaluation has been recorded! 🙂','Success');

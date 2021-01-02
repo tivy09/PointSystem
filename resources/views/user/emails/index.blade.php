@@ -37,8 +37,9 @@
             <div class="row-md-8 row-md-pull-8" style="width: 650px; background-color: yellow;">
             @foreach($emails as $email)
                 <div class="col-xs-8 tabcontent" id="{{$email->created_at}}">
-                    <h1>{{$email->Email_MSG}}</h1>
-                    <p>To: &nbsp;&nbsp;&lt;{{$email->to_email}}&gt;<a href="{{ route('user.email.destroy', ['id' => $email->id]) }}" class="btn btn-danger delete" onclick="return confirm('Sure Want Delete?')">Delete</a></p>
+                    <h1>{{$email->Email_title}}</h1>
+                    <p>{{$email->Email_MSG}}</p>
+                    <p>To: &nbsp;&nbsp;&lt;{{$email->to_email}}&gt;<a href="{{ route('user.email.destroy', ['id' => $email->id]) }}" class="btn btn-danger deleteEmail" onclick="return confirm('Sure Want Delete?')">Delete</a></p>
                 </div>
             @endforeach
             </div>

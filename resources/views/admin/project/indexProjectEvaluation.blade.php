@@ -15,16 +15,10 @@
                             No.
                         </th>
                         <th style="width: 200px;">
-                            Task Title
+                            Principal
                         </th>
                         <th style="width: 130px;">
-                            Task Start Date
-                        </th>
-                        <th style="width: 400px;">
-                            Description
-                        </th>
-                        <th style="width: 50px;">
-                            Principal
+                            Task Title
                         </th>
                         <th>
                             Status
@@ -41,21 +35,15 @@
                                 {{ $loop -> index+1 }}
                             </td>
                             <td>
-                                {{ $task->name }}
-                            </td>
-                            <td>
-                                {{ $task->Start_date }}
-                            </td>
-                            <td>
-                                {{ $task->Description }}
-                            </td>
-                            <td>
                                 @if($task->User_id == null)
                                     No Person in charge
                                 @else
                                     {{ $task->User_id }}
                                 @endif
-                                </td>
+                            </td>
+                            <td>
+                                {{ $task->name }}
+                            </td>
                             <td>
                                 @if($task->Status != null)
                                     <div class="progress" style="height: 25px; background-color: white">
@@ -72,9 +60,13 @@
                                 @endif
                             </td>
                             <td style="width: 170px;">
+                            @if($task->User_id == null)
+                                <span class="badge badge-pill badge-success">No Person in charge</span>
+                            @else
                                 <a class="btn btn-xs btn-primary" href="{{ route('admin.Project.EvaluationRecord', ['id' => $task->id]) }}">
                                     Evaluation
                                 </a>
+                            @endif
                             </td>
                         </tr>
                     @endforeach

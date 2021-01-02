@@ -112,12 +112,12 @@ Route::post('/Job/approved/{id}',[      'uses'=>'JobAppController@approved',    
 Route::get('/Job/delete/{id}',[         'uses'=>'JobAppController@destroy',             'as'=>'admin.Job.destroy']);
 Auth::routes();
 
-Route::post('/home/store',[ 'uses'=>'TodolistController@store', 'as'=>'user.todo.store']);
-Route::get('/home/edit/{id}',[ 'uses'=>'TodolistController@edit', 'as'=>'user.todo.edit']);
-Route::get('/home/complete/{id}',[ 'uses'=>'TodolistController@complete', 'as'=>'user.todo.complete']);
-Route::post('/home/update/{id}',[ 'uses'=>'TodolistController@update', 'as'=>'user.todo.update']);
-Route::get('/home/destroy/{id}',[ 'uses'=>'TodolistController@destroy', 'as'=>'user.todo.destroy']);
-Route::get('/home/delete/{id}',[ 'uses'=>'TodolistController@delete', 'as'=>'user.todo.delete']);
+Route::post('/home/store',[             'uses'=>'TodolistController@store',         'as'=>'user.todo.store']);
+Route::get('/home/edit/{id}',[          'uses'=>'TodolistController@edit',          'as'=>'user.todo.edit']);
+Route::get('/home/complete/{id}',[      'uses'=>'TodolistController@complete',      'as'=>'user.todo.complete']);
+Route::post('/home/update/{id}',[       'uses'=>'TodolistController@update',        'as'=>'user.todo.update']);
+Route::get('/home/destroy/{id}',[       'uses'=>'TodolistController@destroy',       'as'=>'user.todo.destroy']);
+Route::get('/home/delete/{id}',[        'uses'=>'TodolistController@delete',        'as'=>'user.todo.delete']);
 Route::get('/home', [App\Http\Controllers\TodolistController::class, 'index'])->name('home');
 
 //project
