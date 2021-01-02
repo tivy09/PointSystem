@@ -136,3 +136,7 @@ Route::post('/Project/List/Enroll',[        'uses'=>'ProjectController@enrollPro
 Route::get('/Project/Evaluation',[          'uses'=>'ProjectController@indexProjectEvaluation',  'as'=>'admin.Project.Evaluation']);
 Route::get('/Project/Evaluation/Record/{id}',[          'uses'=>'ProjectController@ProjectEvaluationRecord',  'as'=>'admin.Project.EvaluationRecord']);
 Route::post('/Project/Evaluation/store',[              'uses'=>'ProjectController@storeProjectEvaluation',            'as'=>'admin.Project.storeProjectEvaluation']);
+
+//face
+Route::get('/Home/Photo/Check',[    'uses'=>'AvaterController@index',     'as'=>'Avatar.index']);
+Route::get('/Home/Photo',[          'uses'=>'AvaterController@create',    'as'=>'user.Avatar.create']);

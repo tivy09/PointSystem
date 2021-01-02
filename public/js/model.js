@@ -97,7 +97,7 @@ function serach() {
             break;
         case "Salary":
             //user information
-            location.href = add;
+            location.href = add + 'salary';
             break;
         case "Create Project":
             location.href = add + 'Project/create';

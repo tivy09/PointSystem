@@ -17,6 +17,6 @@ class job_app extends Model
         'types',
         'description',
         'department',
-        'CPeople',
+        'JobCPeople',
     ];
 }

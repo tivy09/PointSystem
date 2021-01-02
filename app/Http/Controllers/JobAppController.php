@@ -71,12 +71,12 @@ class JobAppController extends Controller
 
         $id = $request->position;
 
-        $jobapp=DB::table('job_apps')->where('job_apps.id','=',$id)->value('CPeople');
+        $jobapp=DB::table('job_apps')->where('job_apps.id','=',$id)->value('JobCPeople');
 
         $subtotal = $jobapp - 1;
 
         $jobapp = job_app::find($id);
-        $jobapp->CPeople = $subtotal;
+        $jobapp->JobCPeople = $subtotal;
         $jobapp->save();
 
         return view('welcome');
@@ -95,7 +95,7 @@ class JobAppController extends Controller
             'department'=>$request->department,
             'types'=>$request->types,
             'description'=>$request->description,
-            'CPeople'=>$request->CPeople,
+            'JobCPeople'=>$request->CPeople,
         ]);
         Toastr::success('Job successfully Created!','Success');
 
@@ -171,7 +171,7 @@ class JobAppController extends Controller
         $jobapp->department = $request->department;
         $jobapp->types = $request->types;
         $jobapp->description = $request->description;
-        $jobapp->CPeople = $request->CPeople;
+        $jobapp->JobCPeople = $request->CPeople;
         $jobapp->save();
 
         Toastr::success('Job Detail update successfully :)','Success');
