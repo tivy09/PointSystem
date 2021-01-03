@@ -50,7 +50,11 @@
                                 {{ $project->NumberofMember }}
                             </td>
                             <td style="width: 150px;">
-                            @if($count != $project->id)
+                            @if($project->NumberofMember == 0)
+                                <span class="badge badge-pill badge-success">The Project is full</span>
+                            @elseif($count == $project->id)
+                                <span class="badge badge-pill badge-success">Already Enroll</span>
+                            @elseif($count != $project->id)
                                 <form action="{{ route('admin.Project.enrollProjectList') }}" method="post">
                                 @csrf
                                     <input type="hidden" name="employee_id" value="{{ Auth::user()->id }}">
@@ -59,8 +63,7 @@
                                         Enroll Me
                                     </button>
                                 </form>
-                            @elseif($count == $project->id)
-                                <span class="badge badge-pill badge-success">Already Enroll</span>
+                            
                             @endif
                             </td>
                         </tr>

@@ -63,7 +63,7 @@
                                     Create Task
                                 </a>
 
-                                <a class="btn btn-xs btn-primary" href="">
+                                <a class="btn btn-xs btn-primary" href="{{ route('admin.Project.showProject', ['id' => $project->id])}}">
                                     {{ trans('global.view') }}
                                 </a>
 
@@ -72,6 +72,9 @@
                                 </a>
                                 @elseif($project->Status2 == 1)
                                 <span class="badge badge-pill badge-warning">Already End</span>
+                                <a class="btn btn-xs btn-primary" href="{{ route('admin.Project.showProject', ['id' => $project->id])}}">
+                                    {{ trans('global.view') }}
+                                </a>
                                 <a class="btn btn-xs btn-info" href="{{ route('admin.Project.deleteProjectRecord', ['id' => $project->id])}}" onclick="return confirm('Sure You Want Delete?')">
                                     {{ trans('global.delete') }} Record
                                 </a>

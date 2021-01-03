@@ -44,6 +44,23 @@ class ProjectController extends Controller
         return redirect()->route('admin.Project.indexProject');
     }
 
+    public function showProject($id)
+    {
+        // $project = Project::all()->where('id',$id);
+        $project = DB::table('projects')
+        ->leftjoin('users', 'users.id', '=', 'projects.Leader_id')
+        ->select('users.name as username', 'projects.*')
+        ->where('projects.id', '=', $id)
+        ->get();
+
+        $task = DB::table('project_tasks')
+        ->leftjoin('users', 'users.id', '=', 'project_tasks.User_id')
+        ->select('users.name as username', 'project_tasks.*')
+        ->where('project_tasks.Project_id', '=', $id)
+        ->get();
+        return view('admin.Project.showProject')->with('projects', $project)->with('tasks', $task);
+    }
+
     public function deleteProject($id)
     {
         $project = Project::find($id);
