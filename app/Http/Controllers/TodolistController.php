@@ -1,6 +1,12 @@
 <?php
 
 namespace App\Http\Controllers;
+use DB;
+use App\User;
+use App\salary;
+use App\Leave;
+use App\avater;
+use App\Project;
 use App\todolist;
 use Brian2694\Toastr\Facades\Toastr;
 use Illuminate\Http\Request;
@@ -52,9 +58,18 @@ class TodolistController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+    //Personal Information
     public function show($id)
     {
-        //
+        $user = DB::table('users')
+        ->leftjoin('project_tasks', 'project_tasks.User_id', '=', 'users.name')
+        ->leftjoin('projects', 'projects.Leader_id', '=', 'users.id')
+        ->leftjoin('salaries', 'salaries.employee_id', '=', 'users.id')
+        ->select('project_tasks.name as tasksName', 'projects.Name as projectName', 'salaries.Salary_amount as salary', 'users.*')
+        ->where('users.id', '=', $id)
+        ->get();
+        // dd($user);
+        return view('information')->with('users', $user);
     }
 
     /**

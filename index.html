@@ -4,18 +4,113 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            padding: 20px;
+            max-width: 800px;
+            margin: auto auto;
+            font-family: sans;
+        }
+        
+        table {
+            width: 100%
+        }
+        
+        th {
+            background: #666;
+            color: #fff;
+        }
+        
+        td {
+            padding: 5px;
+        }
+        
+        input {
+            width: 100%;
+            height: 24px;
+            font-size: 18px;
+            padding: 2px;
+            border: 0;
+        }
+        
+        h1 {
+            font-weight: normal;
+        }
+    </style>
     <title>Document</title>
 </head>
 
 <body>
-    <div>
-        <form action="index1.php" method="post">
-            <input type="checkbox" name="value" id="value" value="1">1
-            <input type="checkbox" name="value" id="value" value="2">2
-            <input type="checkbox" name="value" id="value" value="3">3
-            <input type="submit" value="Submit">
-        </form>
-    </div>
+    <h1>Simple Table Search</h1>
+    <input type="search" id="search" placeholder="Filter by Title">
+    <table>
+        <tr>
+            <th style="width:60%">Title</th>
+            <th>Gross</th>
+            <th>Year</th>
+        </tr>
+
+        <tr>
+            <td id="title">Avatar</td>
+            <td>$2,782,275,172</td>
+            <td>2009</td>
+        </tr>
+
+        <tr>
+            <td id="title">Titanic</td>
+            <td>$2,185,372,302</td>
+            <td>1997</td>
+        </tr>
+
+        <tr>
+            <td id="title">The Avengers</td>
+            <td>$1,511,757,910</td>
+            <td>2012</td>
+        </tr>
+
+        <tr>
+            <td id="title">Harry Potter and the Deathly Hallows - Part 2</td>
+            <td>$1,341,511,219</td>
+            <td>2011</td>
+        </tr>
+
+        <tr>
+            <td id="title">Iron Man 3</td>
+            <td>$1,205,506,000</td>
+            <td>2013</td>
+        </tr>
+
+        <tr>
+            <td id="title">Transformers: Dark of the Moon</td>
+            <td>$1,123,746,996</td>
+            <td>2011</td>
+        </tr>
+
+        <tr>
+            <td id="title">The Lord of the Rings: The Return of the King</td>
+            <td>$1,119,929,521</td>
+            <td>2003</td>
+        </tr>
+
+        <tr>
+            <td id="title">Skyfall</td>
+            <td>$1,108,561,013</td>
+            <td>2012</td>
+        </tr>
+
+        <tr>
+            <td id="title">The Dark Knight Rises</td>
+            <td>$1,084,439,099</td>
+            <td>2012</td>
+        </tr>
+
+        <tr>
+            <td id="title">Pirates of the Caribbean: Dead Man's Chest</td>
+            <td>$1,066,179,725</td>
+            <td>2006</td>
+        </tr>
+
+    </table>
 </body>
 
 </html>
