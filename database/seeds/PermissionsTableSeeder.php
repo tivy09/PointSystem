@@ -100,7 +100,30 @@ class PermissionsTableSeeder extends Seeder
                 'id'    => '23',
                 'title' => 'user_access',
             ],
-            
+            [
+                'id'    => '24',
+                'title' => 'campany_controller',
+            ],
+            [
+                'id'    => '25',
+                'title' => 'project_manager',
+            ],
+            [
+                'id'    => '26',
+                'title' => 'project_employee',
+            ],
+            [
+                'id'    => '27',
+                'title' => 'manager_calendar',
+            ],
+            [
+                'id'    => '28',
+                'title' => 'employee_calendar',
+            ],
+            [
+                'id'    => '29',
+                'title' => 'salary_employee',
+            ],
         ];
 
         Permission::insert($permissions);

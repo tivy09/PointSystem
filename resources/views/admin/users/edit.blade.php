@@ -55,9 +55,11 @@
                 <span class="help-block">{{ trans('cruds.user.fields.roles_helper') }}</span>
             </div>
             <div class="form-group">
-                <label for="class_id">{{ trans('cruds.user.fields.class') }}</label>
-                <select class="form-control select2 {{ $errors->has('class') ? 'is-invalid' : '' }}" name="class_id" id="class_id">
-                    <option value=""></option>
+                <label for="department">{{ trans('cruds.user.fields.class') }}</label>
+                <select class="form-control select2 {{ $errors->has('class') ? 'is-invalid' : '' }}" name="department" id="department">
+                @foreach($departments as $department)
+                    <option value="{{ $department->id }}" @if($department->id == old('department', $user->department)) selected @endif>{{ $department->name }}</option>
+                @endforeach
                 </select>
                 @if($errors->has('class'))
                     <div class="invalid-feedback">

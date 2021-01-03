@@ -27,8 +27,7 @@ class UsersController extends Controller
                 $query->whereHas('roles', function ($query) use ($request) {
                     $query->whereId($request->role);
                 });
-            })
-            ->get();
+            })->get();
 
         return view('admin.users.index', compact('users'));
     }
@@ -74,7 +73,9 @@ class UsersController extends Controller
 
         $user->load('roles');
 
-        return view('admin.users.edit', compact('roles', 'user'));
+        $department=department::all();
+
+        return view('admin.users.edit', compact('roles', 'user'))->with('departments',$department);
     }
 
     public function update(UpdateUserRequest $request, User $user)

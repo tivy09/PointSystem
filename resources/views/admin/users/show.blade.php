@@ -8,11 +8,6 @@
 
     <div class="card-body">
         <div class="form-group">
-            <div class="form-group">
-                <a class="btn btn-default" href="{{ route('admin.users.index') }}">
-                    {{ trans('global.back_to_list') }}
-                </a>
-            </div>
             <table class="table table-bordered table-striped">
                 <tbody>
                     <tr>
@@ -41,14 +36,6 @@
                     </tr>
                     <tr>
                         <th>
-                            {{ trans('cruds.user.fields.email_verified_at') }}
-                        </th>
-                        <td>
-                            {{ $user->email_verified_at }}
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>
                             {{ trans('cruds.user.fields.roles') }}
                         </th>
                         <td>
@@ -62,7 +49,17 @@
                             {{ trans('cruds.user.fields.class') }}
                         </th>
                         <td>
-                            
+                            @if($user->department == 1)
+                                Marketing Department
+                            @elseif($user->department == 2)
+                                Software Engineering Department
+                            @elseif($user->department == 3)
+                                Marketing Department
+                            @elseif($user->department == 4)
+                                Finance Department
+                            @elseif($user->department == 5)
+                                Human Resource Department
+                            @endif
                         </td>
                     </tr>
                 </tbody>

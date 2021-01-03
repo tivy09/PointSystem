@@ -57,7 +57,17 @@
                                 @endforeach
                             </td>
                             <td>
-                                {{ $user->class->name ?? '' }}
+                                @if($user->department == 1)
+                                    Marketing Department
+                                @elseif($user->department == 2)
+                                    Software Engineering Department
+                                @elseif($user->department == 3)
+                                    Marketing Department
+                                @elseif($user->department == 4)
+                                    Finance Department
+                                @elseif($user->department == 5)
+                                    Human Resource Department
+                                @endif
                             </td>
                             <td>
                                 @can('user_show')
