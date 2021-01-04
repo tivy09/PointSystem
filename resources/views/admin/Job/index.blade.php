@@ -35,16 +35,16 @@
                     @foreach($jobs as $job)
                     <tr>
                         <td>
-                            {{$loop->index+1 }}
+                            {{ $loop->index+1 }}
                         </td>
                         <td>
-                            {{$job->name }}
+                            {{ $job->name }}
                         </td>
                         <td>
-                            {{$job->age}}
+                            {{ $job->age }}
                         </td>
                         <td>
-                            {{$job->PosiName}}
+                            {{ $job->PosiName }}
                         </td>
                         <td>
                             <a class="btn btn-xs btn-primary" href="{{ route('admin.Job.show', ['id' => $job->id]) }}">

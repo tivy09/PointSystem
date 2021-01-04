@@ -5,15 +5,15 @@ Route::get('/', function () {
 });
 
 Route::get('/home/new1', function () {
-    return view('New.index1');
+    return view('News.index1');
 });
 
 Route::get('/home/new2', function () {
-    return view('New.index2');
+    return view('News.index2');
 });
 
 Route::get('/home/new3', function () {
-    return view('New.index3');
+    return view('News.index3');
 });
 
 Route::get('/login', function () {
@@ -100,7 +100,7 @@ Route::post('/JobApp/store',[             'uses'=>'JobAppController@store',     
 Route::get('/JobApp/show/{id}',[          'uses'=>'JobAppController@show',            'as'=>'admin.JobApp.show']);
 Route::get('/JobApp/edit/{id}',[          'uses'=>'JobAppController@edit',            'as'=>'admin.JobApp.edit']);
 Route::post('/JobApp/update/{id}',[       'uses'=>'JobAppController@update',          'as'=>'admin.JobApp.update']);
-Route::get('/JobApp/delete/{id}',[        'uses'=>'JobAppController@destroy',         'as'=>'admin.JobApp.destroy']);
+Route::get('/JobApp/delete/{id}',[        'uses'=>'JobAppController@destroyApp',      'as'=>'admin.JobApp.destroyApp']);
 
 
 //job 

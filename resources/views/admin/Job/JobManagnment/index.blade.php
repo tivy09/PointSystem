@@ -57,7 +57,7 @@
                             <a class="btn btn-xs btn-info" href="{{ route('admin.JobApp.edit', ['id' => $job->id]) }}">
                                 {{ trans('global.edit') }}
                             </a>
-                            <a href="{{ route('admin.JobApp.destroy', ['id' => $job->id]) }}" class="btn btn-xs btn-danger" onclick="return confirm('Sure Want Delete?')">
+                            <a href="{{ route('admin.JobApp.destroyApp', ['id' => $job->id]) }}" class="btn btn-xs btn-danger" onclick="return confirm('Sure Want Delete?')">
                                 {{ trans('global.delete') }}
                             </a>
                         </td>

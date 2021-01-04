@@ -174,7 +174,7 @@ class JobAppController extends Controller
         $jobapp->JobCPeople = $request->CPeople;
         $jobapp->save();
 
-        Toastr::success('Job Detail update successfully :)','Success');
+        Toastr::success('Job Detail update successfully 🤗','Success');
         return redirect()->route('admin.JobApp.index');
     }
 
@@ -183,7 +183,7 @@ class JobAppController extends Controller
         $job = job::find($id);
         $job->is_approved = $request->status;
         $job->save();
-        Toastr::success('Job Interview Status update successfully :)','Success');
+        Toastr::success('Job Interview Status update successfully 🤗','Success');
         return redirect()->route('admin.Job.index');
     }
 
@@ -195,6 +195,17 @@ class JobAppController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $job = job::find($id);
+        $job->delete();
+        Toastr::success('Job Application Delated successfully 🤗','Success');
+        return redirect()->route('admin.Job.index');
+    }
+
+    public function destroyApp($id)
+    {
+        $job_app = job_app::find($id);
+        $job_app->delete();
+        Toastr::success('Job Delated successfully 🤗','Success');
+        return redirect()->route('admin.JobApp.index');
     }
 }

@@ -68,8 +68,10 @@ class TodolistController extends Controller
         ->select('project_tasks.name as tasksName', 'projects.Name as projectName', 'salaries.Salary_amount as salary', 'users.*')
         ->where('users.id', '=', $id)
         ->get();
-        // dd($user);
-        return view('information')->with('users', $user);
+        
+        $salary = salary::all()->where('employee_id', $id);
+        $leave = DB::table('leaves')->where('employee_id', $id)->where('is_approved','=',1)->sum('days');
+        return view('information', compact('leave'))->with('users', $user)->with('salaries', $salary);
     }
 
     /**
