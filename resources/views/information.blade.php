@@ -177,7 +177,7 @@ elseif($string3 == 3)
                                     Total Salary
                                 </th>
                                 <td>
-                                    {{ $total_salary }}
+                                    RM {{ $total_salary }}
                                 </td>
                             </tr>
                         </tbody>

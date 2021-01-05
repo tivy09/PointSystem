@@ -33,50 +33,60 @@
 </head>
 
 <body class="header-fixed sidebar-fixed aside-menu-fixed aside-menu-hidden login-page">
-    <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
-        <div class="container">
-            <a class="navbar-brand" href="{{ url('/') }}">
-                {{ config('app.name', 'Laravel') }}
-            </a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <!-- Left Side Of Navbar -->
-                <ul class="navbar-nav mr-auto">
-                </ul>
-
-                    <!-- Right Side Of Navbar -->
-                <ul class="navbar-nav ml-auto">
-                </ul>
-            </div>
-        </div>
-    </nav>
     <div>
-            <div class="model-position">
-                <a onclick="document.getElementById('id01').style.display = 'block';">
-                    <model-viewer id="model" src="{{ asset('model/RobotExpressive.glb') }}" alt="A 3D model of an astronaut" animation-name="none" style="width: 100px; height: 120px;" autoplay></model-viewer>
-                </a>
-            </div>
-            <div id="id01" class="modal">
-                <div class="modal-content animate">
-                    <div class="modalcontainer">
-                        <label for="Search"><b>Search Somethings</b></label>
-                        <input type="text" id="keyword" placeholder="like Email, Job Salary Calculate and so.....">
-                        <button type="button" onclick="loading()">Search</button>
-                    </div>
-                </div>
-            </div>
-            <div id="id02" class="modal">
-                <div class="modal-content animate">
-                    <div class="modalcontainer">
-                        <label for="result"><b>Result</b></label>
-                        <p>Nothings</p>
-                    </div>
+        <div class="model-position">
+            <a onclick="document.getElementById('id01').style.display = 'block';">
+                <model-viewer id="model" src="{{ asset('model/RobotExpressive.glb') }}" alt="A 3D model of an astronaut" animation-name="none" style="width: 100px; height: 120px;" autoplay></model-viewer>
+            </a>
+        </div>
+        <div id="id01" class="modal">
+            <div class="modal-content animate">
+                <div class="modalcontainer">
+                    <label for="Search"><b>Search Somethings</b></label>
+                    <input type="text" id="keyword" placeholder="like Email, Job Salary Calculate and so.....">
+                    @guest
+                        <input type="hidden" id="userid" value="0">
+                        @else
+                        <input type="hidden" id="userid" value="{{ Auth::user()->id }}">
+                    @endguest
+                    <button type="button" onclick="loading()">Search</button>
+                <div>
+                    <p style="text-decoration: underline;">Recommended Option</p>
+                    <!-- No Login -->
+                    @guest
+                    <a onclick="Login()" class="button3" style="color: #fff;">Login</a>
+                    <a onclick="Manual()" class="button3" style="color: #fff;">User Manual</a>
+                    <a onclick="Home()" class="button3" style="color: #fff;">Home Pages</a>
+                    <!-- After Login -->
+                    @else
+                    <a onclick="dashboard()" class="button3" style="color: #fff;">Dashboard</a>
+                    <a onclick="createProject()" class="button3" style="color: #fff;">Create Project</a>
+                    <a onclick="Manual()" class="button3" style="color: #fff;">User Manual</a>
+                    <a onclick="leave()" class="button3" style="color: #fff;">Apply for Vacation</a>
+                    <a onclick="salary()" class="button3" style="color: #fff;">Salary</a>
+                    <a onclick="email()" class="button3" style="color: #fff;">Email</a>
+                    @endguest
                 </div>
             </div>
         </div>
+    </div>
+    <div id="id04" class="modal"">
+        <div class="modal-content animate">
+            <div class="modalcontainer">
+                <model-viewer id="model" src="{{ asset('model/RobotExpressive.glb') }}" alt="A 3D model of an astronaut" animation-name="Running" style="width: 400px; height: 400px;margin-left: 25px;" autoplay></model-viewer>
+                <p style="margin-left: 180px; font-size: 25px;">Loading...</p>
+            </div>
+        </div>
+    </div>
+    <div id="id02" class="modal">
+        <div class="modal-content animate">
+            <div class="modalcontainer">
+                <label for="result"><b>Result</b></label>
+                    <p>Nothings, Maybe You can try the botton at the below.😁</p>
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="app flex-row align-items-center">
         <div class="container">
             @yield("content")

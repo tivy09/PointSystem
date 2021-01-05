@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>Laravel</title>
+    <title>Home Pages🏠</title>
     <link rel="icon" href="{{ asset('WebImg/Icon.ico') }}">
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet" />
@@ -140,6 +140,7 @@
                     <div class="modalcontainer">
                         <label for="Search"><b>Search Somethings</b></label>
                         <input type="text" id="keyword" placeholder="like Email, Job Salary Calculate and so.....">
+                        <input type="hidden" id="userid" value="{{ Auth::user()->id }}">
                         <button type="button" onclick="loading()">Search</button>
                         <div>
                             <p style="text-decoration: underline;">Recommended Option</p>

@@ -1,24 +1,16 @@
 <?php
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', function () { return view('welcome'); });
 
-Route::get('/home/new1', function () {
-    return view('News.index1');
-});
+Route::get('/home/new1', function () { return view('News.index1'); });
 
-Route::get('/home/new2', function () {
-    return view('News.index2');
-});
+Route::get('/home/new2', function () { return view('News.index2'); });
 
-Route::get('/home/new3', function () {
-    return view('News.index3');
-});
+Route::get('/home/new3', function () { return view('News.index3'); });
 
-Route::get('/login', function () {
-    return view('auth.login');
-});
+Route::get('/login', function () { return view('auth.login'); });
+
+Route::get('/CompanyChart', function () { return view('Chart.index'); });
 
 Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'middleware' => ['auth']], function () {
     Route::get('/', 'HomeController@index')->name('home');

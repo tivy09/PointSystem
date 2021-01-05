@@ -41,7 +41,7 @@
             //You want make sure the photo
             const labels = []
             @foreach($usersaa as $user)
-            labels.push('{{$user->name}}')
+                labels.push('{{$user->name}}')
             @endforeach
 
             const labeledFaceDescriptors = await Promise.all(

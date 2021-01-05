@@ -79,14 +79,30 @@ function Manual() {
     document.getElementById("keyword").value = "User Manual";
 }
 
+function Login() {
+    document.getElementById("keyword").value = "login";
+}
+
+function Home() {
+    document.getElementById("keyword").value = "Home Pages";
+}
+
+function dashboard() {
+    document.getElementById("keyword").value = "dashboard";
+}
+
 function serach() {
     var keyword = document.getElementById('keyword').value;
+    var userID = document.getElementById('userid').value;
     var add = "http://localhost:8000/";
     switch (keyword) {
+        case "dashboard":
+            location.href = add + 'home';
+            break;
         case "login":
             location.href = add + 'login';
             break;
-        case "welcome":
+        case "Home Pages":
             location.href = add;
             break;
         case "Email":
@@ -97,7 +113,7 @@ function serach() {
             break;
         case "Salary":
             //user information
-            location.href = add + 'salary';
+            location.href = add + 'home/Information/' + userID;
             break;
         case "Create Project":
             location.href = add + 'Project/create';
