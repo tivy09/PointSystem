@@ -119,42 +119,40 @@
                     </div>
                 </div>
             </div>
-        </div>
         
-    <div class="app flex-row align-items-center">
 
         <div class="piechart">
-            <a href="#" onclick="JanuaryPie()">January</a>
-            <a href="#" onclick="FebruaryPie()" class="margin">February</a>
-            <a href="#" onclick="MarchPie()" class="margin">March</a>
+            <a href="#" onclick="JanuaryPie()" style="color: black;">2018</a>
+            <a href="#" onclick="FebruaryPie()" class="margin" style="color: black;">2019</a>
+            <a href="#" onclick="MarchPie()" class="margin" style="color: black;">2020</a>
         </div>
         <br><br>
-        <div style="display: block;" id="myDIV1" class="slideSource">
-            <canvas id="piechart1" width="250" height="100" style="background-color:white"></canvas>
+        <div id="myDIV1" style="display: block; position: relative; height:60vh; width:95vw; margin-top: 20px;">
+            <div class="row">
+                <div class="col-sm-4"><canvas id="piechart1" width="400" height="400" style="background-color: white"></canvas></div>
+                <br><br>
+                <div class="col-sm-4"><canvas id="linchart1" width="400" height="400" style="background-color: white"></canvas></div>
+                <br><br>
+                <div class="col-sm-4"><canvas id="barchart1" width="400" height="400" style="background-color: white"></canvas></div>
+            </div>
         </div>
-        <div id="myDIV2" class="slideSource">
-            <canvas id="piechart2" width="250" height="100" style="background-color:white"></canvas>
+        <div id="myDIV2" style="display: none; position: relative; height:60vh; width:95vw; margin-top: 20px;">
+            <div class="row">
+                <div class="col-sm-4"><canvas id="piechart2" width="400" height="400" style="background-color: white"></canvas></div>
+                <br><br>
+                <div class="col-sm-4"><canvas id="linchart2" width="400" height="400" style="background-color: white"></canvas></div>
+                <br><br>
+                <div class="col-sm-4"><canvas id="barchart2" width="400" height="400" style="background-color: white"></canvas></div>
+            </div>
         </div>
-        <div id="myDIV3" class="slideSource">
-            <canvas id="piechart3" width="250" height="100" style="background-color:white"></canvas>
+        <div id="myDIV3" style="display: none; position: relative; height:60vh; width:95vw; margin-top: 20px;">
+            <div class="row">
+                <div class="col-sm-4"><canvas id="piechart3" width="400" height="400" style="background-color: white"></canvas></div>
+                <br><br>
+                <div class="col-sm-4"><canvas id="linchart3" width="400" height="400" style="background-color: white"></canvas></div>
+                <br><br>
+                <div class="col-sm-4"><canvas id="barchart3" width="400" height="400" style="background-color: white"></canvas></div>
+            </div>
         </div>
-
-        <br><br>
-
-        <div class="linechart">
-            <a href="#linchart1" onclick="JanuaryLine()">January</a>
-            <a href="#linchart2" onclick="FebruaryLine()" class="margin">February</a>
-            <a href="#linchart3" onclick="MarchLine()" class="margin">March</a>
-        </div>
-        <div href="#linchart1" style="display: block;" id="myDIV4" class="slideSource">
-            <canvas id="linchart1" width="250" height="100" style="background-color:white"></canvas>
-        </div>
-        <div href="#linchart2" id="myDIV5" class="slideSource">
-            <canvas id="linchart2" width="250" height="100" style="background-color:white"></canvas>
-        </div>
-        <div href="#linchart3" id="myDIV6" class="slideSource">
-            <canvas id="linchart3" width="250" height="100" style="background-color:white"></canvas>
-        </div>
-    </div>
 </body>
 </html>

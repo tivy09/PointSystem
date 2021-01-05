@@ -44,15 +44,8 @@ body {
 
 .piechart {
     position: absolute;
-    top: 60px;
-    left: 1550px;
-    font-size: 25px;
-}
-
-.linechart {
-    position: absolute;
-    top: 900px;
-    left: 1550px;
+    top: 70px;
+    left: 50px;
     font-size: 25px;
 }
 

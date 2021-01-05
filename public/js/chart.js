@@ -16,24 +16,6 @@ function MarchPie() {
     document.getElementById("myDIV3").style.display = "block";
 }
 
-function JanuaryLine() {
-    document.getElementById("myDIV4").style.display = "block";
-    document.getElementById("myDIV5").style.display = "none";
-    document.getElementById("myDIV6").style.display = "none";
-}
-
-function FebruaryLine() {
-    document.getElementById("myDIV4").style.display = "none";
-    document.getElementById("myDIV5").style.display = "block";
-    document.getElementById("myDIV6").style.display = "none";
-}
-
-function MarchLine() {
-    document.getElementById("myDIV4").style.display = "none";
-    document.getElementById("myDIV5").style.display = "none";
-    document.getElementById("myDIV6").style.display = "block";
-}
-
 var PieChart1 = document.getElementById('piechart1');
 var myChart = new Chart(PieChart1, {
     type: 'pie',
@@ -170,12 +152,12 @@ var chart = new Chart(LineChart1, {
 
     // The data for our dataset
     data: {
-        labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+        labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
         datasets: [{
-            label: 'My First dataset',
+            label: 'Case/Sales',
             backgroundColor: 'rgb(255, 99, 745)',
             borderColor: 'rgb(0, 0, 0)',
-            data: [0, 10, 5, 2, 20, 30, 35]
+            data: [180, 140, 500, 200, 500, 300, 350, 688, 636, 363, 298, 499]
         }]
     },
 
@@ -183,7 +165,7 @@ var chart = new Chart(LineChart1, {
     options: {
         title: {
             display: true,
-            text: 'customer Chart title'
+            text: 'Year for the Total Sales'
         },
         legend: {
             display: true,
@@ -208,12 +190,12 @@ var chart = new Chart(LineChart2, {
 
     // The data for our dataset
     data: {
-        labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+        labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
         datasets: [{
-            label: 'My First dataset',
+            label: 'Case/Sales',
             backgroundColor: 'rgb(255, 99, 745)',
             borderColor: 'rgb(0, 0, 0)',
-            data: [0, 9, 15, 2, 11, 30, 20]
+            data: [140, 900, 150, 200, 500, 300, 200, 250, 357, 749, 258, 486]
         }]
     },
 
@@ -221,7 +203,7 @@ var chart = new Chart(LineChart2, {
     options: {
         title: {
             display: true,
-            text: 'customer Chart title'
+            text: 'Year for the Total Sales'
         },
         legend: {
             display: true,
@@ -246,12 +228,12 @@ var chart = new Chart(LineChart3, {
 
     // The data for our dataset
     data: {
-        labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+        labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
         datasets: [{
-            label: 'My First dataset',
+            label: 'Case/Sales',
             backgroundColor: 'rgb(255, 99, 745)',
             borderColor: 'rgb(0, 0, 0)',
-            data: [0, 12, 5, 20, 0, 20, 10]
+            data: [120, 400, 500, 200, 150, 200, 100, 208, 654, 697, 481, 635]
         }]
     },
 
@@ -259,7 +241,145 @@ var chart = new Chart(LineChart3, {
     options: {
         title: {
             display: true,
-            text: 'customer Chart title'
+            text: 'Year for the Total Sales'
+        },
+        legend: {
+            display: true,
+            labels: {
+                fontColor: 'rgb(0, 0, 0)'
+            }
+        },
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero: true,
+                }
+            }]
+        }
+    }
+});
+
+var barchart1 = document.getElementById('barchart1');
+var myChart = new Chart(barchart1, {
+    type: 'bar',
+    data: {
+        labels: ['Shoppe', 'Lazada', 'Amazon', 'Shop', 'TaoBao'],
+        datasets: [{
+            label: 'Case/Sales',
+            data: [1756, 1243, 1000, 2100, 1472],
+            backgroundColor: [
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(153, 102, 255, 0.2)'
+            ],
+            borderColor: [
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)'
+            ],
+            borderWidth: 1
+        }]
+    },
+    options: {
+        title: {
+            display: true,
+            text: 'Contributed orders from Different  Channels'
+        },
+        legend: {
+            display: true,
+            labels: {
+                fontColor: 'rgb(0, 0, 0)'
+            }
+        },
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero: true,
+                }
+            }]
+        }
+    }
+});
+
+var barchart2 = document.getElementById('barchart2');
+var myChart = new Chart(barchart2, {
+    type: 'bar',
+    data: {
+        labels: ['Shoppe', 'Lazada', 'Amazon', 'Shop', 'TaoBao'],
+        datasets: [{
+            label: 'Case/Sales',
+            data: [1200, 1900, 1752, 1246, 2043],
+            backgroundColor: [
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(153, 102, 255, 0.2)'
+            ],
+            borderColor: [
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)'
+            ],
+            borderWidth: 1
+        }]
+    },
+    options: {
+        title: {
+            display: true,
+            text: 'Contributed orders from Different  Channels'
+        },
+        legend: {
+            display: true,
+            labels: {
+                fontColor: 'rgb(0, 0, 0)'
+            }
+        },
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero: true,
+                }
+            }]
+        }
+    }
+});
+
+var barchart3 = document.getElementById('barchart3');
+var myChart = new Chart(barchart3, {
+    type: 'bar',
+    data: {
+        labels: ['Shoppe', 'Lazada', 'Amazon', 'Shop', 'TaoBao'],
+        datasets: [{
+            label: 'Cases/Sales',
+            data: [2342, 1572, 1359, 2740, 1927, 1972],
+            backgroundColor: [
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(153, 102, 255, 0.2)'
+            ],
+            borderColor: [
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)'
+            ],
+            borderWidth: 1
+        }]
+    },
+    options: {
+        title: {
+            display: true,
+            text: 'Contributed orders from Different  Channels'
         },
         legend: {
             display: true,
