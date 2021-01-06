@@ -148,3 +148,8 @@ table.dataTable thead .sorting_desc {
 .inside {
     margin: 20px 25px;
 }
+
+.clock {
+    position: absolute;
+    left: 50;
+}

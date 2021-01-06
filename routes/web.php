@@ -12,6 +12,8 @@ Route::get('/login', function () { return view('auth.login'); });
 
 Route::get('/CompanyChart', function () { return view('Chart.index'); });
 
+Route::get('/UserManual', function () { return view('usermanual'); });
+
 Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'middleware' => ['auth']], function () {
     Route::get('/', 'HomeController@index')->name('home');
     // Permissions
