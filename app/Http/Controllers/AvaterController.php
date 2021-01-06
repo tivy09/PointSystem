@@ -6,8 +6,10 @@ use DB;
 use App\avater;
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Http\UploadedFile;
 use Brian2694\Toastr\Facades\Toastr;
 use Illuminate\Support\Facades\Auth;
+use Symfony\Component\HttpFoundation\Response;
 
 class AvaterController extends Controller
 {
@@ -75,7 +77,16 @@ class AvaterController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $file=$request->file('avatar_file');
+        $file->move('Avatar',$file->getClientOriginalName());
+        $fileName=$file->getClientOriginalName(); 
+
+        $user = User::find($id);
+        $user->Avater = $fileName;
+        $user->save();
+
+        Toastr::success('Your Avatar already update!!Very Cool🤣','Success');
+        return redirect()->route('user.information.show', ['id' => Auth::user()->id]);
     }
 
     /**

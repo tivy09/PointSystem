@@ -87,6 +87,11 @@
             </div>
         </div>
     </div>
+
+    <div class="topnav homepages">
+        <a href="{{ url('/') }}">Home</a>
+    </div>
+
     <div class="app flex-row align-items-center">
         <div class="container">
             @yield("content")

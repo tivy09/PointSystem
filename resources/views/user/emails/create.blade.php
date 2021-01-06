@@ -31,7 +31,7 @@
                 <!-- File input field -->
                 <input type="file" name="Email_file" id="Email_file" onchange="return fileValidation()" class="form-control" style="padding-left: 0px;border: 0px;"><br>
                 <!-- Image preview -->
-                <div id="imagePreview" width="51px" height="70px"></div>
+                <div id="imagePreview"></div>
             <div>
                 <input type="hidden" name="EmailSender" value="{{ Auth::user()->name }}">
                 <br><input class="btn btn-danger" type="submit" value="{{ trans('global.send') }}" onclick="return checkError()">

@@ -24,7 +24,7 @@ function fileValidation() {
         if (fileInput.files && fileInput.files[0]) {
             var reader = new FileReader();
             reader.onload = function(e) {
-                document.getElementById('imagePreview').innerHTML = '<img src="' + e.target.result + '"/>';
+                document.getElementById('imagePreview').innerHTML = '<img src="' + e.target.result + '" width="51px" height="70px"/>';
             };
             reader.readAsDataURL(fileInput.files[0]);
         }

@@ -20,6 +20,7 @@ var modal = document.getElementById('id01');
 var modal1 = document.getElementById('id02');
 var modal2 = document.getElementById('id03');
 var modal3 = document.getElementById('id04');
+var modal4 = document.getElementById('id05');
 
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function(event) {
@@ -35,6 +36,13 @@ window.onclick = function(event) {
     if (event.target == modal3) {
         modal3.style.display = "none";
     }
+    if (event.target == modal4) {
+        modal4.style.display = "none";
+    }
+}
+
+function avatar() {
+    document.getElementById('id05').style.display = 'block';
 }
 
 function loading() {
@@ -124,5 +132,28 @@ function serach() {
             break;
         default:
             document.getElementById('id02').style.display = 'block';
+    }
+}
+
+function leave() {
+    location.href = 'http://localhost:8000/leave/create';
+}
+
+function uploadavater() {
+    var fileInput = document.getElementById('avatar_file');
+    var filePath = fileInput.value;
+    var allowedExtensions = /(\.jpg|\.jpeg|\.png|\.gif)$/i;
+    if (!allowedExtensions.exec(filePath)) {
+        imagePreview.style.display = "none";
+    } else {
+        //Image preview
+        avatarupload.style.display = "block";
+        if (fileInput.files && fileInput.files[0]) {
+            var reader = new FileReader();
+            reader.onload = function(e) {
+                document.getElementById('avatarupload').innerHTML = '<br><img src="' + e.target.result + '" width="300px" height="300px"/>';
+            };
+            reader.readAsDataURL(fileInput.files[0]);
+        }
     }
 }

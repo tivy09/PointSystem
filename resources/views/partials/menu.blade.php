@@ -184,7 +184,7 @@
                 </a>
             </li>
             <!-- Leave -->
-            @can('Apply_leave')
+            @can('Apply_leave_Manager')
             <li class="nav-item">
                 <a href="{{ route('user.leave.index') }}" class="nav-link">
                     <i class="nav-icon fas fa-fw">

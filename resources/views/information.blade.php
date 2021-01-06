@@ -3,11 +3,26 @@
 
 @php
 
+// location
 $string1 = rand(1, 5);
+
+// EXPERIENCE
 $string2 = rand(5, 15);
+
+// level
 $string3 = rand(1, 3);
+
+// Age
 $string4 = rand(18, 45);
+
+// Check In
 $string5 = rand(1, 31);
+
+// Comission Test
+$string6 = rand(1, 100);
+
+// Comission Count
+$string7 = rand(100, 500);
 
 if($string1 == 1)
     $location = 'Muar';
@@ -43,7 +58,7 @@ elseif($string3 == 3)
     <div class="card-body">
         <div class="row">
             <div style="background-color: white; width: 470px;">
-                <h3 style="margin-left: 82px;margin-top: 10px;">PROFESSIONAL DETAILS</h3>
+                <h3 style="margin-left: 90px;margin-top: 20px;">PROFESSIONAL DETAILS</h3>
                 <hr>
                 <img src="{{ asset('Avatar/')}}/{{ $user->Avater }}" alt="" class="img-fluid avatar">
                 <br>
@@ -76,25 +91,25 @@ elseif($string3 == 3)
                 <hr>
                 <table style="margin-top: 20px;">
                     <tr>
-                        <td style="width: 200px;height: 90px; font-size: 25px;"><b>NAME</b></td>
+                        <td style="padding-left:20px; width: 200px;height: 90px; font-size: 25px;"><b>NAME</b></td>
                         <td style="font-size: 25px;">{{$user->name}}</td>
                         <td style="width: 150px;height: 90px; font-size: 25px;padding-left: 30px;"><b>AGE</b></td>
                         <td style="font-size: 25px;padding-left: 60px;">{{$string4}} Years</td>
                     </tr>
                     <tr>
-                        <td style="width: 200px;height: 90px; font-size: 25px;"><b>LOCATION</b></td>
+                        <td style="padding-left:20px; width: 200px;height: 90px; font-size: 25px;"><b>LOCATION</b></td>
                         <td style="font-size: 25px;">{{$location}}</td>
                         <td style="width: 150px;height: 90px; font-size: 25px;padding-left: 30px;"><b>EXPERIENCE</b></td>
                         <td style="font-size: 25px;padding-left: 60px;">{{$string2}} Years</td>
                     </tr>
                     <tr>
-                        <td style="width: 200px;height: 90px; font-size: 25px;"><b>LEVEL</b></td>
+                        <td style="padding-left:20px; width: 200px;height: 90px; font-size: 25px;"><b>LEVEL</b></td>
                         <td style="font-size: 25px;">{{$level}}</td>
                         <td style="width: 200px;height: 90px; font-size: 25px;padding-left: 30px;"><b>CAREER LEVEL</b></td>
                         <td style="font-size: 25px;padding-left: 60px;">{{$level}}</td>
                     </tr>
                     <tr>
-                        <td style="width: 200px;height: 90px; font-size: 25px;"><b>EMAIL</b></td>
+                        <td style="padding-left:20px; width: 200px;height: 90px; font-size: 25px;"><b>EMAIL</b></td>
                         <td style="font-size: 25px;">{{$user->email}}</td>
                         <td style="width: 150px;height: 90px; font-size: 25px;padding-left: 30px;"><b>WEBSITE</b></td>
                         <td style="font-size: 25px;padding-left: 60px;">emample.com</td>
@@ -102,15 +117,49 @@ elseif($string3 == 3)
                 </table>
             </div>
         </div>
+        <div class="calculate">
+            <div class="inside">
+                <h5>Salary Calculate Formula</h5>
+                <p>Your Basie Salary + (Your Cheak in Day * RM100/day) + (Your Total Comission cases * RM2/case) - (Your Leave * RM100/day) - (6% tax)</p>
+                <p> = Your Total Salary</p>
+                <button onclick="avatar()" style="width: 200px;">Changes Your Avatar</button>
+                @can('Apply_leave_Employee')
+                    <button style="width: 200px;" onclick="leave()">Apply Leave</button>
+                @endcan
+            </div>
+        </div>
+        <div id="id05" class="modal"">
+            <div class="modal-content animate">
+                <div class="modalcontainer">
+                    <form action="{{ route('user.Avatar.update', ['id' => Auth::user()->id]) }}" method="post" enctype="multipart/form-data">
+                        @csrf
+                        <input type="file" name="avatar_file" id="avatar_file" onchange="return uploadavater()">
+                        <div id="avatarupload"></div>
+                        <button type="submit">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
 @endforeach
 <br><br>
 @foreach($salaries as $salary)
         @php
-            $subtotal = 100 * $leave;
-            $User_salary = $salary-> Salary_amount;
-            $tax = $User_salary*(6/100); 
-            $check = $string5 * 100;
-            $total_salary = $User_salary - $tax - $subtotal + $check;
+            $total_salary = 0;
+            // 底薪
+            $firstSalary = $salary->Salary_amount;
+            // check in
+            $checkin = $string5 * 100;
+            // leave
+            $countleave = $leave * 100;
+            // tax
+            $counttax = $salary->Salary_amount * 6/100;
+            // comission
+            $countcomission = $string7 * 2;
+            // totalsalary
+            if($string6 >= 1 && $string6 <= 50)
+                $total_salary = $firstSalary + $countcomission + $checkin - $countleave - $counttax;
+            else if($string6 >= 51 && $string6 <= 100)
+                $total_salary = $firstSalary + $checkin - $countleave - $counttax;
         @endphp
 
 
@@ -144,32 +193,41 @@ elseif($string3 == 3)
                                     Employee Salary
                                 </th>
                                 <td>
-                                    {{ $salary-> Salary_amount }}
+                                   RM  {{ $salary-> Salary_amount }}
                                 </td>
                             </tr>
                             <tr>
                                 <th style="width: 50%">
-                                    Employee Check In Day ({{$string5}} Day)
+                                    Employee Check In Day (Total Check in Day: {{$string5}} Day)
                                 </th>
                                 <td>
-                                    RM {{ $check }}
+                                    RM {{ $checkin }}
                                 </td>
                             </tr>
                             <tr>
                                 <th style="width: 50%">
-                                    Employee Leave Apply (One day 10 hours/1 hours RM10)
+                                    Employee Leave Apply (One day 10 hours, 1 hours RM10)
                                 </th>
                                 <td>
-                                {{ $leave }} days
+                                {{ $leave }} days / Total Leave Price = RM{{$countleave}}
                                 </td>
                             </tr>
-                            
+                            @if($string6 >= 1 && $string6 <= 50)
+                                <tr>
+                                    <th style="width: 50%">
+                                        Sales Comission (Total Cases: {{$string7}} cases,  RM2/case)
+                                    </th>
+                                    <td>
+                                        RM {{ $countcomission }}
+                                    </td>
+                                </tr>
+                            @endif
                             <tr>
                                 <th style="width: 50%">
                                     Tax (6%)
                                 </th>
                                 <td>
-                                    {{ $tax }}
+                                    RM {{ $counttax }}
                                 </td>
                             </tr>
                             <tr>

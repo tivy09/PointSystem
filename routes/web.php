@@ -135,3 +135,4 @@ Route::post('/Project/Evaluation/store',[              'uses'=>'ProjectControlle
 //face
 Route::get('/Home/Photo/Check',[    'uses'=>'AvaterController@index',     'as'=>'Avatar.index']);
 Route::get('/Home/Photo',[          'uses'=>'AvaterController@create',    'as'=>'user.Avatar.create']);
+Route::post('/home/Information/update/{id}',[ 'uses'=>'AvaterController@update',    'as'=>'user.Avatar.update']);
