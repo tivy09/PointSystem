@@ -15,9 +15,8 @@ use Symfony\Component\HttpFoundation\Response;
 
 class EmailController extends Controller
 {
-    private function getEmail($newEmail)
-    {
-        
+    public function __construct(){
+        $this->middleware('auth');
     }
     /**
      * Display a listing of the resource.

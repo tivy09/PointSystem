@@ -28,7 +28,7 @@
     <script src="{{ asset('js/model.js') }}" defer></script>
     <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
     <script nomodule src="https://unpkg.com/@google/model-viewer/dist/model-viewer-legacy.js"></script>
-    <title>Laravel</title>
+    <title>🎉Compang Information🎉</title>
     <link href="{{ asset('css/custom.css') }}" rel="stylesheet" />
 </head>
 

@@ -43,7 +43,7 @@
                 <select class="form-control" name="position" id="position" required>
                     <option value="">Select one Job Position</option>
                 @foreach($jobapps as $jobapp)
-                    @if($jobapp->CPeople != 0)
+                    @if($jobapp->JobCPeople != 0)
                         <option value="{{ $jobapp->id }}">{{$jobapp->name}} | {{$jobapp->tyName}}</option>
                     @endif
                 @endforeach

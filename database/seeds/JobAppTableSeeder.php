@@ -21,9 +21,9 @@ class JobAppTableSeeder extends Seeder
             ],
             [
                 'id'=>3,
-                'name'=>'Global Business Brand Team - Campaign Activations',
+                'name'=>'Compensation and Benefits Supervisor',
                 'location'=>2,
-                'department'=>3,
+                'department'=>5,
                 'types'=>1,
                 'description'=>'NULL',
                 'JobCPeople'=>2,
