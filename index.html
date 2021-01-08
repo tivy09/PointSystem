@@ -4,19 +4,28 @@
 <head>
     <meta charset="utf-8">
     <title>Change the Color of hr Tag using CSS</title>
-    <style>
-        hr {
-            height: 1px;
-            background-color: #ccc;
-            border: none;
+    <script>
+        function optionSelect() {
+            var d = document.getElementById('ddselect');
+            var displaytext = d.options[d.selectedIndex].text;
+            document.getElementById('txtvalue').value = displaytext;
         }
-    </style>
+    </script>
 </head>
 
 <body>
-    <p>This is a paragraph</p>
-    <hr>
-    <p>This is another paragraph</p>
+
+    <select id="ddselect" onchange="optionSelect();">
+    <option value="">Valitse automerkkisi</option>
+    <option value="lada">Lada</option>
+    <option value="mosse">Mosse</option>
+    <option value="volga">Volga</option>
+    <option value="vartburg">Vartburg</option>
+    <option value="other">Muu</option>
+</select>
+
+    <input type="text" id="txtvalue" name="car" value=""><br>
+
 </body>
 
 </html>

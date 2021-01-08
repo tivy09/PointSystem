@@ -107,6 +107,7 @@ class UsersController extends Controller
     public function massDestroy(MassDestroyUserRequest $request)
     {
         User::whereIn('id', request('ids'))->delete();
+        DB::table('salaries')->where('salaries.id', '=', $id)->delete();
         Toastr::success('Users delete successfully :)','Success');
         return response(null, Response::HTTP_NO_CONTENT);
     }

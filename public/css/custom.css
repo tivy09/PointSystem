@@ -138,7 +138,7 @@ table.dataTable thead .sorting_desc {
 
 .calculate {
     position: absolute;
-    left: 755px;
+    left: 805px;
     top: 560px;
     background-color: white;
     width: 960px;
@@ -152,4 +152,10 @@ table.dataTable thead .sorting_desc {
 .clock {
     position: absolute;
     left: 50;
+}
+
+.Eventclock {
+    position: absolute;
+    top: 140px;
+    left: 1300px;
 }

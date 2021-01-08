@@ -157,3 +157,155 @@ function uploadavater() {
         }
     }
 }
+
+function optionSelect() {
+    var d = document.getElementById('roles');
+    var displaytext = d.options[d.selectedIndex].text;
+    document.getElementById('txtvalue').value = displaytext;
+}
+
+function Manual() {
+    document.getElementById("div1").style.display = "block";
+    document.getElementById("div2").style.display = "none";
+    document.getElementById("div3").style.display = "none";
+    document.getElementById("div4").style.display = "none";
+}
+
+function job() {
+    document.getElementById("div1").style.display = "none";
+    document.getElementById("div2").style.display = "block";
+    document.getElementById("div3").style.display = "none";
+    document.getElementById("div4").style.display = "none";
+}
+
+function chart() {
+    document.getElementById("div1").style.display = "none";
+    document.getElementById("div2").style.display = "none";
+    document.getElementById("div3").style.display = "block";
+    document.getElementById("div4").style.display = "none";
+}
+
+function login() {
+    document.getElementById("div1").style.display = "none";
+    document.getElementById("div2").style.display = "none";
+    document.getElementById("div3").style.display = "none";
+    document.getElementById("div4").style.display = "block";
+}
+
+//  After Login
+function dashboard() {
+    document.getElementById("div1").style.display = "none";
+    document.getElementById("div5").style.display = "block";
+    document.getElementById("div6").style.display = "none";
+    document.getElementById("div7").style.display = "none";
+    document.getElementById("div8").style.display = "none";
+    document.getElementById("div9").style.display = "none";
+    document.getElementById("div10").style.display = "none";
+    document.getElementById("div11").style.display = "none";
+    document.getElementById("div12").style.display = "none";
+    document.getElementById("div13").style.display = "none";
+}
+
+function company() {
+    document.getElementById("div1").style.display = "none";
+    document.getElementById("div5").style.display = "none";
+    document.getElementById("div6").style.display = "none";
+    document.getElementById("div7").style.display = "none";
+    document.getElementById("div8").style.display = "none";
+    document.getElementById("div9").style.display = "none";
+    document.getElementById("div10").style.display = "none";
+    document.getElementById("div11").style.display = "none";
+    document.getElementById("div12").style.display = "none";
+    document.getElementById("div13").style.display = "block";
+}
+
+function user() {
+    document.getElementById("div1").style.display = "none";
+    document.getElementById("div5").style.display = "none";
+    document.getElementById("div6").style.display = "block";
+    document.getElementById("div7").style.display = "none";
+    document.getElementById("div8").style.display = "none";
+    document.getElementById("div9").style.display = "none";
+    document.getElementById("div10").style.display = "none";
+    document.getElementById("div11").style.display = "none";
+    document.getElementById("div12").style.display = "none";
+    document.getElementById("div13").style.display = "none";
+}
+
+function project() {
+    document.getElementById("div1").style.display = "none";
+    document.getElementById("div5").style.display = "none";
+    document.getElementById("div6").style.display = "none";
+    document.getElementById("div7").style.display = "block";
+    document.getElementById("div8").style.display = "none";
+    document.getElementById("div9").style.display = "none";
+    document.getElementById("div10").style.display = "none";
+    document.getElementById("div11").style.display = "none";
+    document.getElementById("div12").style.display = "none";
+    document.getElementById("div13").style.display = "none";
+}
+
+function calender() {
+    document.getElementById("div1").style.display = "none";
+    document.getElementById("div5").style.display = "none";
+    document.getElementById("div6").style.display = "none";
+    document.getElementById("div7").style.display = "none";
+    document.getElementById("div8").style.display = "block";
+    document.getElementById("div9").style.display = "none";
+    document.getElementById("div10").style.display = "none";
+    document.getElementById("div11").style.display = "none";
+    document.getElementById("div12").style.display = "none";
+    document.getElementById("div13").style.display = "none";
+}
+
+function checkin() {
+    document.getElementById("div1").style.display = "none";
+    document.getElementById("div5").style.display = "none";
+    document.getElementById("div6").style.display = "none";
+    document.getElementById("div7").style.display = "none";
+    document.getElementById("div8").style.display = "none";
+    document.getElementById("div9").style.display = "block";
+    document.getElementById("div10").style.display = "none";
+    document.getElementById("div11").style.display = "none";
+    document.getElementById("div12").style.display = "none";
+    document.getElementById("div13").style.display = "none";
+}
+
+function leave() {
+    document.getElementById("div1").style.display = "none";
+    document.getElementById("div5").style.display = "none";
+    document.getElementById("div6").style.display = "none";
+    document.getElementById("div7").style.display = "none";
+    document.getElementById("div8").style.display = "none";
+    document.getElementById("div9").style.display = "none";
+    document.getElementById("div10").style.display = "block";
+    document.getElementById("div11").style.display = "none";
+    document.getElementById("div12").style.display = "none";
+    document.getElementById("div13").style.display = "none";
+}
+
+function salary() {
+    document.getElementById("div1").style.display = "none";
+    document.getElementById("div5").style.display = "none";
+    document.getElementById("div6").style.display = "none";
+    document.getElementById("div7").style.display = "none";
+    document.getElementById("div8").style.display = "none";
+    document.getElementById("div9").style.display = "none";
+    document.getElementById("div10").style.display = "none";
+    document.getElementById("div11").style.display = "block";
+    document.getElementById("div12").style.display = "none";
+    document.getElementById("div13").style.display = "none";
+}
+
+function email() {
+    document.getElementById("div1").style.display = "none";
+    document.getElementById("div5").style.display = "none";
+    document.getElementById("div6").style.display = "none";
+    document.getElementById("div7").style.display = "none";
+    document.getElementById("div8").style.display = "none";
+    document.getElementById("div9").style.display = "none";
+    document.getElementById("div10").style.display = "none";
+    document.getElementById("div11").style.display = "none";
+    document.getElementById("div12").style.display = "block";
+    document.getElementById("div13").style.display = "none";
+}

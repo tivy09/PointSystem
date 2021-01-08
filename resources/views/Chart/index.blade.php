@@ -1,5 +1,6 @@
 @extends('layouts.topnav')
 @section('content')
+<br><br><br>
         <div class="piechart">
             <a href="#" onclick="JanuaryPie()" style="color: black;">2018</a>
             <a href="#" onclick="FebruaryPie()" class="margin" style="color: black;">2019</a>

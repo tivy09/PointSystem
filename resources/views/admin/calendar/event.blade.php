@@ -22,10 +22,14 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.5.1/min/dropzone.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="http://cdn.bootcss.com/toastr.js/latest/css/toastr.min.css">
     <link href="{{ asset('css/custom.css') }}" rel="stylesheet" />
+    <link href="{{ asset('css/clock.css') }}" rel="stylesheet" />
+    <link href="{{ asset('css/todolist.css') }}" rel="stylesheet" />
     <link href="{{ asset('css/email.css') }}" rel="stylesheet" />
     <link href="{{ asset('css/model.css') }}" rel="stylesheet">
     <link href="{{ asset('css/hide.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/Evaluation.css') }}" rel="stylesheet">
     <script src="{{ asset('js/email.js')}}"></script>
+    <script src="{{ asset('js/clock.js')}}"></script>
     <script src="{{ asset('js/leave.js')}}"></script>
     <script src="{{ asset('js/model.js') }}" defer></script>
     <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
@@ -64,6 +68,51 @@
             </li>
             @endif
         </ul>
+
+        <ul class="navbar-nav ml-auto dropdown">
+            <button onclick="dropdownLogout()" class="dropbtn">
+                {{ Auth::user()->name }} <i class="fa fa-caret-down"></i>
+            </button>
+
+            <div id="myDropdown" class="dropdown-content">
+                <a href="{{ route('user.information.show', ['id' => Auth::user()->id]) }}" class="nav-link" style="padding-left: 10px;">
+                    <i class="nav-icon fas fa-fw">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-file-person" viewBox="0 0 16 16">
+                        <path d="M12 1a1 1 0 0 1 1 1v10.755S12 11 8 11s-5 1.755-5 1.755V2a1 1 0 0 1 1-1h8zM4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H4z"/>
+                        <path d="M8 10a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+                        </svg>
+                    </i> Information
+                </a>
+                <a href="{{ url('/') }}" class="nav-link" style="padding-left: 10px;" onclick="">
+                    <img src="{{ asset('Icon/house-fill.svg') }}" alt="" class="nav-icon fas fa-fw"> Home
+                </a>
+                <a href="" class="nav-link" style="padding-left: 10px;" onclick="event.preventDefault(); document.getElementById('logoutform').submit();">
+                    <i class="nav-icon fas fa-fw fa-sign-out-alt"></i>{{ trans('global.logout') }}
+                </a>
+            </div>
+            <script>
+                /* When the user clicks on the button, 
+                toggle between hiding and showing the dropdown content */
+                function dropdownLogout() {
+                    document.getElementById("myDropdown").classList.toggle("show");
+                }
+
+                // Close the dropdown if the user clicks outside of it
+                window.onclick = function(event) {
+                if (!event.target.matches('.dropbtn')) {
+                    var dropdowns = document.getElementsByClassName("dropdown-content");
+                    var i;
+                    for (i = 0; i < dropdowns.length; i++) {
+                        var openDropdown = dropdowns[i];
+                            if (openDropdown.classList.contains('show')) {
+                                openDropdown.classList.remove('show');
+                            }
+                        }
+                    }
+                }
+            </script>
+            <!-- {{ Auth::user()->email }} -->
+        </ul>
     </header>
     
     <div class="app-body">
@@ -87,30 +136,6 @@
                 @endif 
             </div>
         </main>
-        <div>
-            <div class="model-position">
-                <a onclick="document.getElementById('id01').style.display = 'block';">
-                    <model-viewer id="model" src="{{ asset('model/RobotExpressive.glb') }}" alt="A 3D model of an astronaut" animation-name="none" style="width: 100px; height: 120px;" autoplay></model-viewer>
-                </a>
-            </div>
-            <div id="id01" class="modal">
-                <div class="modal-content animate">
-                    <div class="modalcontainer">
-                        <label for="Search"><b>Search Somethings</b></label>
-                        <input type="text" id="keyword" placeholder="like Email, Job Salary Calculate and so.....">
-                        <button type="button" onclick="loading()">Search</button>
-                    </div>
-                </div>
-            </div>
-            <div id="id02" class="modal">
-                <div class="modal-content animate">
-                    <div class="modalcontainer">
-                        <label for="result"><b>Result</b></label>
-                        <p>Nothings</p>
-                    </div>
-                </div>
-            </div>
-        </div>
     </div>
         <form id="logoutform" action="{{ route('logout') }}" method="POST" style="display: none;">
             {{ csrf_field() }}
@@ -132,7 +157,6 @@
     <script src="//cdnjs.cloudflare.com/ajax/libs/jszip/2.5.0/jszip.min.js"></script>
     <script src="https://cdn.datatables.net/select/1.3.0/js/dataTables.select.min.js"></script>
     <script src="https://cdn.ckeditor.com/ckeditor5/11.0.1/classic/ckeditor.js"></script>
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/js/bootstrap-datetimepicker.min.js"></script> -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.5/js/select2.full.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.5.1/min/dropzone.min.js"></script>
     @yield('scripts')
@@ -151,12 +175,144 @@
             color: black;
         }
     </style>
+    <div class="Eventclock">
+        <canvas id="canvas" width="200" height="200" style="background-color:#e5e5e6"></canvas>
+        <h2 style="padding-left: 40px;"><p id="demo"></p></h2>
+        <h2 style="padding-left: 40px;">Today Day: <p id="demo1"></p></h2>
+    </div>
     {!! $calendar->calendar() !!}
     {!! $calendar->script() !!}
 
+    <div class="model-position">
+        <a onclick="document.getElementById('id01').style.display = 'block';">
+            <model-viewer id="model" src="{{ asset('model/RobotExpressive.glb') }}" alt="A 3D model of an astronaut" animation-name="none" style="width: 100px; height: 120px;" autoplay></model-viewer>
+        </a>
+    </div>
+    <div id="id01" class="modal">
+        <div class="modal-content animate">
+            <div class="modalcontainer">
+                <label for="Search"><b>Search Somethings</b></label>
+                <input type="text" id="keyword" placeholder="like Email, Job Salary Calculate and so.....">
+                <input type="hidden" id="userid" value="{{ Auth::user()->id }}">
+                <button type="button" onclick="loading()">Search</button>
+                <div>
+                    <p style="text-decoration: underline;">Recommended Option</p>
+                    <a onclick="createProject()" class="button3" style="color: #fff;">Create Project</a>
+                    <a onclick="Manual()" class="button3" style="color: #fff;">User Manual</a>
+                    <a onclick="leave()" class="button3" style="color: #fff;">Apply for Vacation</a>
+                    <a onclick="salary()" class="button3" style="color: #fff;">Salary</a>
+                    <a onclick="email()" class="button3" style="color: #fff;">Email</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="id04" class="modal"">
+        <div class="modal-content animate">
+            <div class="modalcontainer">
+                <model-viewer id="model" src="{{ asset('model/RobotExpressive.glb') }}" alt="A 3D model of an astronaut" animation-name="Running" style="width: 400px; height: 400px;margin-left: 25px;" autoplay></model-viewer>
+                <p style="margin-left: 180px; font-size: 25px;">Loading...</p>
+            </div>
+        </div>
+    </div>
+    <div id="id02" class="modal">
+        <div class="modal-content animate">
+            <div class="modalcontainer">
+                <label for="result"><b>Result</b></label>
+                <p>Nothings, Maybe You can try the botton at the below.😁</p>
+            </div>
+        </div>
+    </div>
     <script src="http://cdn.bootcss.com/toastr.js/latest/js/toastr.min.js"></script>
     {!! Toastr::message() !!}
+<script>
+var d = new Date();
+var days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+document.getElementById("demo").innerHTML = days[d.getDay()];
 
+var today = new Date();
+var date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
+document.getElementById("demo1").innerHTML = date;
+
+var canvas = document.getElementById("canvas");
+var ctx = canvas.getContext("2d");
+var radius = canvas.height / 2;
+ctx.translate(radius, radius);
+radius = radius * 0.90
+setInterval(drawClock, 1000);
+
+function drawClock() {
+    drawFace(ctx, radius);
+    drawNumbers(ctx, radius);
+    drawTime(ctx, radius);
+}
+
+function drawFace(ctx, radius) {
+    var grad;
+    ctx.beginPath();
+    ctx.arc(0, 0, radius, 0, 2 * Math.PI);
+    ctx.fillStyle = 'white';
+    ctx.fill();
+    grad = ctx.createRadialGradient(0, 0, radius * 0.95, 0, 0, radius * 1.05);
+    grad.addColorStop(0, '#333');
+    grad.addColorStop(0.5, 'white');
+    grad.addColorStop(1, '#333');
+    ctx.strokeStyle = grad;
+    ctx.lineWidth = radius * 0.1;
+    ctx.stroke();
+    ctx.beginPath();
+    ctx.arc(0, 0, radius * 0.1, 0, 2 * Math.PI);
+    ctx.fillStyle = '#333';
+    ctx.fill();
+}
+
+function drawNumbers(ctx, radius) {
+    var ang;
+    var num;
+    ctx.font = radius * 0.15 + "px arial";
+    ctx.textBaseline = "middle";
+    ctx.textAlign = "center";
+    for (num = 1; num < 13; num++) {
+        ang = num * Math.PI / 6;
+        ctx.rotate(ang);
+        ctx.translate(0, -radius * 0.85);
+        ctx.rotate(-ang);
+        ctx.fillText(num.toString(), 0, 0);
+        ctx.rotate(ang);
+        ctx.translate(0, radius * 0.85);
+        ctx.rotate(-ang);
+    }
+}
+
+function drawTime(ctx, radius) {
+    var now = new Date();
+    var hour = now.getHours();
+    var minute = now.getMinutes();
+    var second = now.getSeconds();
+    //hour
+    hour = hour % 12;
+    hour = (hour * Math.PI / 6) +
+        (minute * Math.PI / (6 * 60)) +
+        (second * Math.PI / (360 * 60));
+    drawHand(ctx, hour, radius * 0.5, radius * 0.07);
+    //minute
+    minute = (minute * Math.PI / 30) + (second * Math.PI / (30 * 60));
+    drawHand(ctx, minute, radius * 0.8, radius * 0.07);
+    // second
+    second = (second * Math.PI / 30);
+    drawHand(ctx, second, radius * 0.9, radius * 0.02);
+}
+
+function drawHand(ctx, pos, length, width) {
+    ctx.beginPath();
+    ctx.lineWidth = width;
+    ctx.lineCap = "round";
+    ctx.moveTo(0, 0);
+    ctx.rotate(pos);
+    ctx.lineTo(0, -length);
+    ctx.stroke();
+    ctx.rotate(-pos);
+}
+</script>
 </body>
 
 </html>

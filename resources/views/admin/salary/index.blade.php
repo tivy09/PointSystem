@@ -10,7 +10,7 @@
                     <table id="zero_config" class="table table-bordered table-striped table-hover datatable datatable-Role">
                         <thead>
                             <tr>
-                                <th>
+                                <th style="width: 50px;">
                                     No.
                                 </th>
                                 <th>
@@ -42,9 +42,9 @@
                                     <a class="btn btn-xs btn-info" href="{{ route('user.salary.edit', ['id' => $user->id]) }}">
                                         {{ trans('global.edit') }}
                                     </a>
-                                    <!-- <a href="{{ route('user.salary.destroy', ['id' => $user->id]) }}" class="btn btn-xs btn-danger" onclick="return confirm('Sure Want Delete?')">
+                                    <a href="{{ route('user.salary.destroy', ['id' => $user->id]) }}" class="btn btn-xs btn-danger" onclick="return confirm('Sure Want Delete?')">
                                         {{ trans('global.delete') }}
-                                    </a> -->
+                                    </a>
                                 </td>
                             </tr>
                             @endforeach

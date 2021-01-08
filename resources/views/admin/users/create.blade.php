@@ -67,7 +67,7 @@
             @if(!request()->has('student'))
                 <div class="form-group">
                     <label class="required" for="roles">{{ trans('cruds.user.fields.roles') }}</label>
-                    <select class="form-control select2" name="roles[]" id="roles" required>
+                    <select class="form-control select2" name="roles[]" id="roles" onchange="optionSelect();"required>
                             <option value="">Select one Roles</option>
                         @foreach($roles as $id => $roles)
                             <option value="{{ $id }}">{{ $roles }}</option>
@@ -85,6 +85,7 @@
             @endif
                 <input type="hidden" name="NewID" value="{{$LastID + 1}}">
             <div class="form-group">
+                <input type="hidden" id="txtvalue" name="position" value="">
                 <button class="btn btn-danger" type="submit">
                     {{ trans('global.save') }}
                 </button>

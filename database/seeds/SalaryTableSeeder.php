@@ -72,6 +72,14 @@ class SalaryTableSeeder extends Seeder
                 'created_at'=>'2020-12-15 09:56:13',
                 'updated_at'=>'2020-12-15 09:56:13'
             ],
+            [
+                'id'=>9,
+                'employee_id'=>9,
+                'Salary_amount'=>1200,
+                'tax'=>6,
+                'created_at'=>'2020-12-15 09:56:13',
+                'updated_at'=>'2020-12-15 09:56:13'
+            ],
         ];
 
         salary::insert($salarys);

@@ -58,3 +58,8 @@ body {
     padding-right: 30px;
     display: none;
 }
+
+.background {
+    background-color: #fff;
+    margin: 35px;
+}

@@ -51,10 +51,17 @@ class SalaryController extends Controller
      */
     public function show($id)
     {
-        $user = user::all()->where('id',$id);
+        $user = DB::table('users')
+        ->leftjoin('project_tasks', 'project_tasks.User_id', '=', 'users.name')
+        ->leftjoin('projects', 'projects.Leader_id', '=', 'users.id')
+        ->leftjoin('salaries', 'salaries.employee_id', '=', 'users.id')
+        ->select('project_tasks.name as tasksName', 'projects.Name as projectName', 'salaries.Salary_amount as salary', 'users.*')
+        ->where('users.id', '=', $id)
+        ->get();
+        
         $salary = salary::all()->where('employee_id', $id);
         $leave = DB::table('leaves')->where('employee_id', $id)->where('is_approved','=',1)->sum('days');
-        return view('admin.salary.show', compact('leave'))->with('users',$user)->with('salaries', $salary);
+        return view('admin.salary.show', compact('leave'))->with('users', $user)->with('salaries', $salary);
     }
 
     /**
@@ -100,15 +107,11 @@ class SalaryController extends Controller
      */
     public function destroy($id)
     {
-        $user = DB::table('users')
-        ->select('users.id', '=', $id)
-        ->delete();
+        DB::table('salaries')->where('salaries.id', '=', $id)->delete();
+        DB::table('users')->where('users.id', '=', $id)->delete();
 
-        $salary = DB::table('salaries')
-        ->select('salaries.employee_id', '=', $id)
-        ->delete();
+        Toastr::success('Salary and User update successfully :)','Success');
 
-        $user=user::all();
-        return view('admin.salary.index')->with('users',$user);
+        return redirect()->route('user.salary.index');
     }
 }

@@ -57,10 +57,10 @@ elseif($string3 == 3)
 @foreach($users as $user)
     <div class="card-body">
         <div class="row">
-            <div style="background-color: white; width: 470px;">
-                <h3 style="margin-left: 90px;margin-top: 20px;">PROFESSIONAL DETAILS</h3>
+            <div style="background-color: white; width: 520px;">
+                <h3 style="margin-left: 120px;margin-top: 20px;">PROFESSIONAL DETAILS</h3>
                 <hr>
-                <img src="{{ asset('Avatar/')}}/{{ $user->Avater }}" alt="" class="img-fluid avatar">
+                <img src="{{ asset('Avatar/')}}/{{ $user->Avater }}" alt="" class="img-fluid avatar" style="margin-left: 110px;">
                 <br>
                 <table class="table" style="margin-top: 20px;">
                     <tr>

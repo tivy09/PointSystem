@@ -129,7 +129,7 @@ class PermissionsTableSeeder extends Seeder
                 'title' => 'Apply_leave_Manager',
             ],
             [
-                'id'    => '30',
+                'id'    => '31',
                 'title' => 'Apply_leave_Employee',
             ],
         ];

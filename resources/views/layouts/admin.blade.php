@@ -80,6 +80,9 @@
                         </svg>
                     </i> Information
                 </a>
+                <a href="{{ url('/') }}" class="nav-link" style="padding-left: 10px;" onclick="">
+                    <img src="{{ asset('Icon/house-fill.svg') }}" alt="" class="nav-icon fas fa-fw"> Home
+                </a>
                 <a href="" class="nav-link" style="padding-left: 10px;" onclick="event.preventDefault(); document.getElementById('logoutform').submit();">
                     <i class="nav-icon fas fa-fw fa-sign-out-alt"></i>{{ trans('global.logout') }}
                 </a>
