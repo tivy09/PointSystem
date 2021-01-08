@@ -53,7 +53,7 @@
                             {{$loop -> index+1 }}
                         </td>
                         <td>
-                            {{$leave->employee_name }}
+                            {{$leave->employee_name}}
                         </td>
                         <td>
                             {{$leave->leave_type}}
@@ -73,17 +73,21 @@
                         <td>
                             @if($leave->is_approved == null)
                                 <form action="{{ route('user.leave.approved', ['id' => $leave->id]) }}" method="get">
+                                    <input type="hidden" name="employee_email" value="{{$leave->employee_id}}">
                                     <button type="submit" class="btn btn-xs btn-primary" value="1" name="approved" onclick="return confirm('Are you sure want to approve leave?')">Approve</button>
                                 </form>
                                 <form action="{{ route('user.leave.reject', ['id' => $leave->id]) }}" method="get">
+                                    <input type="hidden" name="employee_email" value="{{$leave->employee_id}}">
                                     <button type="submit" class="btn btn-xs btn-danger" value="2" name="reject" onclick="return confirm('Are you sure want to reject leave?')">Reject</button>
                                 </form>
                             @elseif($leave->is_approved == 1)
                                 <form action="{{ route('user.leave.reject', ['id' => $leave->id]) }}" method="get">
+                                    <input type="hidden" name="employee_email" value="{{$leave->employee_id}}">
                                     <button type="submit" class="btn btn-xs btn-danger" value="2" name="reject" onclick="return confirm('Are you sure want to reject leave?')">Reject</button>
                                 </form>
                             @else
                                 <form action="{{ route('user.leave.approved', ['id' => $leave->id]) }}" method="get">
+                                    <input type="hidden" name="employee_email" value="{{$leave->employee_id}}">
                                     <button type="submit" class="btn btn-xs btn-primary" value="1" name="approved" onclick="return confirm('Are you sure want to approve leave?')">Approve</button>
                                 </form>
                             @endif

@@ -67,35 +67,35 @@ function aleat() {
     modal.style.display = "none";
 }
 
-function email() {
+function emailrobot() {
     document.getElementById("keyword").value = "Email";
 }
 
-function leave() {
+function leaverobot() {
     document.getElementById("keyword").value = "Apply for Vacation";
 }
 
-function salary() {
+function salaryrobot() {
     document.getElementById("keyword").value = "Salary";
 }
 
-function createProject() {
+function createProjectrobot() {
     document.getElementById("keyword").value = "Create Project";
 }
 
-function Manual() {
+function Manualrobot() {
     document.getElementById("keyword").value = "User Manual";
 }
 
-function Login() {
+function Loginrobot() {
     document.getElementById("keyword").value = "login";
 }
 
-function Home() {
+function Homerobot() {
     document.getElementById("keyword").value = "Home Pages";
 }
 
-function dashboard() {
+function dashboardrobot() {
     document.getElementById("keyword").value = "dashboard";
 }
 
@@ -128,14 +128,14 @@ function serach() {
             break;
         case "User Manual":
             // user manual
-            location.href = add;
+            location.href = 'http://localhost:8000/UserManual';
             break;
         default:
             document.getElementById('id02').style.display = 'block';
     }
 }
 
-function leave() {
+function leavebutton() {
     location.href = 'http://localhost:8000/leave/create';
 }
 
@@ -169,6 +169,17 @@ function Manual() {
     document.getElementById("div2").style.display = "none";
     document.getElementById("div3").style.display = "none";
     document.getElementById("div4").style.display = "none";
+    document.getElementById("div5").style.display = "none";
+    document.getElementById("div6").style.display = "none";
+    document.getElementById("div7").style.display = "none";
+    document.getElementById("div8").style.display = "none";
+    document.getElementById("div9").style.display = "none";
+    document.getElementById("div10").style.display = "none";
+    document.getElementById("div11").style.display = "none";
+    document.getElementById("div12").style.display = "none";
+    document.getElementById("div14").style.display = "none";
+    document.getElementById("div13").style.display = "none";
+
 }
 
 function job() {
@@ -176,6 +187,16 @@ function job() {
     document.getElementById("div2").style.display = "block";
     document.getElementById("div3").style.display = "none";
     document.getElementById("div4").style.display = "none";
+    document.getElementById("div5").style.display = "none";
+    document.getElementById("div6").style.display = "none";
+    document.getElementById("div7").style.display = "none";
+    document.getElementById("div8").style.display = "none";
+    document.getElementById("div9").style.display = "none";
+    document.getElementById("div10").style.display = "none";
+    document.getElementById("div11").style.display = "none";
+    document.getElementById("div12").style.display = "none";
+    document.getElementById("div14").style.display = "none";
+    document.getElementById("div13").style.display = "none";
 }
 
 function chart() {
@@ -183,6 +204,16 @@ function chart() {
     document.getElementById("div2").style.display = "none";
     document.getElementById("div3").style.display = "block";
     document.getElementById("div4").style.display = "none";
+    document.getElementById("div5").style.display = "none";
+    document.getElementById("div6").style.display = "none";
+    document.getElementById("div7").style.display = "none";
+    document.getElementById("div8").style.display = "none";
+    document.getElementById("div9").style.display = "none";
+    document.getElementById("div10").style.display = "none";
+    document.getElementById("div11").style.display = "none";
+    document.getElementById("div12").style.display = "none";
+    document.getElementById("div14").style.display = "none";
+    document.getElementById("div13").style.display = "none";
 }
 
 function login() {
@@ -190,11 +221,24 @@ function login() {
     document.getElementById("div2").style.display = "none";
     document.getElementById("div3").style.display = "none";
     document.getElementById("div4").style.display = "block";
+    document.getElementById("div5").style.display = "none";
+    document.getElementById("div6").style.display = "none";
+    document.getElementById("div7").style.display = "none";
+    document.getElementById("div8").style.display = "none";
+    document.getElementById("div9").style.display = "none";
+    document.getElementById("div10").style.display = "none";
+    document.getElementById("div11").style.display = "none";
+    document.getElementById("div12").style.display = "none";
+    document.getElementById("div14").style.display = "none";
+    document.getElementById("div13").style.display = "none";
 }
 
 //  After Login
 function dashboard() {
     document.getElementById("div1").style.display = "none";
+    document.getElementById("div2").style.display = "none";
+    document.getElementById("div3").style.display = "none";
+    document.getElementById("div4").style.display = "none";
     document.getElementById("div5").style.display = "block";
     document.getElementById("div6").style.display = "none";
     document.getElementById("div7").style.display = "none";
@@ -203,6 +247,7 @@ function dashboard() {
     document.getElementById("div10").style.display = "none";
     document.getElementById("div11").style.display = "none";
     document.getElementById("div12").style.display = "none";
+    document.getElementById("div14").style.display = "none";
     document.getElementById("div13").style.display = "none";
 }
 
@@ -216,6 +261,7 @@ function company() {
     document.getElementById("div10").style.display = "none";
     document.getElementById("div11").style.display = "none";
     document.getElementById("div12").style.display = "none";
+    document.getElementById("div14").style.display = "none";
     document.getElementById("div13").style.display = "block";
 }
 
@@ -229,6 +275,7 @@ function user() {
     document.getElementById("div10").style.display = "none";
     document.getElementById("div11").style.display = "none";
     document.getElementById("div12").style.display = "none";
+    document.getElementById("div14").style.display = "none";
     document.getElementById("div13").style.display = "none";
 }
 
@@ -242,6 +289,7 @@ function project() {
     document.getElementById("div10").style.display = "none";
     document.getElementById("div11").style.display = "none";
     document.getElementById("div12").style.display = "none";
+    document.getElementById("div14").style.display = "none";
     document.getElementById("div13").style.display = "none";
 }
 
@@ -255,6 +303,7 @@ function calender() {
     document.getElementById("div10").style.display = "none";
     document.getElementById("div11").style.display = "none";
     document.getElementById("div12").style.display = "none";
+    document.getElementById("div14").style.display = "none";
     document.getElementById("div13").style.display = "none";
 }
 
@@ -268,6 +317,7 @@ function checkin() {
     document.getElementById("div10").style.display = "none";
     document.getElementById("div11").style.display = "none";
     document.getElementById("div12").style.display = "none";
+    document.getElementById("div14").style.display = "none";
     document.getElementById("div13").style.display = "none";
 }
 
@@ -281,6 +331,7 @@ function leave() {
     document.getElementById("div10").style.display = "block";
     document.getElementById("div11").style.display = "none";
     document.getElementById("div12").style.display = "none";
+    document.getElementById("div14").style.display = "none";
     document.getElementById("div13").style.display = "none";
 }
 
@@ -294,6 +345,7 @@ function salary() {
     document.getElementById("div10").style.display = "none";
     document.getElementById("div11").style.display = "block";
     document.getElementById("div12").style.display = "none";
+    document.getElementById("div14").style.display = "none";
     document.getElementById("div13").style.display = "none";
 }
 
@@ -308,4 +360,20 @@ function email() {
     document.getElementById("div11").style.display = "none";
     document.getElementById("div12").style.display = "block";
     document.getElementById("div13").style.display = "none";
+    document.getElementById("div14").style.display = "none";
+    document.getElementById("div14").style.display = "none";
+}
+
+function information() {
+    document.getElementById("div1").style.display = "none";
+    document.getElementById("div5").style.display = "none";
+    document.getElementById("div6").style.display = "none";
+    document.getElementById("div7").style.display = "none";
+    document.getElementById("div8").style.display = "none";
+    document.getElementById("div9").style.display = "none";
+    document.getElementById("div10").style.display = "none";
+    document.getElementById("div11").style.display = "none";
+    document.getElementById("div12").style.display = "none";
+    document.getElementById("div13").style.display = "none";
+    document.getElementById("div14").style.display = "block";
 }

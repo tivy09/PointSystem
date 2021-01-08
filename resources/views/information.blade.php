@@ -124,7 +124,7 @@ elseif($string3 == 3)
                 <p> = Your Total Salary</p>
                 <button onclick="avatar()" style="width: 200px;">Changes Your Avatar</button>
                 @can('Apply_leave_Employee')
-                    <button style="width: 200px;" onclick="leave()">Apply Leave</button>
+                    <button style="width: 200px;" onclick="leavebutton()">Apply Leave</button>
                 @endcan
             </div>
         </div>

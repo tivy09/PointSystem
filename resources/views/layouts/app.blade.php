@@ -54,17 +54,17 @@
                     <p style="text-decoration: underline;">Recommended Option</p>
                     <!-- No Login -->
                     @guest
-                    <a onclick="Login()" class="button3" style="color: #fff;">Login</a>
-                    <a onclick="Manual()" class="button3" style="color: #fff;">User Manual</a>
-                    <a onclick="Home()" class="button3" style="color: #fff;">Home Pages</a>
+                    <a onclick="Loginrobot()" class="button3" style="color: #fff;">Login</a>
+                    <a onclick="Manualrobot()" class="button3" style="color: #fff;">User Manual</a>
+                    <a onclick="Homerobot()" class="button3" style="color: #fff;">Home Pages</a>
                     <!-- After Login -->
                     @else
-                    <a onclick="dashboard()" class="button3" style="color: #fff;">Dashboard</a>
-                    <a onclick="createProject()" class="button3" style="color: #fff;">Create Project</a>
-                    <a onclick="Manual()" class="button3" style="color: #fff;">User Manual</a>
-                    <a onclick="leave()" class="button3" style="color: #fff;">Apply for Vacation</a>
-                    <a onclick="salary()" class="button3" style="color: #fff;">Salary</a>
-                    <a onclick="email()" class="button3" style="color: #fff;">Email</a>
+                    <a onclick="dashboardrobot()" class="button3" style="color: #fff;">Dashboard</a>
+                    <a onclick="createProjectrobot()" class="button3" style="color: #fff;">Create Project</a>
+                    <a onclick="Manualrobot()" class="button3" style="color: #fff;">User Manual</a>
+                    <a onclick="leaverobot()" class="button3" style="color: #fff;">Apply for Vacation</a>
+                    <a onclick="salaryrobot()" class="button3" style="color: #fff;">Salary</a>
+                    <a onclick="emailrobot()" class="button3" style="color: #fff;">Email</a>
                     @endguest
                 </div>
             </div>

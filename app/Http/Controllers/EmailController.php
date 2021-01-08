@@ -8,8 +8,7 @@ use Brian2694\Toastr\Facades\Toastr;
 use App\Http\Requests\MassDestroyMeetingRequest;
 use App\Http\Requests\StoreMeetingRequest;
 use App\Http\Requests\UpdateMeetingRequest;
-use Gate;
-use Session;
+use Auth;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 
@@ -27,6 +26,7 @@ class EmailController extends Controller
     {
         $email=DB::table('emails')
         ->select('emails.*')
+        ->where('emails.to_email','=',Auth::user()->email)
         ->get();
         return view('user.emails.index')->with('emails', $email);
     }

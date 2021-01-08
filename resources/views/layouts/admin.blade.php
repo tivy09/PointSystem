@@ -22,14 +22,12 @@
     <link rel="stylesheet" href="http://cdn.bootcss.com/toastr.js/latest/css/toastr.min.css"> 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link href="{{ asset('css/custom.css') }}" rel="stylesheet" />
-    <link href="{{ asset('css/clock.css') }}" rel="stylesheet" />
     <link href="{{ asset('css/todolist.css') }}" rel="stylesheet" />
     <link href="{{ asset('css/email.css') }}" rel="stylesheet" />
     <link href="{{ asset('css/model.css') }}" rel="stylesheet">
     <link href="{{ asset('css/hide.css') }}" rel="stylesheet">
     <link href="{{ asset('css/Evaluation.css') }}" rel="stylesheet">
     <script src="{{ asset('js/email.js')}}"></script>
-    <script src="{{ asset('js/clock.js')}}"></script>
     <script src="{{ asset('js/leave.js')}}"></script>
     <script src="{{ asset('js/model.js') }}" defer></script>
     <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
@@ -41,6 +39,12 @@
         @if(Session::has('success'))
             toastr.success('{{ Session::get('success')}}')
         @endif
+
+        function load() {
+            if (confirm("You can read the user manual, which will make it easy for you to understand the system operation. You want to go?")) {
+                location.href = 'http://localhost:8000/UserManual';
+            } else {}robot
+        }
     </script>
 </head>
 
@@ -149,11 +153,11 @@
                         <button type="button" onclick="loading()">Search</button>
                         <div>
                             <p style="text-decoration: underline;">Recommended Option</p>
-                            <a onclick="createProject()" class="button3" style="color: #fff;">Create Project</a>
-                            <a onclick="Manual()" class="button3" style="color: #fff;">User Manual</a>
-                            <a onclick="leave()" class="button3" style="color: #fff;">Apply for Vacation</a>
-                            <a onclick="salary()" class="button3" style="color: #fff;">Salary</a>
-                            <a onclick="email()" class="button3" style="color: #fff;">Email</a>
+                            <a onclick="createProjectrobot()" class="button3" style="color: #fff;">Create Project</a>
+                            <a onclick="Manualrobot()" class="button3" style="color: #fff;">User Manual</a>
+                            <a onclick="leaverobot()" class="button3" style="color: #fff;">Apply for Vacation</a>
+                            <a onclick="salaryrobot()" class="button3" style="color: #fff;">Salary</a>
+                            <a onclick="emailrobot()" class="button3" style="color: #fff;">Email</a>
                         </div>
                     </div>
                 </div>

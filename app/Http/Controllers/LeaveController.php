@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use DB;
 use App\User;
 use App\Leave;
+use App\Email;
 use Illuminate\Http\Request;
 use Brian2694\Toastr\Facades\Toastr;
 use Illuminate\Support\Facades\Auth;
@@ -105,6 +106,16 @@ class LeaveController extends Controller
         $leave = Leave::find($id);
         $leave->is_approved = $request->approved;
         $leave->save();
+
+        $addEmail=Email::create([
+            'form_email'=>"Human Resourse Department",
+            'to_email'=>$request->employee_email,
+            'EmailSender'=>"Human Resourse Department",
+            'Email_title'=>"Leave Application",
+            'Email_file'=>"",
+            'Email_MSG'=>"Your Leave already Approved.🙂",
+        ]);
+
         return redirect()->route('user.leave.index');
     }
 
@@ -113,6 +124,16 @@ class LeaveController extends Controller
         $leave = Leave::find($id);
         $leave->is_approved = $request->reject;
         $leave->save();
+
+        $addEmail=Email::create([
+            'form_email'=>"Human Resourse Department",
+            'to_email'=>$request->employee_email,
+            'EmailSender'=>"Human Resourse Department",
+            'Email_title'=>"Leave Application",
+            'Email_file'=>"",
+            'Email_MSG'=>"Your Leave already Reject.😟",
+        ]);
+
         return redirect()->route('user.leave.index');
     }
 }

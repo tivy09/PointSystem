@@ -159,3 +159,9 @@ table.dataTable thead .sorting_desc {
     top: 140px;
     left: 1300px;
 }
+
+.DeleteButton {
+    position: absolute;
+    top: 720px;
+    left: 200px;
+}

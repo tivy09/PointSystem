@@ -21,6 +21,7 @@ class CreateEmailsTable extends Migration
             $table->string('EmailSender');
             $table->string('Email_MSG')->nullable();
             $table->string('Email_file')->nullable();
+            $table->date('date_current');
             $table->timestamps();
             $table->softDeletes();
         });

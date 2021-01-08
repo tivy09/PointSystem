@@ -8,39 +8,49 @@
     </div>
 </div>
 
-<div class="card">
+<div class="card" style="width: 1330px;">
     <div class="card-header">
         Inbox
     </div>
 
-    <div class="card-body" style="height: 470px;">
+    <div class="card-body" style="height: 750px;">
         <div class="row">
-            <div class="row-md-4 row-md-push-4" style="padding-left: 15px; padding-right: 15px;">
-                <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for Email/Date.." title="Type in a name">
+            <div class="row-md-4 row-md-push-4" style="padding-left: 15px; padding-right: 15px;height: 700px;">
+                <input type="text" id="myInput" onkeyup="searchEmail()" placeholder="Search for Email/Date.." title="Type in a name">
                     <div id="myUL">
                             @foreach($emails as $email)
-                                @php
-                                    $UEmail = Auth::user()->email;
-                                    $WEmail = $email->to_email;
-                                @endphp
-
-                                @if ($WEmail == $UEmail)
                                 <div class="emailheader">
                                     <a onclick="OpenWindow(event, '{{$email->created_at}}' )" class="tablinks" style="border-top-width: 2px;">{{$email->Email_title}}
-                                    <p>{{$email->form_email}}<b>{{$email->created_at}}</b></p></a>
+                                    <p>{{$email->form_email}}<b style="margin-left: 10px;">{{$email->date_current}}</b></p></a>
                                 </div>
-                                @endif
-
                             @endforeach
                     </div>
             </div>
-            <div class="row-md-8 row-md-pull-8" style="width: 650px; background-color: yellow;">
+            <div class="row-md-8 row-md-pull-8" style="width: 900px;">
             @foreach($emails as $email)
-                <div class="col-xs-8 tabcontent" id="{{$email->created_at}}">
+                <div class="col-xs-8 tabcontent" id="{{$email->created_at}}" style="width: 850px;">
                     <h1>{{$email->Email_title}}</h1>
-                    <p>{{$email->Email_MSG}}</p>
-                    <p>To: &nbsp;&nbsp;&lt;{{$email->to_email}}&gt;<a href="{{ route('user.email.destroy', ['id' => $email->id]) }}" class="btn btn-danger deleteEmail" onclick="return confirm('Sure Want Delete?')">Delete</a></p>
+                    <p>To: &nbsp;&nbsp;&lt;{{$email->to_email}}&gt;</p>
+                    <p style="font-size: 25px;">{{$email->Email_MSG}}</p>
+                    @if($email->Email_file != null)
+                        <a href="{{ asset('Email_File/' )}}/{{ $email->Email_file }}" id="FILE{{$loop->index+1}}" style="display: none;" download>{{ $email->Email_file }}</a>
+                        <img src="{{ asset('Email_File/' )}}/{{ $email->Email_file }}" id="IMG{{$loop->index+1}}" style="display: none;" alt="FILE" width="50%">
+                    @endif
+                    <div class="DeleteButton">
+                        <a href="{{ route('user.email.destroy', ['id' => $email->id]) }}" class="btn btn-danger deleteEmail" onclick="return confirm('Sure Want Delete?')">Delete</a>
+                    </div>
                 </div>
+                <script>
+                    var txt = '{{ $email->Email_file }}'.slice(-3);
+                    console.log(txt);
+                    if(txt == 'png' || txt == 'jpg' || txt == 'gif'){
+                        document.getElementById("IMG{{$loop->index+1}}").style.display = "block";
+                        document.getElementById("FILE{{$loop->index+1}}").style.display = "none";
+                    }else{
+                        document.getElementById("IMG{{$loop->index+1}}").style.display = "none";
+                        document.getElementById("FILE{{$loop->index+1}}").style.display = "block";
+                    }
+                </script>
             @endforeach
             </div>
         </div>

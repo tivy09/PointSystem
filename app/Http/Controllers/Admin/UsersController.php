@@ -49,7 +49,7 @@ class UsersController extends Controller
             'to_email'=>$request->email,
             'EmailSender'=>"Human Resourse Department",
             'Email_title'=>"Default Email",
-            'Email_file'=>"",
+            'Email_file'=>"unnamed.gif",
             'Email_MSG'=>"Welcome to The Company. Any Question can ask anyone.",
         ]);
 

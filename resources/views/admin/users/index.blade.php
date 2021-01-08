@@ -35,7 +35,7 @@
                             {{ trans('cruds.user.fields.class') }}
                         </th>
                         <th>
-                            &nbsp;
+                            Action
                         </th>
                     </tr>
                 </thead>
@@ -43,7 +43,7 @@
                     @foreach($users as $key => $user)
                         <tr data-entry-id="{{ $user->id }}">
                             <td>
-                                {{ $user->id ?? '' }}
+                                {{ $loop->index+1 }}
                             </td>
                             <td>
                                 {{ $user->name ?? '' }}
