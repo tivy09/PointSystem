@@ -293,7 +293,7 @@
         <div>
             <div class="model-position">
                 <a onclick="document.getElementById('id01').style.display = 'block';">
-                    <model-viewer id="model" src="{{ asset('model/RobotExpressive.glb') }}" alt="A 3D model of an astronaut" animation-name="none" style="width: 100px; height: 120px;" autoplay></model-viewer>
+                    <model-viewer id="model" src="{{ asset('model/RobotExpressive.glb') }}" alt="A 3D model of an astronaut" animation-name="none" style="width: 120px; height: 140px;" autoplay></model-viewer>
                 </a>
             </div>
             <div id="id01" class="modal">

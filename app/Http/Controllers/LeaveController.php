@@ -42,8 +42,8 @@ class LeaveController extends Controller
     public function store(Request $request)
     {
         Leave::create([
-            'employee_id'   => $request->employee_id,
-            'employee_name'   => $request->employee_name,
+            'employee_email'=> $request->employee_email,
+            'employee_name' => $request->employee_name,
             'leave_type'    => $request->leave_type,
             'date_from'     => $request->date_from,
             'date_to'       => $request->date_to,

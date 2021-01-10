@@ -85,7 +85,7 @@
                     </i> Information
                 </a>
                 <a href="{{ url('/') }}" class="nav-link" style="padding-left: 10px;" onclick="">
-                    <img src="{{ asset('Icon/house-fill.svg') }}" alt="" class="nav-icon fas fa-fw"> Home
+                    <img src="{{ asset('Icon/house-fill.svg') }}" alt="" class="nav-icon fas fa-fw"> About Us
                 </a>
                 <a href="" class="nav-link" style="padding-left: 10px;" onclick="event.preventDefault(); document.getElementById('logoutform').submit();">
                     <i class="nav-icon fas fa-fw fa-sign-out-alt"></i>{{ trans('global.logout') }}
@@ -141,7 +141,7 @@
         <div>
             <div class="model-position">
                 <a onclick="document.getElementById('id01').style.display = 'block';">
-                    <model-viewer id="model" src="{{ asset('model/RobotExpressive.glb') }}" alt="A 3D model of an astronaut" animation-name="none" style="width: 100px; height: 120px;" autoplay></model-viewer>
+                    <model-viewer id="model" src="{{ asset('model/RobotExpressive.glb') }}" alt="A 3D model of an astronaut" animation-name="none" style="width: 200px; height: 220px;" autoplay></model-viewer>
                 </a>
             </div>
             <div id="id01" class="modal">
@@ -162,7 +162,7 @@
                     </div>
                 </div>
             </div>
-            <div id="id04" class="modal"">
+            <div id="id04" class="modal">
                 <div class="modal-content animate">
                     <div class="modalcontainer">
                         <model-viewer id="model" src="{{ asset('model/RobotExpressive.glb') }}" alt="A 3D model of an astronaut" animation-name="Running" style="width: 400px; height: 400px;margin-left: 25px;" autoplay></model-viewer>

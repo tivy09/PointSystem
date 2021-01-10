@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use DB;
+use Auth;
 use App\User;
 use App\salary;
 use App\Leave;
@@ -70,7 +71,7 @@ class TodolistController extends Controller
         ->get();
         
         $salary = salary::all()->where('employee_id', $id);
-        $leave = DB::table('leaves')->where('employee_id', $id)->where('is_approved','=',1)->sum('days');
+        $leave = DB::table('leaves')->where('employee_email', Auth::user()->email)->where('is_approved','=',1)->sum('days');
         return view('information', compact('leave'))->with('users', $user)->with('salaries', $salary);
     }
 

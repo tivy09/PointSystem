@@ -128,6 +128,7 @@ elseif($string3 == 3)
                                 {{ $leave }} days / Total Leave Price = RM{{$countleave}}
                                 </td>
                             </tr>
+                            @if($user->name != 'Admin')
                             @if($string6 >= 1 && $string6 <= 50)
                                 <tr>
                                     <th style="width: 50%">
@@ -137,6 +138,7 @@ elseif($string3 == 3)
                                         RM {{ $countcomission }}
                                     </td>
                                 </tr>
+                            @endif
                             @endif
                             <tr>
                                 <th style="width: 50%">

@@ -37,7 +37,7 @@
                 <input type="text" name="reason" id="reason" class="form-control">
             </div>
             <div>
-                <input type="hidden" name="employee_id" value="{{ Auth::user()->email }}">
+                <input type="hidden" name="employee_email" value="{{ Auth::user()->email }}">
                 <input type="hidden" name="employee_name" value="{{ Auth::user()->name }}">
                 <input class="btn btn-danger" type="submit" value="{{ trans('global.save') }}">
             </div>

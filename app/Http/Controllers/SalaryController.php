@@ -59,8 +59,18 @@ class SalaryController extends Controller
         ->where('users.id', '=', $id)
         ->get();
         
+        $useremails = DB::table('users')
+        ->leftjoin('salaries', 'salaries.employee_id', '=', 'users.id')
+        ->select('users.email as useremail')
+        ->where('users.id', '=', $id)
+        ->get();
+
+        foreach ($useremails as $useremail) {
+            $StrEmail = $useremail->useremail;
+        }
+
         $salary = salary::all()->where('employee_id', $id);
-        $leave = DB::table('leaves')->where('employee_id', $id)->where('is_approved','=',1)->sum('days');
+        $leave = DB::table('leaves')->where('employee_email', $StrEmail)->where('is_approved','=',1)->sum('days');
         return view('admin.salary.show', compact('leave'))->with('users', $user)->with('salaries', $salary);
     }
 

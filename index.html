@@ -4,47 +4,143 @@
 <head>
     <meta charset="utf-8">
     <title>Change the Color of hr Tag using CSS</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            display: flex;
+            justify-content: center;
+            align-self: center;
+            min-height: 100vh;
+            background: #091921;
+        }
 
+        /*body.light{
+            background: #d1dae3;
+        }*/
+        
+        .clock {
+            width: 350px;
+            height: 350px;
+            display: flex;
+            margin-top: 100px;
+            justify-content: center;
+            align-items: center;
+            background-image: url('clock.png');
+            background-size: cover;
+            border: 4px solid#091921;
+            border-radius: 50%;
+            box-shadow: 0 -15px 15px rgba(255, 255, 255, 0.05), inset 0 -15px 15px rgba(255, 255, 255, 0.05), 0 15px 15px rgba(255, 255, 255, 0.05), inset 0 15px 15px rgba(255, 255, 255, 0.05);
+        }
+        
+        .clock:before {
+            content: '';
+            position: absolute;
+            width: 15px;
+            height: 15px;
+            background: #fff;
+            border-radius: 50%;
+            z-index: 10000;
+        }
+        
+        .clcok .hour,
+        .clock .min,
+        .clock .sec {
+            position: absolute;
+        }
+        
+        .clock .hour,
+        .hr {
+            width: 160px;
+            height: 160px;
+        }
+        
+        .clock .min,
+        .mn {
+            width: 190px;
+            height: 190px;
+        }
+        
+        .clock .sec,
+        .sc {
+            width: 230px;
+            height: 230px;
+        }
+        
+        .hr,
+        .mn,
+        .sc {
+            display: flex;
+            justify-content: center;
+            position: absolute;
+            border-radius: 50%;
+        }
+        
+        .hr:before {
+            content: '';
+            position: absolute;
+            width: 8px;
+            height: 80px;
+            background: #ff105e;
+            z-index: 10;
+            border-radius: 6px 6px 0 0;
+        }
+        
+        .mn:before {
+            content: '';
+            position: absolute;
+            width: 4px;
+            height: 90px;
+            background: #fff;
+            z-index: 11;
+            border-radius: 6px 6px 0 0;
+        }
+        
+        .sc:before {
+            content: '';
+            position: absolute;
+            width: 2px;
+            height: 150px;
+            background: #fff;
+            z-index: 12;
+            border-radius: 6px 6px 0 0;
+        }
+    </style>
 </head>
 
-<body>
-    <script>
-        function setCookie(cname, cvalue, exdays) {
-            var d = new Date();
-            d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
-            var expires = "expires=" + d.toGMTString();
-            document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
-        }
+<body class="light">
+    <div class="clock">
+        <div class="hour">
+            <div class="hr" id="hr"></div>
+        </div>
+        <div class="min">
+            <div class="mn" id="mn"></div>
+        </div>
+        <div class="sec">
+            <div class="sc" id="sc"></div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        const deg = 6;
+        const hr = document.querySelector('#hr');
+        const mn = document.querySelector('#mn');
+        const sc = document.querySelector('#sc');
 
-        function getCookie(cname) {
-            var name = cname + "=";
-            var decodedCookie = decodeURIComponent(document.cookie);
-            var ca = decodedCookie.split(';');
-            for (var i = 0; i < ca.length; i++) {
-                var c = ca[i];
-                while (c.charAt(0) == ' ') {
-                    c = c.substring(1);
-                }
-                if (c.indexOf(name) == 0) {
-                    return c.substring(name.length, c.length);
-                }
-            }
-            return "";
-        }
+        setInterval(() => {
+            let day = new Date();
+            let hh = day.getHours() * 30;
+            let mm = day.getMinutes() * deg;
+            let ss = day.getSeconds() * deg;
 
-        function checkCookie() {
-            var user = getCookie("username");
-            if (user != "") {
-                alert("Welcome again " + user);
-            } else {
-                user = prompt("Please enter your name:", "");
-                if (user != "" && user != null) {
-                    setCookie("username", user, 30);
-                }
-            }
-        }
+            hr.style.transform = `rotateZ(${(hh)+(mm/12)}deg)`;
+            mn.style.transform = `rotateZ(${mm}deg)`;
+            sc.style.transform = `rotateZ(${ss}deg)`;
+        })
     </script>
-
 </body>
 
 </html>

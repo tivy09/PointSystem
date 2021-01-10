@@ -201,7 +201,7 @@ elseif($string3 == 3)
                                     Employee Check In Day (Total Check in Day: {{$string5}} Day)
                                 </th>
                                 <td>
-                                    RM {{ $checkin }}
+                                    RM {{ $checkin }}  {{$string6}}
                                 </td>
                             </tr>
                             <tr>
@@ -212,15 +212,17 @@ elseif($string3 == 3)
                                 {{ $leave }} days / Total Leave Price = RM{{$countleave}}
                                 </td>
                             </tr>
-                            @if($string6 >= 1 && $string6 <= 50)
-                                <tr>
-                                    <th style="width: 50%">
-                                        Sales Comission (Total Cases: {{$string7}} cases,  RM2/case)
-                                    </th>
-                                    <td>
-                                        RM {{ $countcomission }}
-                                    </td>
-                                </tr>
+                            @if($user->name != 'Admin')
+                                @if($string6 >= 1 && $string6 <= 50)
+                                    <tr>
+                                        <th style="width: 50%">
+                                            Sales Comission (Total Cases: {{$string7}} cases,  RM2/case)
+                                        </th>
+                                        <td>
+                                            RM {{ $countcomission }}
+                                        </td>
+                                    </tr>
+                                @endif
                             @endif
                             <tr>
                                 <th style="width: 50%">
