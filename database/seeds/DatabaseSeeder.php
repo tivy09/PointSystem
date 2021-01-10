@@ -12,13 +12,13 @@ class DatabaseSeeder extends Seeder
             PermissionRoleTableSeeder::class,
             UsersTableSeeder::class,
             RoleUserTableSeeder::class,
-            // SalaryTableSeeder::class,
-            // DepartmentTableSeeder::class,
-            // JobAppTableSeeder::class,
-            // JobTypeTableSeeder::class,
-            // JobsTableSeeder::class,
-            // JobLocationTableSeeder::class,
-            // JobHiringsTableSeeder::class
         ]);
+        $this->call(SalaryTableSeeder::class);
+        $this->call(DepartmentTableSeeder::class);
+        $this->call(JobAppTableSeeder::class);
+        $this->call(JobTypeTableSeeder::class);
+        $this->call(JobsTableSeeder::class);
+        $this->call(JobLocationTableSeeder::class);
+        $this->call(JobHiringsTableSeeder::class);
     }
 }

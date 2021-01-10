@@ -106,8 +106,8 @@
 
         <!-- Team Section -->
         <div class="w3-container" style="padding:128px 16px" id="team">
-            <h3 style="padding-left: 20px;">THE TEAM</h3>
-            <p class="w3-large" style="padding-left: 20px;">The ones who runs this company</p>
+            <h3 style="padding-left: 20px;">OUR TEAM</h3>
+            <p class="w3-large" style="padding-left: 20px;">The ones who runs this project</p>
             <div class="w3-row-padding w3-grayscale" style="margin-top:64px">
                 <div class="w3-col l3 m6 w3-margin-bottom">
                     <div class="w3-card">
@@ -308,17 +308,17 @@
                             <p style="text-decoration: underline;">Recommended Option</p>
                             <!-- No Login -->
                             @guest
-                            <a onclick="Login()" class="button3" style="color: #fff;">Login</a>
-                            <a onclick="Manual()" class="button3" style="color: #fff;">User Manual</a>
-                            <a onclick="Home()" class="button3" style="color: #fff;">Home Pages</a>
+                            <a onclick="Loginrobot()" class="button3" style="color: #fff;">Login</a>
+                            <a onclick="Manualrobot()" class="button3" style="color: #fff;">User Manual</a>
+                            <a onclick="Homerobot()" class="button3" style="color: #fff;">Home Pages</a>
                             <!-- After Login -->
                             @else
-                            <a onclick="dashboard()" class="button3" style="color: #fff;">Dashboard</a>
-                            <a onclick="createProject()" class="button3" style="color: #fff;">Create Project</a>
-                            <a onclick="Manual()" class="button3" style="color: #fff;">User Manual</a>
-                            <a onclick="leave()" class="button3" style="color: #fff;">Apply for Vacation</a>
-                            <a onclick="salary()" class="button3" style="color: #fff;">Salary</a>
-                            <a onclick="email()" class="button3" style="color: #fff;">Email</a> @endguest
+                            <a onclick="dashboardrobot()" class="button3" style="color: #fff;">Dashboard</a>
+                            <a onclick="createProjectrobot()" class="button3" style="color: #fff;">Create Project</a>
+                            <a onclick="Manualrobot()" class="button3" style="color: #fff;">User Manual</a>
+                            <a onclick="leaverobot()" class="button3" style="color: #fff;">Apply for Vacation</a>
+                            <a onclick="salaryrobot()" class="button3" style="color: #fff;">Salary</a>
+                            <a onclick="emailrobot()" class="button3" style="color: #fff;">Email</a> @endguest
                         </div>
                     </div>
                 </div>

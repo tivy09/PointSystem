@@ -6,6 +6,10 @@ php artisan db:seed --class=JobHiringsTableSeeder
 php artisan db:seed --class=JobAppTableSeeder
 php artisan db:seed --class=DepartmentTableSeeder
 
+$this->call(SalaryTableSeeder::class);
+$this->call(SalaryTableSeeder::class);
+composer dump-autoload
+
     <!-- <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
         <div class="container">
             <b class="navbar-brand">
