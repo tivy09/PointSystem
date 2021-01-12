@@ -34,7 +34,7 @@
                     <p style="font-size: 25px;">{{$email->Email_MSG}}</p>
                     @if($email->Email_file != null)
                         <a href="{{ asset('Email_File/' )}}/{{ $email->Email_file }}" id="FILE{{$loop->index+1}}" style="display: none;" download>{{ $email->Email_file }}</a>
-                        <img src="{{ asset('Email_File/' )}}/{{ $email->Email_file }}" id="IMG{{$loop->index+1}}" style="display: none;" alt="FILE" width="50%">
+                        <img src="{{ asset('Email_File/' )}}/{{ $email->Email_file }}" id="IMG{{$loop->index+1}}" style="display: none;height: 30%;" alt="FILE" width="50%" height="20%">
                     @endif
                     <div class="DeleteButton">
                         <a href="{{ route('user.email.destroy', ['id' => $email->id]) }}" class="btn btn-danger deleteEmail" onclick="return confirm('Sure Want Delete?')">Delete</a>

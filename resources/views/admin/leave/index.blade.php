@@ -1,12 +1,5 @@
 @extends('layouts.admin')
 @section('content')
-<div style="margin-bottom: 10px;" class="row">
-    <div class="col-lg-12">
-        <a class="btn btn-success" href="{{ route("user.leave.create") }}">
-            Apply Leave
-        </a>
-    </div>
-</div>
 <div class="card">
     <div class="card-header">
         Leave List
@@ -92,13 +85,19 @@
                                 </form>
                             @endif
                         </td>
-                        <td>
+                        <td style="width: 100px">
                             @if($leave->is_approved == null)
-                                <span class="badge badge-pill badge-warning">Pending</span>
+                                <span class="badge badge-pill badge-warning" style="width: 70px;">Pending</span>
                             @elseif($leave->is_approved == 1)
-                                <span class="badge badge-pill badge-success">Approved</span>
+                                <span class="badge badge-pill badge-success" style="width: 70px;">Approved</span>
+                                <form action="{{ route('user.leave.delete', ['id' => $leave->id]) }}" method="get" style="width: 70px;">
+                                    <button type="submit" class="badge badge-pill badge-danger" value="1" name="approved" onclick="return confirm('Are you sure want to delete leave?')">Delete</button>
+                                </form>
                             @else
-                                <span class="badge badge-pill badge-danger">Rejected</span>
+                                <span class="badge badge-pill badge-danger" style="width: 70px;">Rejected</span>
+                                <form action="{{ route('user.leave.delete', ['id' => $leave->id]) }}" method="get" style="width: 70px;">
+                                    <button type="submit" class="badge badge-pill badge-danger" value="1" name="approved" onclick="return confirm('Are you sure want to delete leave?')">Delete</button>
+                                </form>
                             @endif
                         </td>
                     </tr>

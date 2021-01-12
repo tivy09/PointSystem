@@ -61,12 +61,6 @@ class calendarController extends Controller
     public function store(Request $request)
     {
 
-        $todo = todolist::create([
-            'CurrentDate'=>$request->start_date,
-            'description'=>$request->title,
-            'user_id'=>$request->user_id,
-        ]);
-
         $request->validate([
             'title' => 'required',
             'start_date' => 'required',

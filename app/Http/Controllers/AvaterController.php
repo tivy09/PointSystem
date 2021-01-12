@@ -10,7 +10,7 @@ use Illuminate\Http\UploadedFile;
 use Brian2694\Toastr\Facades\Toastr;
 use Illuminate\Support\Facades\Auth;
 use Symfony\Component\HttpFoundation\Response;
-
+use Carbon\Carbon;
 class AvaterController extends Controller
 {
     /**
@@ -20,9 +20,18 @@ class AvaterController extends Controller
      */
     public function index()
     {
-        $avater = avater::all();
+        $todayDate = date("Y-m-d");
+
+        $avater = DB::table('avaters')
+		->select('avaters.name as userProId', 'avaters.*')
+        ->where('avaters.name', '=', Auth::user()->name)
+        ->where('avaters.AttDate', '=', $todayDate)
+        ->get();
+
+        $count = DB::table('avaters')->select('avaters.name')->where('avaters.AttDate', '=', $todayDate)->count();
+
         $user = User::all();
-        return view('admin.CheckIn.show')->with('avaters',$avater)->with('usersaa',$user);
+        return view('admin.CheckIn.show',compact('count'))->with('avaters',$avater)->with('usersaa',$user);
     }
 
     /**

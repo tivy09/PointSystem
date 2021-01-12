@@ -22,7 +22,7 @@
                         <th>
                             {{ trans('cruds.role.fields.id') }}
                         </th>
-                        <th>
+                        <th style="width:100px;">
                             {{ trans('cruds.role.fields.title') }}
                         </th>
                         <th>

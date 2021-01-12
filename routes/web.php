@@ -53,6 +53,7 @@ Route::get('/leave/create',[            'uses'=>'LeaveController@create',   'as'
 Route::post('/leave/store',[            'uses'=>'LeaveController@store',    'as'=>'user.leave.store']);
 Route::get('/leave/approved/{id}',[     'uses'=>'LeaveController@approved', 'as'=>'user.leave.approved']);
 Route::get('/leave/reject/{id}',[       'uses'=>'LeaveController@reject',   'as'=>'user.leave.reject']);
+Route::get('/leave/delete/{id}',[       'uses'=>'LeaveController@delete',   'as'=>'user.leave.delete']);
 
 //calendar
 Route::get('/calendar',[                'uses'=>'calendarController@index',     'as'=>'calendar']);

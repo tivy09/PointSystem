@@ -114,6 +114,7 @@
                                 <td colspan="3"><input type="text" name="feedback" id="feedback"></td>
                                 <input type="hidden" name="employee_name" value="{{ $task->User_id }}">
                                 <input type="hidden" name="employee_email" value="{{ $task->useremail }}">
+                                <input type="hidden" name="tasksID" value="{{$task->tasksID}}">
                                 <td style="text-align: center; padding-top: 10px;"><input type="submit" value="Submit" class="button"></td>
                             </tr>
                     </tbody>

@@ -62,6 +62,8 @@
                             <td style="width: 170px;">
                             @if($task->User_id == null)
                                 <span class="badge badge-pill badge-success">No Person in charge</span>
+                            @elseif($task->Status2 == 1)
+                                <span class="badge badge-pill badge-success">Already Evaluation 🤗</span>
                             @else
                                 <a class="btn btn-xs btn-primary" href="{{ route('admin.Project.EvaluationRecord', ['id' => $task->id]) }}">
                                     Evaluation

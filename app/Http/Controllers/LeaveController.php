@@ -96,9 +96,11 @@ class LeaveController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function delete($id)
     {
-        //
+        DB::table('leaves')->where('leaves.id', '=', $id)->delete();
+        Toastr::success('Leave Deleted successfully 🙂','Success');
+        return redirect()->route('user.leave.index');
     }
 
     public function approved(Request $request, $id)

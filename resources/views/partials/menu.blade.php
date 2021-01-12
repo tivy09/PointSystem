@@ -84,6 +84,7 @@
                 </ul>
             </li>
             @endcan
+            @can('project_items')
             <!-- Project -->
             <li class="nav-item nav-dropdown">
                 <a class="nav-link  nav-dropdown-toggle" href="#">
@@ -129,6 +130,7 @@
                 @endcan
                 </ul>
             </li>
+            @endcan
             <!-- Calendar manager-->
             @can('manager_calendar')
             <li class="nav-item nav-dropdown">

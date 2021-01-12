@@ -20,11 +20,11 @@
                 </div>
                 <div class="form-group">
                     <label>Start date</label>
-                    <input type="datetime-local" class="form-control" name="start_date" id="" value="{{ $event->start_date }}">
+                    <input type="datetime" class="form-control" name="start_date" id="" value="{{ $event->start_date }}">
                 </div>
                 <div class="form-group">
                     <label>End date</label>
-                    <input type="datetime-local" class="form-control" name="end_date" id="" value="{{ $event->end_date }}">
+                    <input type="datetime" class="form-control" name="end_date" id="" value="{{ $event->end_date }}">
                 </div>
                 <button type="submit" class="btn btn-primary">Submit</button>
             </form>

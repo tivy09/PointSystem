@@ -199,7 +199,7 @@ class ProjectController extends Controller
     {
         $task = DB::table('users')
         ->leftjoin('project_tasks', 'project_tasks.User_id', '=', 'users.name')
-        ->select('users.email as useremail', 'project_tasks.*')
+        ->select('users.email as useremail', 'project_tasks.id as tasksID', 'project_tasks.*')
         ->where('project_tasks.id', '=', $id)
         ->get();
 
@@ -256,6 +256,11 @@ class ProjectController extends Controller
             'Email_file'=>'',
             'Email_MSG'=>$MSG,
         ]);
+        
+        $id = $request->tasksID;
+        $task = ProjectTask::find($id);
+        $task->Status2 = 1;
+        $task->save();
 
         Toastr::success('Evaluation has been recorded! 🙂','Success');
         return redirect()->route('admin.Project.Evaluation');

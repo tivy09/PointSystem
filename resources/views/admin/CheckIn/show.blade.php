@@ -4,16 +4,14 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
+        @if($count > 1)
+            <p><b><h1 style="margin-top: 350px; margin-left: 100px;">You already Check In.🤗</h1></b></p>
+        @else
             @foreach($avaters as $avater)
-                @php 
-                    $current = date('Y-m-d');
-                @endphp
-
-                @if($avater->name == Auth::user()->name && $avater->AttDate == $current)
-                    <div class="overlay"><canvas id="reflay" style="position: absolute;"></canvas></div>
-                    <img src="{{ asset('phpfile/img/') }}/{{$avater->avaters_IMG}}" alt="" id="refimg">
-                @endif
+                <div class="overlay" style="margin-top: 150px;"><canvas id="reflay" style="position: absolute;"></canvas></div>
+                <img src="{{ asset('phpfile/img/') }}/{{$avater->avaters_IMG}}" alt="" id="refimg" width="">
             @endforeach
+        @endif
         </div>
     </div>
 </div>
