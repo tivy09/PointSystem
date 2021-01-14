@@ -1,18 +1,30 @@
 @extends('layouts.admin')
 @section('content')
 
+@php
+$string1 = rand(1, 5);
+$string2 = rand(20, 50);
+
+if($string1 == 1)
+    $people = 'Manager 1';
+elseif($string1 == 2)
+    $people = 'Manager 2';
+elseif($string1 == 3)
+    $people = 'Manager 3';
+elseif($string1 == 4)
+    $people = 'Manager 4';
+elseif($string1 == 5)
+    $people = 'Manager 5';
+
+@endphp
+@foreach($departments as $department)
 <div class="card">
     <div class="card-header">
-        {{ trans('global.show') }} {{ trans('cruds.role.title') }}
+        {{ trans('global.show') }} Department Detail
     </div>
 
     <div class="card-body">
         <div class="form-group">
-            <div class="form-group">
-                <a class="btn btn-default" href="{{ route('admin.roles.index') }}">
-                    {{ trans('global.back_to_list') }}
-                </a>
-            </div>
             <table class="table table-bordered table-striped">
                 <tbody>
                     <tr>
@@ -20,54 +32,42 @@
                             {{ trans('cruds.role.fields.id') }}
                         </th>
                         <td>
-                            {{ $role->id }}
+                            {{ $department->id }}
                         </td>
                     </tr>
                     <tr>
                         <th>
-                            {{ trans('cruds.role.fields.title') }}
+                            Department Name
                         </th>
                         <td>
-                            {{ $role->title }}
+                            {{ $department->name }}
                         </td>
                     </tr>
                     <tr>
                         <th>
-                            {{ trans('cruds.role.fields.permissions') }}
+                            Department Principal
                         </th>
                         <td>
-                            @foreach($role->permissions as $key => $permissions)
-                                <span class="label label-info">{{ $permissions->title }}</span>
-                            @endforeach
+                            {{$people}}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            Total Department Member
+                        </th>
+                        <td>
+                            {{ $string2 }}
                         </td>
                     </tr>
                 </tbody>
             </table>
             <div class="form-group">
-                <a class="btn btn-default" href="{{ route('admin.roles.index') }}">
+                <a class="btn btn-default" href="{{ route('admin.department.index') }}">
                     {{ trans('global.back_to_list') }}
                 </a>
             </div>
         </div>
     </div>
 </div>
-
-<div class="card">
-    <div class="card-header">
-        {{ trans('global.relatedData') }}
-    </div>
-    <ul class="nav nav-tabs" role="tablist" id="relationship-tabs">
-        <li class="nav-item">
-            <a class="nav-link" href="#roles_users" role="tab" data-toggle="tab">
-                {{ trans('cruds.user.title') }}
-            </a>
-        </li>
-    </ul>
-    <div class="tab-content">
-        <div class="tab-pane" role="tabpanel" id="roles_users">
-            @includeIf('admin.roles.relationships.rolesUsers', ['users' => $role->rolesUsers])
-        </div>
-    </div>
-</div>
-
+@endforeach
 @endsection

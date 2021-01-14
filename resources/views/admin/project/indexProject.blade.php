@@ -58,26 +58,30 @@
                                 </div>
                             </td>
                             <td style="width: 150px;">
-                                @if($project->Status2 == null)
-                                <a class="btn btn-xs btn-success" href="{{ route('admin.Project.createProjectTask', ['id' => $project->id])}}">
-                                    Create Task
-                                </a>
+                                @if($project->username != Auth::user()->name)
+                                    <span class="badge badge-pill badge-success">You are not the creator.</span>
+                                @else
+                                    @if($project->Status2 == null)
+                                        <a class="btn btn-xs btn-success" href="{{ route('admin.Project.createProjectTask', ['id' => $project->id])}}">
+                                            Create Task
+                                        </a>
 
-                                <a class="btn btn-xs btn-primary" href="{{ route('admin.Project.showProject', ['id' => $project->id])}}">
-                                    {{ trans('global.view') }}
-                                </a>
+                                        <a class="btn btn-xs btn-primary" href="{{ route('admin.Project.showProject', ['id' => $project->id])}}">
+                                            {{ trans('global.view') }}
+                                        </a>
 
-                                <a class="btn btn-xs btn-info" href="{{ route('admin.Project.deleteProject', ['id' => $project->id])}}" onclick="return confirm('Sure You Want End this Project?')">
-                                    {{ trans('global.delete') }}
-                                </a>
-                                @elseif($project->Status2 == 1)
-                                <span class="badge badge-pill badge-warning">Already End</span>
-                                <a class="btn btn-xs btn-primary" href="{{ route('admin.Project.showProject', ['id' => $project->id])}}">
-                                    {{ trans('global.view') }}
-                                </a>
-                                <a class="btn btn-xs btn-info" href="{{ route('admin.Project.deleteProjectRecord', ['id' => $project->id])}}" onclick="return confirm('Sure You Want Delete?')">
-                                    {{ trans('global.delete') }} Record
-                                </a>
+                                        <a class="btn btn-xs btn-info" href="{{ route('admin.Project.deleteProject', ['id' => $project->id])}}" onclick="return confirm('Sure You Want End this Project?')">
+                                            {{ trans('global.delete') }}
+                                        </a>
+                                    @elseif($project->Status2 == 1)
+                                        <span class="badge badge-pill badge-warning">Already End</span>
+                                        <a class="btn btn-xs btn-primary" href="{{ route('admin.Project.showProject', ['id' => $project->id])}}">
+                                            {{ trans('global.view') }}
+                                        </a>
+                                        <a class="btn btn-xs btn-info" href="{{ route('admin.Project.deleteProjectRecord', ['id' => $project->id])}}" onclick="return confirm('Sure You Want Delete?')">
+                                            {{ trans('global.delete') }} Record
+                                        </a>
+                                    @endif
                                 @endif
                             </td>
                         </tr>

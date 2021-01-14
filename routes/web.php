@@ -68,6 +68,7 @@ Route::get('/event/destroy/{id}',[      'uses'=>'calendarController@destroy',   
 Route::get('/department',[              'uses'=>'DepartmentController@index',   'as'=>'admin.department.index']);
 Route::get('/department/add',[          'uses'=>'DepartmentController@create',  'as'=>'admin.department.create']);
 Route::get('/department/edit/{id}',[    'uses'=>'DepartmentController@edit',    'as'=>'admin.department.edit']);
+Route::get('/department/show/{id}',[    'uses'=>'DepartmentController@show',    'as'=>'admin.department.show']);
 Route::post('/department/update/{id}',[ 'uses'=>'DepartmentController@update',  'as'=>'admin.department.update']);
 Route::post('/department/store',[       'uses'=>'DepartmentController@store',   'as'=>'admin.department.store']);
 Route::get('/department/delete/{id}',[  'uses'=>'DepartmentController@destroy', 'as'=>'admin.department.destroy']);
@@ -141,3 +142,7 @@ Route::post('/Project/Evaluation/store',[              'uses'=>'ProjectControlle
 Route::get('/Home/Photo/Check',[    'uses'=>'AvaterController@index',     'as'=>'Avatar.index']);
 Route::get('/Home/Photo',[          'uses'=>'AvaterController@create',    'as'=>'user.Avatar.create']);
 Route::post('/home/Information/update/{id}',[ 'uses'=>'AvaterController@update',    'as'=>'user.Avatar.update']);
+
+//admin evaluation
+Route::get('/Evaluation',[           'uses'=>'ProjectController@Evaluation',      'as'=>'admin.Project.EvaluationAdmin']);
+Route::get('/Evaluation/show/{id}',[           'uses'=>'ProjectController@ShowEvaluation',      'as'=>'admin.Project.EvaluationAdminShow']);

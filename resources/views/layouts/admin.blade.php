@@ -23,6 +23,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link href="{{ asset('css/custom.css') }}" rel="stylesheet" />
     <link href="{{ asset('css/todolist.css') }}" rel="stylesheet" />
+    <link href="{{ asset('css/linenumber.css') }}" rel="stylesheet" />
     <link href="{{ asset('css/email.css') }}" rel="stylesheet" />
     <link href="{{ asset('css/model.css') }}" rel="stylesheet">
     <link href="{{ asset('css/hide.css') }}" rel="stylesheet">
@@ -141,7 +142,7 @@
         <div>
             <div class="model-position">
                 <a onclick="document.getElementById('id01').style.display = 'block';">
-                    <model-viewer id="model" src="{{ asset('model/RobotExpressive.glb') }}" alt="A 3D model of an astronaut" animation-name="none" style="width: 200px; height: 220px;" autoplay></model-viewer>
+                    <model-viewer id="model" src="{{ asset('model/RobotExpressive.glb') }}" alt="A 3D model of an astronaut" animation-name="none" style="width: 130px; height: 150px;" autoplay></model-viewer>
                 </a>
             </div>
             <div id="id01" class="modal">

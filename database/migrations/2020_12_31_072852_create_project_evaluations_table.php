@@ -16,6 +16,8 @@ class CreateProjectEvaluationsTable extends Migration
         Schema::create('project_evaluations', function (Blueprint $table) {
             $table->id();
             $table->string('employee_name');
+            $table->integer('project_id');
+            $table->integer('tasks_id');
             $table->integer('Knowledge');
             $table->integer('Quality');
             $table->integer('Productivity');

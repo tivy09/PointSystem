@@ -13,6 +13,8 @@ class ProjectEvaluation extends Model
 
     protected $fillable = [
         'employee_name',
+        'project_id',
+        'task_id',
         'Knowledge',
         'Quality',
         'Productivity',

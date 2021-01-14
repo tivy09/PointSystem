@@ -54,7 +54,8 @@ class DepartmentController extends Controller
      */
     public function show($id)
     {
-        
+        $department = Department::all()->where('id', $id);
+        return view('admin.department.show')->with('departments', $department);
     }
 
     /**

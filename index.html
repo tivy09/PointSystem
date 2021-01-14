@@ -1,146 +1,136 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
+<title>Number Line</title>
+<style type="text/css">
+    .lineContainer {
+        position: relative;
+    }
+    
+    .line {
+        border-top: 2px solid blue;
+        border-right: 2px solid blue;
+        width: 100px;
+        Height: 8px;
+        float: left;
+        margin: 0;
+        padding: 0;
+    }
+    
+    .linedown {
+        border-bottom: 2px solid blue;
+        border-right: 2px solid blue;
+        width: 100px;
+        Height: 8px;
+        float: left;
+        margin: 0;
+        padding: 0;
+    }
+    
+    .lineNoRight {
+        border-bottom: 2px solid blue;
+        width: 100px;
+        Height: 8px;
+        float: left;
+        margin: 0;
+        padding: 0;
+    }
+    
+    .linestart {
+        border-right: 2px solid blue;
+        width: 30px;
+        Height: 8px;
+        float: left;
+        margin: 0;
+        padding: 0;
+    }
+    
+    .lineRightEnd {
+        border-right: 0;
+    }
+    
+    .numberContainer {
+        position: absolute;
+        top: 10px;
+        margin: 0;
+        padding: 0;
+    }
+    
+    .number {
+        width: 80px;
+        float: left;
+        margin: 0;
+        padding: 0;
+        text-align: center;
+    }
+    
+    .numberLeftEnd {
+        width: 10px;
+        Height: 5px;
+        float: left;
+        margin: 0;
+        padding: 0;
+    }
+</style>
 
-<head>
-    <meta charset="utf-8">
-    <title>Change the Color of hr Tag using CSS</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            display: flex;
-            justify-content: center;
-            align-self: center;
-            min-height: 100vh;
-            background: #091921;
-        }
-
-        /*body.light{
-            background: #d1dae3;
-        }*/
-        
-        .clock {
-            width: 350px;
-            height: 350px;
-            display: flex;
-            margin-top: 100px;
-            justify-content: center;
-            align-items: center;
-            background-image: url('clock.png');
-            background-size: cover;
-            border: 4px solid#091921;
-            border-radius: 50%;
-            box-shadow: 0 -15px 15px rgba(255, 255, 255, 0.05), inset 0 -15px 15px rgba(255, 255, 255, 0.05), 0 15px 15px rgba(255, 255, 255, 0.05), inset 0 15px 15px rgba(255, 255, 255, 0.05);
-        }
-        
-        .clock:before {
-            content: '';
-            position: absolute;
-            width: 15px;
-            height: 15px;
-            background: #fff;
-            border-radius: 50%;
-            z-index: 10000;
-        }
-        
-        .clcok .hour,
-        .clock .min,
-        .clock .sec {
-            position: absolute;
-        }
-        
-        .clock .hour,
-        .hr {
-            width: 160px;
-            height: 160px;
-        }
-        
-        .clock .min,
-        .mn {
-            width: 190px;
-            height: 190px;
-        }
-        
-        .clock .sec,
-        .sc {
-            width: 230px;
-            height: 230px;
-        }
-        
-        .hr,
-        .mn,
-        .sc {
-            display: flex;
-            justify-content: center;
-            position: absolute;
-            border-radius: 50%;
-        }
-        
-        .hr:before {
-            content: '';
-            position: absolute;
-            width: 8px;
-            height: 80px;
-            background: #ff105e;
-            z-index: 10;
-            border-radius: 6px 6px 0 0;
-        }
-        
-        .mn:before {
-            content: '';
-            position: absolute;
-            width: 4px;
-            height: 90px;
-            background: #fff;
-            z-index: 11;
-            border-radius: 6px 6px 0 0;
-        }
-        
-        .sc:before {
-            content: '';
-            position: absolute;
-            width: 2px;
-            height: 150px;
-            background: #fff;
-            z-index: 12;
-            border-radius: 6px 6px 0 0;
-        }
-    </style>
 </head>
 
-<body class="light">
-    <div class="clock">
-        <div class="hour">
-            <div class="hr" id="hr"></div>
+<body>
+    <input type="range" min="0" max="100" value="90" style="width: 1040px;margin-left: 20px;" readonly>
+    <div class="lineContainer">
+        <div class="linestart"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="numberContainer" style="left: 5px;">
+            <div class="numberLeftEnd"></div>
+            <div class="number" style="width: 32px;">0</div>
+            <div class="number" style="margin-left: 45px;">10</div>
+            <div class="number" style="margin-left: 20px;">20</div>
+            <div class="number" style="margin-left: 23px;">30</div>
+            <div class="number" style="margin-left: 21px;">40</div>
+            <div class="number" style="margin-left: 23px;">50</div>
+            <div class="number" style="margin-left: 22px;">60</div>
+            <div class="number" style="margin-left: 23px;">70</div>
+            <div class="number" style="margin-left: 21px;">80</div>
+            <div class="number" style="margin-left: 23px;">90</div>
+            <div class="number" style="margin-left: 45px; width: 32px;">100</div>
         </div>
-        <div class="min">
-            <div class="mn" id="mn"></div>
+        <div style="height: 30px;"></div>
+        <div class="linestart"></div>
+        <!-- 1 -->
+        <div class="lineNoRight"></div>
+        <!-- 2 -->
+        <div class="linedown"></div>
+        <!-- 3 -->
+        <div class="lineNoRight"></div>
+        <!-- 4 -->
+        <div class="lineNoRight"></div>
+        <!-- 5 -->
+        <div class="lineNoRight"></div>
+        <!-- 6 -->
+        <div class="linedown" style="width: 105.5px;"></div>
+        <!-- 7 -->
+        <div class="lineNoRight"></div>
+        <!-- 8 -->
+        <div class="linedown"></div>
+        <!-- 9 -->
+        <div class="lineNoRight"></div>
+        <!-- 10 -->
+        <div class="linedown" style="width: 105.5px;"></div>
+        <br>
+        <div>
+            <b style="margin-left: 120px;">Bad</b>
+            <b style="margin-left: 250px;">Normal</b>
+            <b style="margin-left: 250px;">Good</b>
+            <b style="margin-left: 132px;">Very Good</b>
         </div>
-        <div class="sec">
-            <div class="sc" id="sc"></div>
-        </div>
-    </div>
-    <script type="text/javascript">
-        const deg = 6;
-        const hr = document.querySelector('#hr');
-        const mn = document.querySelector('#mn');
-        const sc = document.querySelector('#sc');
-
-        setInterval(() => {
-            let day = new Date();
-            let hh = day.getHours() * 30;
-            let mm = day.getMinutes() * deg;
-            let ss = day.getSeconds() * deg;
-
-            hr.style.transform = `rotateZ(${(hh)+(mm/12)}deg)`;
-            mn.style.transform = `rotateZ(${mm}deg)`;
-            sc.style.transform = `rotateZ(${ss}deg)`;
-        })
-    </script>
 </body>
 
 </html>

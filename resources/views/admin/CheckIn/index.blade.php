@@ -6,7 +6,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/webcamjs/1.0.25/webcam.min.js"></script>
 
 <div class="clock">
-    <canvas id="canvas" width="200" height="200" style="background-color:#e5e5e6"></canvas>
+    <canvas id="Ccanvas" width="200" height="200" style="background-color:#e5e5e6"></canvas>
     <h2 style="padding-left: 40px;"><p id="demo"></p></h2>
     <h2 style="padding-left: 40px;"><p id="demo1"></p></h2>
 </div>
@@ -14,6 +14,7 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
+          <b><h1 style="margin-left: 15px;">Take Snapshot to Check In😊</h1></b>
             <div id="my_camera"></div>
                 <form action="{{ asset('phpfile/storeImage.php') }}" method="post">
                     <button onClick="take_snapshot()" style="width: 160px; height: 60px; text-align: center; font-size: 20px;margin-left: 170px" class="btn btn-success">Take Snapshot</button>
@@ -28,17 +29,17 @@
 
 <script>
     
-var d = new Date();
+var p = new Date();
 var days = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
-document.getElementById("demo").innerHTML = days[d.getDay()];
+document.getElementById("demo").innerHTML = days[p.getDay()];
 
-var today = new Date();
-var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
-document.getElementById("demo1").innerHTML = date;
+var Ptoday = new Date();
+var Pdate = Ptoday.getFullYear()+'-'+(Ptoday.getMonth()+1)+'-'+Ptoday.getDate();
+document.getElementById("demo1").innerHTML = Pdate;
 
-var canvas = document.getElementById("canvas");
-var ctx = canvas.getContext("2d");
-var radius = canvas.height / 2;
+var Pcanvas = document.getElementById("Ccanvas");
+var ctx = Pcanvas.getContext("2d");
+var radius = Pcanvas.height / 2;
 ctx.translate(radius, radius);
 radius = radius * 0.90
 setInterval(drawClock, 1000);

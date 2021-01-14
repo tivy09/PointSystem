@@ -62,6 +62,12 @@
                             @endif
                         </td>
                     </tr>
+                    <tr>
+                        <th>Personal Image</th>
+                        <td>
+                            <img src="{{ asset('Avatar/')}}/{{ $user->Avater }}" alt="" width="100" height="100">
+                        </td>
+                    </tr>
                 </tbody>
             </table>
             <div class="form-group">

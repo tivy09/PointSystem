@@ -199,7 +199,7 @@ class ProjectController extends Controller
     {
         $task = DB::table('users')
         ->leftjoin('project_tasks', 'project_tasks.User_id', '=', 'users.name')
-        ->select('users.email as useremail', 'project_tasks.id as tasksID', 'project_tasks.*')
+        ->select('users.email as useremail', 'project_tasks.id as tasksID', 'project_tasks.Project_id as project_id', 'project_tasks.*')
         ->where('project_tasks.id', '=', $id)
         ->get();
 
@@ -225,6 +225,8 @@ class ProjectController extends Controller
 
         $evaluation = ProjectEvaluation::create([
             'employee_name'=>$request->employee_name,
+            'project_id'=>$request->project_id,
+            'task_id'=>$request->task_id,
             'Knowledge'=>$request->Knowledge,
             'Quality'=>$request->Quality,
             'Productivity'=>$request->Productivity,
@@ -257,12 +259,34 @@ class ProjectController extends Controller
             'Email_MSG'=>$MSG,
         ]);
         
-        $id = $request->tasksID;
+        $id = $request->task_id;
         $task = ProjectTask::find($id);
         $task->Status2 = 1;
         $task->save();
 
         Toastr::success('Evaluation has been recorded! 🙂','Success');
         return redirect()->route('admin.Project.Evaluation');
+    }
+
+    public function Evaluation()
+    {
+        $eva = DB::table('project_evaluations')
+        ->join('projects', 'projects.id', '=', 'project_evaluations.project_id')
+        ->join('project_tasks', 'project_tasks.id', '=', 'project_evaluations.task_id')
+        ->select('projects.Name as project_name', 'project_tasks.name as taskname', 'project_evaluations.*')
+        ->get();
+
+        return view('admin.HRAdmin.index')->with('evas', $eva);
+    }
+
+    public function ShowEvaluation($id)
+    {
+        $evalu = DB::table('project_evaluations')
+        ->join('users' , 'users.name','=','project_evaluations.employee_name')
+        ->select('users.name as username','users.email as useremail','project_evaluations.*')
+        ->where('project_evaluations.id','=',$id)
+        ->get();
+
+        return view('admin.HRAdmin.show')->with('evalus',$evalu);
     }
 }

@@ -1,0 +1,75 @@
+    .lineContainer {
+        position: relative;
+    }
+    
+    .line {
+        border-top: 2px solid blue;
+        border-right: 2px solid blue;
+        width: 100px;
+        Height: 8px;
+        float: left;
+        margin: 0;
+        padding: 0;
+    }
+    
+    .linedown {
+        border-bottom: 2px solid blue;
+        border-right: 2px solid blue;
+        width: 100px;
+        Height: 8px;
+        float: left;
+        margin: 0;
+        padding: 0;
+    }
+    
+    .lineNoRight {
+        border-bottom: 2px solid blue;
+        width: 100px;
+        Height: 8px;
+        float: left;
+        margin: 0;
+        padding: 0;
+    }
+    
+    .linestart {
+        border-right: 2px solid blue;
+        width: 30px;
+        Height: 8px;
+        float: left;
+        margin: 0;
+        padding: 0;
+    }
+    
+    .lineRightEnd {
+        border-right: 0;
+    }
+    
+    .numberContainer {
+        position: absolute;
+        top: 10px;
+        margin: 0;
+        padding: 0;
+    }
+    
+    .number {
+        width: 80px;
+        float: left;
+        margin: 0;
+        padding: 0;
+        text-align: center;
+    }
+    
+    .numberLeftEnd {
+        width: 10px;
+        Height: 5px;
+        float: left;
+        margin: 0;
+        padding: 0;
+    }
+    
+    .score {
+        position: absolute;
+        right: 10px;
+        bottom: 10px;
+        font-size: 60px;
+    }
