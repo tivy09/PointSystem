@@ -1,6 +1,8 @@
 @extends('layouts.admin')
 @section('content')
-
+@php 
+    $current = date('Y-m-d');
+@endphp
 <div class="card">
     <div class="card-header">
         Evaluation List
@@ -50,13 +52,33 @@
                                 {{ $eva->TotalScore }}
                             </td>
                             <td>
-                                <a class="btn btn-xs btn-primary" href="{{ route('admin.Project.EvaluationAdminShow', ['id' => $eva->id]) }}">
-                                    {{ trans('global.view') }}
-                                </a>
+                                @if($eva->TotalScore2 > 1)
+                                    <a class="btn btn-xs btn-primary" href="{{ route('admin.Project.EvaluationAdminShow', ['id' => $eva->id]) }}">
+                                        {{ trans('global.view') }}
+                                    </a>
+                                    <a class="btn btn-xs btn-danger" href="{{ route('admin.Project.EvaluationAdminDelete', ['id' => $eva->id]) }}" onclick="return confirm('Sure Want Delete?')">
+                                        {{ trans('global.delete') }}
+                                    </a>
+                                    <span class="badge badge-pill badge-warning">Already Score</span>
+                                @elseif($eva->status == null && $eva->TrainPlan > 1)
+                                    <a class="btn btn-xs btn-danger" href="{{ route('admin.Project.EvaluationAdminDelete', ['id' => $eva->id]) }}" onclick="return confirm('Sure Want Delete?')">
+                                        {{ trans('global.delete') }}
+                                    </a>
+                                    <span class="badge badge-pill badge-warning">Unfinished</span>
+                                @elseif($eva->status == 1)
+                                    <a class="btn btn-xs btn-primary" href="{{ route('admin.Project.EvaluationAdminShowTopic', ['id' => $eva->id]) }}">
+                                        Marking Score
+                                    </a>
+                                    <span class="badge badge-pill badge-success">Already Finished</span>
+                                @elseif($eva->status ==null)
+                                    <a class="btn btn-xs btn-primary" href="{{ route('admin.Project.EvaluationAdminShow', ['id' => $eva->id]) }}">
+                                        {{ trans('global.view') }}
+                                    </a>
 
-                                <a class="btn btn-xs btn-danger" href="" onclick="return confirm('Sure Want Delete?')">
-                                    {{ trans('global.delete') }}
-                                </a>
+                                    <a class="btn btn-xs btn-danger" href="{{ route('admin.Project.EvaluationAdminDelete', ['id' => $eva->id]) }}" onclick="return confirm('Sure Want Delete?')">
+                                        {{ trans('global.delete') }}
+                                    </a>
+                                @endif
                             </td>
                         </tr>
                     @endforeach

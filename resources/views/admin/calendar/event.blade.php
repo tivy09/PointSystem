@@ -185,7 +185,7 @@
 
     <div class="model-position">
         <a onclick="document.getElementById('id01').style.display = 'block';">
-            <model-viewer id="model" src="{{ asset('model/RobotExpressive.glb') }}" alt="A 3D model of an astronaut" animation-name="none" style="width: 200px; height: 220px;" autoplay></model-viewer>
+            <model-viewer id="model" src="{{ asset('model/RobotExpressive.glb') }}" alt="A 3D model of an astronaut" animation-name="none" style="width:130px; height: 150px;" autoplay></model-viewer>
         </a>
     </div>
     <div id="id01" class="modal">
@@ -197,7 +197,9 @@
                 <button type="button" onclick="loading()">Search</button>
                 <div>
                     <p style="text-decoration: underline;">Recommended Option</p>
+                    @can('project_manager')     
                     <a onclick="createProject()" class="button3" style="color: #fff;">Create Project</a>
+                    @endcan
                     <a onclick="Manual()" class="button3" style="color: #fff;">User Manual</a>
                     <a onclick="leave()" class="button3" style="color: #fff;">Apply for Vacation</a>
                     <a onclick="salary()" class="button3" style="color: #fff;">Salary</a>

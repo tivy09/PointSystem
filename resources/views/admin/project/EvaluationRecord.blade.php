@@ -31,90 +31,90 @@
                                 <td style="height: 100px;">
                                     <b style="font-size: 25px;">Job Knowledge</b>
                                 </td>
-                                <td style="text-align: center; padding-top: 40px;"><input type="checkbox" name="Knowledge" id="Exceeds" value="100"><div class="Emoji" id="control-me"></div></td>
-                                <td style="text-align: center; padding-top: 40px;"><input type="checkbox" name="Knowledge" id="Marginal" value="60"><div class="Emoji1" id="control-me"></div></td>
-                                <td style="text-align: center; padding-top: 40px;"><input type="checkbox" name="Knowledge" id="Proficient" value="80"><div class="Emoji1" id="control-me"></div></td>
-                                <td style="text-align: center; padding-top: 40px;"><input type="checkbox" name="Knowledge" id="Below" value="20"><div class="Emoji" id="control-me"></div></td>
+                                <td style="text-align: center; padding-top: 40px;"><input type="checkbox" name="Knowledge" class="Exceeds" value="100" id="check1" onclick="Value1(this.id)"><div class="Emoji" id="control-me"></div></td>
+                                <td style="text-align: center; padding-top: 40px;"><input type="checkbox" name="Knowledge" class="Marginal" value="60" id="check2" onclick="Value1(this.id)"><div class="Emoji1" id="control-me"></div></td>
+                                <td style="text-align: center; padding-top: 40px;"><input type="checkbox" name="Knowledge" class="Proficient" value="80" id="check3" onclick="Value1(this.id)"><div class="Emoji1" id="control-me"></div></td>
+                                <td style="text-align: center; padding-top: 40px;"><input type="checkbox" name="Knowledge" class="Below" value="20" id="check4" onclick="Value1(this.id)"><div class="Emoji" id="control-me"></div></td>
                             </tr>
                             <tr>
                                 <td style="height: 100px;">
                                     <b style="font-size: 25px;">Quality of Work</b>
                                 </td>
-                                <td style="text-align: center; padding-top: 40px;"><input type="checkbox" name="Quality" id="Exceeds" value="100"><div class="Emoji" id="control-me"></div></td>
-                                <td style="text-align: center; padding-top: 40px;"><input type="checkbox" name="Quality" id="Marginal" value="60"0><div class="Emoji1" id="control-me"></div></td>
-                                <td style="text-align: center; padding-top: 40px;"><input type="checkbox" name="Quality" id="Proficient" value="80"><div class="Emoji1" id="control-me"></div></td>
-                                <td style="text-align: center; padding-top: 40px;"><input type="checkbox" name="Quality" id="Below" value="20"><div class="Emoji" id="control-me"></div></td>
+                                <td style="text-align: center; padding-top: 40px;"><input type="checkbox" name="Quality" class="Exceeds" value="100" id="check5" onclick="Value2(this.id)"><div class="Emoji" id="control-me"></div></td>
+                                <td style="text-align: center; padding-top: 40px;"><input type="checkbox" name="Quality" class="Marginal" value="60" id="check6" onclick="Value2(this.id)"><div class="Emoji1" id="control-me"></div></td>
+                                <td style="text-align: center; padding-top: 40px;"><input type="checkbox" name="Quality" class="Proficient" value="80" id="check7" onclick="Value2(this.id)"><div class="Emoji1" id="control-me"></div></td>
+                                <td style="text-align: center; padding-top: 40px;"><input type="checkbox" name="Quality" class="Below" value="20" id="check8" onclick="Value2(this.id)"><div class="Emoji" id="control-me"></div></td>
                             </tr>
                             <tr>
                                 <td style="height: 100px;">
                                     <b style="font-size: 25px;">Productivity</b>
                                 </td>
-                                <td style="text-align: center; padding-top: 40px;"><input type="checkbox" name="Productivity" id="Exceeds" value="100"><div class="Emoji" id="control-me"></div></td>
-                                <td style="text-align: center; padding-top: 40px;"><input type="checkbox" name="Productivity" id="Marginal" value="60"><div class="Emoji1" id="control-me"></div></td>
-                                <td style="text-align: center; padding-top: 40px;"><input type="checkbox" name="Productivity" id="Proficient" value="80"><div class="Emoji1" id="control-me"></div></td>
-                                <td style="text-align: center; padding-top: 40px;"><input type="checkbox" name="Productivity" id="Below" value="20"><div class="Emoji" id="control-me"></div></td>
+                                <td style="text-align: center; padding-top: 40px;"><input type="checkbox" name="Productivity" class="Exceeds" value="100" id="check9" onclick="Value3(this.id)"><div class="Emoji" id="control-me"></div></td>
+                                <td style="text-align: center; padding-top: 40px;"><input type="checkbox" name="Productivity" class="Marginal" value="60" id="check10" onclick="Value3(this.id)"><div class="Emoji1" id="control-me"></div></td>
+                                <td style="text-align: center; padding-top: 40px;"><input type="checkbox" name="Productivity" class="Proficient" value="80" id="check11" onclick="Value3(this.id)"><div class="Emoji1" id="control-me"></div></td>
+                                <td style="text-align: center; padding-top: 40px;"><input type="checkbox" name="Productivity" class="Below" value="20" id="check12" onclick="Value3(this.id)"><div class="Emoji" id="control-me"></div></td>
                             </tr>
                             <tr>
                                 <td style="height: 100px;">
                                     <b style="font-size: 25px;">Dependability</b>
                                 </td>
-                                <td style="text-align: center; padding-top: 40px;"><input type="checkbox" name="Dependability" id="Exceeds" value="100"><div class="Emoji" id="control-me"></div></td>
-                                <td style="text-align: center; padding-top: 40px;"><input type="checkbox" name="Dependability" id="Marginal" value="60"><div class="Emoji1" id="control-me"></div></td>
-                                <td style="text-align: center; padding-top: 40px;"><input type="checkbox" name="Dependability" id="Proficient" value="80"><div class="Emoji1" id="control-me"></div></td>
-                                <td style="text-align: center; padding-top: 40px;"><input type="checkbox" name="Dependability" id="Below" value="20"><div class="Emoji" id="control-me"></div></td>
+                                <td style="text-align: center; padding-top: 40px;"><input type="checkbox" name="Dependability" class="Exceeds" value="100" id="check13" onclick="Value4(this.id)"><div class="Emoji" id="control-me"></div></td>
+                                <td style="text-align: center; padding-top: 40px;"><input type="checkbox" name="Dependability" class="Marginal" value="60" id="check14" onclick="Value4(this.id)"><div class="Emoji1" id="control-me"></div></td>
+                                <td style="text-align: center; padding-top: 40px;"><input type="checkbox" name="Dependability" class="Proficient" value="80" id="check15" onclick="Value4(this.id)"><div class="Emoji1" id="control-me"></div></td>
+                                <td style="text-align: center; padding-top: 40px;"><input type="checkbox" name="Dependability" class="Below" value="20" id="check16" onclick="Value4(this.id)"><div class="Emoji" id="control-me"></div></td>
                             </tr>
                             <tr>
                                 <td style="height: 100px;">
                                     <b style="font-size: 25px;">Attendance</b>
                                 </td>
-                                <td style="text-align: center; padding-top: 40px;"><input type="checkbox" name="Attendance" id="Exceeds" value="100"><div class="Emoji" id="control-me"></div></td>
-                                <td style="text-align: center; padding-top: 40px;"><input type="checkbox" name="Attendance" id="Marginal" value="60"><div class="Emoji1" id="control-me"></div></td>
-                                <td style="text-align: center; padding-top: 40px;"><input type="checkbox" name="Attendance" id="Proficient" value="80"><div class="Emoji1" id="control-me"></div></td>
-                                <td style="text-align: center; padding-top: 40px;"><input type="checkbox" name="Attendance" id="Below" value="20"><div class="Emoji" id="control-me"></div></td>
+                                <td style="text-align: center; padding-top: 40px;"><input type="checkbox" name="Attendance" class="Exceeds" value="100" id="check17" onclick="Value5(this.id)"><div class="Emoji" id="control-me"></div></td>
+                                <td style="text-align: center; padding-top: 40px;"><input type="checkbox" name="Attendance" class="Marginal" value="60" id="check18" onclick="Value5(this.id)"><div class="Emoji1" id="control-me"></div></td>
+                                <td style="text-align: center; padding-top: 40px;"><input type="checkbox" name="Attendance" class="Proficient" value="80" id="check19" onclick="Value5(this.id)"><div class="Emoji1" id="control-me"></div></td>
+                                <td style="text-align: center; padding-top: 40px;"><input type="checkbox" name="Attendance" class="Below" value="20" id="check20" onclick="Value5(this.id)"><div class="Emoji" id="control-me"></div></td>
                             </tr>
                             <tr>
                                 <td style="height: 100px;">
                                     <b style="font-size: 25px;">Relations with Others</b>
                                 </td>
-                                <td style="text-align: center; padding-top: 40px;"><input type="checkbox" name="Relations" id="Exceeds" value="100"><div class="Emoji" id="control-me"></div></td>
-                                <td style="text-align: center; padding-top: 40px;"><input type="checkbox" name="Relations" id="Marginal" value="60"><div class="Emoji1" id="control-me"></div></td>
-                                <td style="text-align: center; padding-top: 40px;"><input type="checkbox" name="Relations" id="Proficient" value="80"><div class="Emoji1" id="control-me"></div></td>
-                                <td style="text-align: center; padding-top: 40px;"><input type="checkbox" name="Relations" id="Below" value="20"><div class="Emoji" id="control-me"></div></td>
+                                <td style="text-align: center; padding-top: 40px;"><input type="checkbox" name="Relations" class="Exceeds" value="100" id="check21" onclick="Value6(this.id)"><div class="Emoji" id="control-me"></div></td>
+                                <td style="text-align: center; padding-top: 40px;"><input type="checkbox" name="Relations" class="Marginal" value="60" id="check22" onclick="Value6(this.id)"><div class="Emoji1" id="control-me"></div></td>
+                                <td style="text-align: center; padding-top: 40px;"><input type="checkbox" name="Relations" class="Proficient" value="80" id="check23" onclick="Value6(this.id)"><div class="Emoji1" id="control-me"></div></td>
+                                <td style="text-align: center; padding-top: 40px;"><input type="checkbox" name="Relations" class="Below" value="20" id="check24" onclick="Value6(this.id)"><div class="Emoji" id="control-me"></div></td>
                             </tr>
                             <tr>
                                 <td style="height: 100px;">
                                     <b style="font-size: 25px;">Commitment to Safety</b>
                                 </td>
-                                <td style="text-align: center; padding-top: 40px;"><input type="checkbox" name="Commitment" id="Exceeds" value="100"><div class="Emoji" id="control-me"></div></td>
-                                <td style="text-align: center; padding-top: 40px;"><input type="checkbox" name="Commitment" id="Marginal" value="60"><div class="Emoji1" id="control-me"></div></td>
-                                <td style="text-align: center; padding-top: 40px;"><input type="checkbox" name="Commitment" id="Proficient" value="80"><div class="Emoji1" id="control-me"></div></td>
-                                <td style="text-align: center; padding-top: 40px;"><input type="checkbox" name="Commitment" id="Below" value="20"><div class="Emoji" id="control-me"></div></td>
+                                <td style="text-align: center; padding-top: 40px;"><input type="checkbox" name="Commitment" class="Exceeds" value="100" id="check25" onclick="Value7(this.id)"><div class="Emoji" id="control-me"></div></td>
+                                <td style="text-align: center; padding-top: 40px;"><input type="checkbox" name="Commitment" class="Marginal" value="60" id="check26" onclick="Value7(this.id)"><div class="Emoji1" id="control-me"></div></td>
+                                <td style="text-align: center; padding-top: 40px;"><input type="checkbox" name="Commitment" class="Proficient" value="80" id="check27" onclick="Value7(this.id)"><div class="Emoji1" id="control-me"></div></td>
+                                <td style="text-align: center; padding-top: 40px;"><input type="checkbox" name="Commitment" class="Below" value="20" id="check28" onclick="Value7(this.id)"><div class="Emoji" id="control-me"></div></td>
                             </tr>
                             <tr>
                                 <td style="height: 100px;">
                                     <b style="font-size: 25px;">Supervisory Ability</b>
                                 </td>
-                                <td style="text-align: center; padding-top: 40px;"><input type="checkbox" name="Supervisory" id="Exceeds" value="100"><div class="Emoji" id="control-me"></div></td>
-                                <td style="text-align: center; padding-top: 40px;"><input type="checkbox" name="Supervisory" id="Marginal" value="60"><div class="Emoji1" id="control-me"></div></td>
-                                <td style="text-align: center; padding-top: 40px;"><input type="checkbox" name="Supervisory" id="Proficient" value="80"><div class="Emoji1" id="control-me"></div></td>
-                                <td style="text-align: center; padding-top: 40px;"><input type="checkbox" name="Supervisory" id="Below" value="20"><div class="Emoji" id="control-me"></div></td>
+                                <td style="text-align: center; padding-top: 40px;"><input type="checkbox" name="Supervisory" class="Exceeds" value="100" id="check29" onclick="Value8(this.id)"><div class="Emoji" id="control-me"></div></td>
+                                <td style="text-align: center; padding-top: 40px;"><input type="checkbox" name="Supervisory" class="Marginal" value="60" id="check30" onclick="Value8(this.id)"><div class="Emoji1" id="control-me"></div></td>
+                                <td style="text-align: center; padding-top: 40px;"><input type="checkbox" name="Supervisory" class="Proficient" value="80" id="check31" onclick="Value8(this.id)"><div class="Emoji1" id="control-me"></div></td>
+                                <td style="text-align: center; padding-top: 40px;"><input type="checkbox" name="Supervisory" class="Below" value="20" id="check32" onclick="Value8(this.id)"><div class="Emoji" id="control-me"></div></td>
                             </tr>
                             <tr>
                                 <td style="height: 100px;">
                                     <p><b style="font-size: 25px;">Overall Appraisal Rating</b></p>
                                     <p style="margin-bottom: 0px;"><b>(One Category must Be Checked)</b></p>
                                 </td>
-                                <td style="text-align: center; padding-top: 40px;"><input type="checkbox" name="Appraisal" id="Exceeds" value="100"><div class="Emoji" id="control-me"></div></td>
-                                <td style="text-align: center; padding-top: 40px;"><input type="checkbox" name="Appraisal" id="Marginal" value="60"><div class="Emoji1" id="control-me"></div></td>
-                                <td style="text-align: center; padding-top: 40px;"><input type="checkbox" name="Appraisal" id="Proficient" value="80"><div class="Emoji1" id="control-me"></div></td>
-                                <td style="text-align: center; padding-top: 40px;"><input type="checkbox" name="Appraisal" id="Below" value="20"><div class="Emoji" id="control-me"></div></td>
+                                <td style="text-align: center; padding-top: 40px;"><input type="checkbox" name="Appraisal" class="Exceeds" value="100" id="check33" onclick="Value9(this.id)"><div class="Emoji" id="control-me"></div></td>
+                                <td style="text-align: center; padding-top: 40px;"><input type="checkbox" name="Appraisal" class="Marginal" value="60" id="check34" onclick="Value9(this.id)"><div class="Emoji1" id="control-me"></div></td>
+                                <td style="text-align: center; padding-top: 40px;"><input type="checkbox" name="Appraisal" class="Proficient" value="80" id="check35" onclick="Value9(this.id)"><div class="Emoji1" id="control-me"></div></td>
+                                <td style="text-align: center; padding-top: 40px;"><input type="checkbox" name="Appraisal" class="Below" value="20" id="check36" onclick="Value9(this.id)"><div class="Emoji" id="control-me"></div></td>
                             </tr>
                             <tr>
                                 <td><p style="font-size: 25px;">Feedback for the {{ $task->User_id }}</p></td>
                                 <td colspan="3"><input type="text" name="feedback" id="feedback"></td>
                                 <input type="hidden" name="employee_name" value="{{ $task->User_id }}">
                                 <input type="hidden" name="employee_email" value="{{ $task->useremail }}">
-                                <input type="hidden" name="tasksID" value="{{$task->tasksID}}">
+                                <input type="hidden" name="task_id" value="{{$task->tasksID}}">
                                 <input type="hidden" name="project_id" value="{{$task->project_id}}">
                                 <td style="padding-top: 10px;"><input type="submit" value="Submit" class="button"></td>
                             </tr>

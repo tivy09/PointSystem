@@ -12,22 +12,22 @@
     height: 0px;
 }
 
-#Below:checked~#control-me::after {
+.Below:checked~#control-me::after {
     content: "😩";
     font-size: 50px;
 }
 
-#Exceeds:checked~#control-me::after {
+.Exceeds:checked~#control-me::after {
     content: "😁";
     font-size: 50px;
 }
 
-#Marginal:checked~#control-me::after {
+.Marginal:checked~#control-me::after {
     content: "😖";
     font-size: 50px;
 }
 
-#Proficient:checked~#control-me::after {
+.Proficient:checked~#control-me::after {
     content: "😄";
     font-size: 50px;
 }

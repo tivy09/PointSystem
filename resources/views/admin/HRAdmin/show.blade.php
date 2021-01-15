@@ -1,13 +1,44 @@
 @extends('layouts.admin')
 @section('content')
 
-@foreach($evalus as $evalu)
+@php
 
+$string1 = rand(1, 10);
+
+if($string1 == 1)
+    $recommmed = 'method of lecture';
+elseif($string1 == 2)
+    $recommmed = 'Audio-visual technology law';
+elseif($string1 == 3)
+    $recommmed = 'discussion method';
+elseif($string1 == 4)
+    $recommmed = 'Case study method';
+elseif($string1 == 5)
+    $recommmed = 'Role playing method';
+elseif($string1 == 6)
+    $recommmed = 'Self-study method';
+elseif($string1 == 7)
+    $recommmed = 'Interactive group method';
+elseif($string1 == 8)
+    $recommmed = 'Network training method';
+elseif($string1 == 9)
+    $recommmed = 'Individual guidance method';
+elseif($string1 == 10)
+    $recommmed = 'Scene restoration method';
+
+@endphp
+
+@foreach($evalus as $evalu)
 <div class="card">
     <div class="card-header">
         <h5>Evaluation Detail</h5>
     </div>
     <div class="card-body">
+        <div class="form-group">
+            <a class="btn btn-default" href="{{ route('admin.Project.EvaluationAdmin') }}">
+                {{ trans('global.back_to_list') }}
+            </a>
+        </div>
         <div class="table-responsive" style="overflow-x: hidden">
             <table class="table table-bordered table-striped">
                 <thead>
@@ -532,7 +563,6 @@
                             <tr>
                                 <td style="height: 100px;">
                                     <p><b style="font-size: 25px;">Overall Appraisal Rating</b></p>
-                                    <p style="margin-bottom: 0px;"><b>(One Category must Be Checked)</b></p>
                                 </td>
                                 <td style="text-align: center;padding-top:40px;padding-bottom:40px;">
                                     <input type="range" min="0" max="100" value="{{ $evalu->Appraisal }}" style="width: 1010px;margin-right: 80px;" readonly>
@@ -594,12 +624,89 @@
                                         <div class="score"><b>{{ $evalu->Appraisal }}</b></div>
                                 </td>
                             </tr>
+                            <tr>
+                                <td colspan="2">
+                                    <h2><b>Total Score: {{$evalu->TotalScore}}/100</b></h2>
+                                </td>
+                            </tr>
                     </tbody>
             </table>
         </div>
     </div>
 </div>
-<input type="hidden" name="employee_name" value="{{ $evalu->username }}">
-<input type="hidden" name="employee_email" value="{{ $evalu->useremail }}">
+
+@if($evalu->TotalScore2 == null)
+<div class="card">
+    <div class="card-header">
+        Fill in the Training Plan
+    </div>
+
+    <div class="card-body">
+        <div class="form-group">
+            <table class="table table-bordered table-striped">
+                <tbody>
+                    <form action="{{ route('admin.Project.EvaluationAdminSubmit', ['id' => $evalu->id]) }}" method="post">
+                        @csrf
+                        <tr>
+                            <th style="width: 600px">
+                                Employee Name
+                            </th>
+                            <td>
+                                {{ $evalu->employee_name }}
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                Total Score
+                            </th>
+                            <td>
+                                {{$evalu->TotalScore}}/100
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                Recommended Training Plan
+                            </th>
+                            <td>
+                                {{ $recommmed }}
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                Training Plan
+                            </th>
+                            <td>
+                                <select name="TrainPlan" id="" class="form-control">
+                                    <option value="">Select His Plan</option>
+                                    <option value="1">Method of lecture</option>
+                                    <option value="2">Audio-visual technology law</option>
+                                    <option value="3">Discussion method</option>
+                                    <option value="4">Case study method</option>
+                                    <option value="5">Role playing method</option>
+                                    <option value="6">Self-study method</option>
+                                    <option value="7">Interactive group method</option>
+                                    <option value="8">Network training method</option>
+                                    <option value="9">Individual guidance method</option>
+                                    <option value="10">Scene restoration method</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Deadline</th>
+                            <input type="hidden" name="employee_name" value="{{ $evalu->username }}">
+                            <input type="hidden" name="employee_email" value="{{ $evalu->useremail }}">
+                            <td><input type="date" name="deadline" id="deadline" class="form-control" style="width: 220px;"></td>
+                        </tr>
+                        <tr>
+                            <th>Submit</th>
+                            <td><input type="submit" value="Submit" class="button"></td>
+                        </tr>
+                    </form>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+@endif
 @endforeach
 @endsection

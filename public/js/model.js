@@ -377,3 +377,66 @@ function information() {
     document.getElementById("div13").style.display = "none";
     document.getElementById("div14").style.display = "block";
 }
+
+function Value1(id) {
+    for (var i = 1; i <= 4; i++) {
+        document.getElementById("check" + i).checked = false;
+    }
+    document.getElementById(id).checked = true;
+}
+
+function Value2(id) {
+    for (var i = 5; i <= 8; i++) {
+        document.getElementById("check" + i).checked = false;
+    }
+    document.getElementById(id).checked = true;
+}
+
+function Value3(id) {
+    for (var i = 9; i <= 12; i++) {
+        document.getElementById("check" + i).checked = false;
+    }
+    document.getElementById(id).checked = true;
+}
+
+function Value4(id) {
+    for (var i = 13; i <= 16; i++) {
+        document.getElementById("check" + i).checked = false;
+    }
+    document.getElementById(id).checked = true;
+}
+
+function Value5(id) {
+    for (var i = 17; i <= 20; i++) {
+        document.getElementById("check" + i).checked = false;
+    }
+    document.getElementById(id).checked = true;
+}
+
+function Value6(id) {
+    for (var i = 21; i <= 24; i++) {
+        document.getElementById("check" + i).checked = false;
+    }
+    document.getElementById(id).checked = true;
+}
+
+function Value7(id) {
+    for (var i = 25; i <= 28; i++) {
+        document.getElementById("check" + i).checked = false;
+    }
+    document.getElementById(id).checked = true;
+}
+
+function Value8(id) {
+    for (var i = 29; i <= 32; i++) {
+        document.getElementById("check" + i).checked = false;
+    }
+    document.getElementById(id).checked = true;
+}
+
+function Value9(id) {
+    for (var i = 33; i <= 36; i++) {
+        document.getElementById("check" + i).checked = false;
+    }
+    document.getElementById(id).checked = true;
+}

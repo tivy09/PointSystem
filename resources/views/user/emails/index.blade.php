@@ -32,6 +32,7 @@
                     <h1>{{$email->Email_title}}</h1>
                     <p>To: &nbsp;&nbsp;&lt;{{$email->to_email}}&gt;</p>
                     <p style="font-size: 25px;">{{$email->Email_MSG}}</p>
+                    <p>Form: &nbsp;&nbsp;&lt;{{$email->form_email}}&gt;</p>
                     @if($email->Email_file != null)
                         <a href="{{ asset('Email_File/' )}}/{{ $email->Email_file }}" id="FILE{{$loop->index+1}}" style="display: none;" download>{{ $email->Email_file }}</a>
                         <img src="{{ asset('Email_File/' )}}/{{ $email->Email_file }}" id="IMG{{$loop->index+1}}" style="display: none;height: 30%;" alt="FILE" width="50%" height="20%">

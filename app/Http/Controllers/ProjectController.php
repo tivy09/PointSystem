@@ -8,6 +8,7 @@ use App\Email;
 use App\Project;
 use App\ProjectTask;
 use App\ProjectEvaluation;
+use App\EvalustionAnswer;
 use Brian2694\Toastr\Facades\Toastr;
 use Illuminate\Http\Request;
 
@@ -239,25 +240,6 @@ class ProjectController extends Controller
             'TotalScore'=>$total,
             'feedback'=>$request->feedback,
         ]);
-
-        //Email
-        if ($total <= 9 || $total >= 7) {
-            $MSG = "“Don’t Let Yesterday Take Up Too Much of Today.” – Will Rogers";
-        } elseif($total == 6 || $total == 5) {
-            $MSG = "“Everything you’ve ever wanted is on the other side of fear.” - George Addai";
-        } elseif ($total <= 4 || $total >= 2) {
-            $MSG = "“If you aim at nothing, you will hit it every time.” – Zig Zigler";
-        }
-        
-
-        $addEmail=Email::create([
-            'form_email'=>'Manager',
-            'to_email'=>$request->employee_email,
-            'EmailSender'=>'Manager',
-            'Email_title'=>'Evaluation Project Task',
-            'Email_file'=>'',
-            'Email_MSG'=>$MSG,
-        ]);
         
         $id = $request->task_id;
         $task = ProjectTask::find($id);
@@ -288,5 +270,126 @@ class ProjectController extends Controller
         ->get();
 
         return view('admin.HRAdmin.show')->with('evalus',$evalu);
+    }
+
+    public function updatePlan(Request $request, $id)
+    {
+        $task = ProjectEvaluation::find($id);
+        $task->deadline = $request->deadline;
+        $task->TrainPlan = $request->TrainPlan;
+        $task->save();
+
+        $addEmail=Email::create([
+            'form_email'=>'Human Resource Department',
+            'to_email'=>$request->employee_email,
+            'EmailSender'=>'Human Resource Department',
+            'Email_title'=>'Training Plan',
+            'Email_file'=>'',
+            'Email_MSG'=>'You Plan has be Seleted. Pls Do the Plan.🤗',
+        ]);
+
+        Toastr::success('Plan has been Send! 🙂','Success');
+        return redirect()->route('admin.Project.EvaluationAdmin');
+    }
+
+    public function DeleteEvaluation($id)
+    {
+        $task = ProjectEvaluation::find($id);
+        $task->delete();
+        Toastr::success('Record has been Deleted! 🙂','Success');
+        return redirect()->route('admin.Project.EvaluationAdmin');
+    }
+
+    //training
+    public function training()
+    {
+        $evaluation = DB::table('project_evaluations')
+        ->select('project_evaluations.*')
+        ->where('project_evaluations.TrainPlan','>',1)
+        ->orWhere('project_evaluations.employee_name','=',Auth::user()->name)
+        ->get();
+        return view('user.training.index')->with('evaluations',$evaluation);
+    }
+
+
+    public function loading($id)
+    {
+        $userEvaluationId = $id;
+        return view('user.training.loading',compact('userEvaluationId'));
+    }
+
+    public function Answer($id)
+    {
+        $userEvaluationId = $id;
+        return view('user.training.answer',compact('userEvaluationId'));
+    }
+
+    public function StoreTotalScore(Request $request, $id)
+    {
+        $task = ProjectEvaluation::find($id);
+        $task->status = 1;
+        $task->save();
+
+        $Answer=EvalustionAnswer::create([
+            'employee_name'=>$request->employee_name,
+            'employee_id'=>$request->employee_id,
+            'question1'=>$request->question1,
+            'question2'=>$request->question2,
+            'question3'=>$request->question3,
+            'question4'=>$request->question4,
+            'questionNum'=>$request->questionNum,
+            'evaluation_id'=>$request->evaluation_id,
+        ]);
+        Toastr::success('Topic has been Submited! 🙂','Success');
+
+        return redirect()->route('admin.Project.EvaluationEmployee');
+    }
+
+    public function ShowEnterScore($id)
+    {
+        $index = DB::table('evalustion_answers')
+        ->join('project_evaluations', 'project_evaluations.id', '=', 'evalustion_answers.evaluation_id')
+        ->join('users' , 'users.name','=','evalustion_answers.employee_name')
+        ->select('users.email as useremail', 'project_evaluations.id as evaluations_id', 'evalustion_answers.*')
+        ->where('evalustion_answers.evaluation_id','=',$id)
+        ->get();
+
+        return view('admin.HRAdmin.score')->with('indexs',$index);
+    }
+
+    public function EnterScore(Request $request, $id)
+    {
+        $total = $request->totalscore;
+        $evaluations_id = $request->evaluations_id;
+        $EvaId=ProjectEvaluation::find($evaluations_id);
+        $EvaId->TotalScore2 = $total;
+        $EvaId->save();
+
+        $score=EvalustionAnswer::find($id);
+        $score->totalscore = $total;
+        $score->status = 1;
+        $score->save();
+
+        
+        $feedback = $request->feeedback;
+        //Email
+        if ($total <= 90 || $total >= 70) {
+            $MSG = "“Don’t Let Yesterday Take Up Too Much of Today.” – Will Rogers";
+        } elseif($total == 60 || $total == 50) {
+            $MSG = "“Everything you’ve ever wanted is on the other side of fear.” - George Addai";
+        } elseif ($total <= 40 || $total >= 20) {
+            $MSG = "“If you aim at nothing, you will hit it every time.” – Zig Zigler";
+        }
+        $emailMSG = 'You Score is ' . $total . '/100. Keep it. ' . $MSG . ' '. $feedback;
+        $addEmail=Email::create([
+            'form_email'=>'Human Resource Department',
+            'to_email'=>$request->employee_email,
+            'EmailSender'=>'Human Resource Department',
+            'Email_title'=>'Topic Score',
+            'Email_file'=>'',
+            'Email_MSG'=>$emailMSG,
+        ]);
+        Toastr::success('The topic has been graded! 🙂','Success');
+        return redirect()->route('admin.Project.EvaluationAdmin');
     }
 }

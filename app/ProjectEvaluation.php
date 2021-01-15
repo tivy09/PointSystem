@@ -26,5 +26,8 @@ class ProjectEvaluation extends Model
         'Appraisal',
         'TotalScore',
         'feedback',
+        'TrainPlan',
+        'deadline',
+        'status',
     ];
 }

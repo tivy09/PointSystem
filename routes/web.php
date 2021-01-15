@@ -144,5 +144,16 @@ Route::get('/Home/Photo',[          'uses'=>'AvaterController@create',    'as'=>
 Route::post('/home/Information/update/{id}',[ 'uses'=>'AvaterController@update',    'as'=>'user.Avatar.update']);
 
 //admin evaluation
-Route::get('/Evaluation',[           'uses'=>'ProjectController@Evaluation',      'as'=>'admin.Project.EvaluationAdmin']);
-Route::get('/Evaluation/show/{id}',[           'uses'=>'ProjectController@ShowEvaluation',      'as'=>'admin.Project.EvaluationAdminShow']);
+Route::get('/Evaluation',[                  'uses'=>'ProjectController@Evaluation',         'as'=>'admin.Project.EvaluationAdmin']);
+Route::get('/Evaluation/show/{id}',[        'uses'=>'ProjectController@ShowEvaluation',     'as'=>'admin.Project.EvaluationAdminShow']);
+Route::get('/Evaluation/show/score/{id}',[  'uses'=>'ProjectController@ShowEvaluationScore',     'as'=>'admin.Project.EvaluationAdminShowScore']);
+Route::get('/Evaluation/show/Topic/{id}',[  'uses'=>'ProjectController@ShowEnterScore',     'as'=>'admin.Project.EvaluationAdminShowTopic']);
+Route::get('/Evaluation/Delete/{id}',[      'uses'=>'ProjectController@DeleteEvaluation',   'as'=>'admin.Project.EvaluationAdminDelete']);
+Route::post('/Evaluation/Submit/{id}',[     'uses'=>'ProjectController@updatePlan',         'as'=>'admin.Project.EvaluationAdminSubmit']);
+Route::post('/Evaluation/show/Topic/store/{id}',[     'uses'=>'ProjectController@EnterScore',         'as'=>'admin.Project.EvaluationAdminScore']);
+
+//employee training
+Route::get('/TrainingPlan',[                  'uses'=>'ProjectController@training',         'as'=>'admin.Project.EvaluationEmployee']);
+Route::get('/TrainingPlan/loading/{id}',[     'uses'=>'ProjectController@loading',         'as'=>'admin.Project.EvaluationEmployeeloading']);
+Route::get('/TrainingPlan/loading/Answer/{id}',[     'uses'=>'ProjectController@Answer',         'as'=>'admin.Project.EvaluationEmployeeAnswer']);
+Route::post('/TrainingPlan/loading/Answer/store/{id}',[     'uses'=>'ProjectController@StoreTotalScore',         'as'=>'admin.Project.EvaluationEmployeeStore']);

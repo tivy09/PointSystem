@@ -1,136 +1,35 @@
 <!DOCTYPE html>
 <html>
 <title>Number Line</title>
-<style type="text/css">
-    .lineContainer {
-        position: relative;
-    }
-    
-    .line {
-        border-top: 2px solid blue;
-        border-right: 2px solid blue;
-        width: 100px;
-        Height: 8px;
-        float: left;
-        margin: 0;
-        padding: 0;
-    }
-    
-    .linedown {
-        border-bottom: 2px solid blue;
-        border-right: 2px solid blue;
-        width: 100px;
-        Height: 8px;
-        float: left;
-        margin: 0;
-        padding: 0;
-    }
-    
-    .lineNoRight {
-        border-bottom: 2px solid blue;
-        width: 100px;
-        Height: 8px;
-        float: left;
-        margin: 0;
-        padding: 0;
-    }
-    
-    .linestart {
-        border-right: 2px solid blue;
-        width: 30px;
-        Height: 8px;
-        float: left;
-        margin: 0;
-        padding: 0;
-    }
-    
-    .lineRightEnd {
-        border-right: 0;
-    }
-    
-    .numberContainer {
-        position: absolute;
-        top: 10px;
-        margin: 0;
-        padding: 0;
-    }
-    
-    .number {
-        width: 80px;
-        float: left;
-        margin: 0;
-        padding: 0;
-        text-align: center;
-    }
-    
-    .numberLeftEnd {
-        width: 10px;
-        Height: 5px;
-        float: left;
-        margin: 0;
-        padding: 0;
-    }
-</style>
+<script>
+    function startTimer(duration, display) {
+        var timer = duration,
+            minutes, seconds;
+        setInterval(function() {
+            minutes = parseInt(timer / 60, 10)
+            seconds = parseInt(timer % 60, 10);
 
+            minutes = minutes < 10 ? "0" + minutes : minutes;
+            seconds = seconds < 10 ? "0" + seconds : seconds;
+
+            display.textContent = minutes + ":" + seconds;
+
+            if (--timer < 0) {
+                timer = duration;
+            }
+        }, 1000);
+    }
+
+    window.onload = function() {
+        var fiveMinutes = 60 * 60,
+            display = document.querySelector('#time');
+        startTimer(fiveMinutes, display);
+    };
+</script>
 </head>
 
 <body>
-    <input type="range" min="0" max="100" value="90" style="width: 1040px;margin-left: 20px;" readonly>
-    <div class="lineContainer">
-        <div class="linestart"></div>
-        <div class="line"></div>
-        <div class="line"></div>
-        <div class="line"></div>
-        <div class="line"></div>
-        <div class="line"></div>
-        <div class="line"></div>
-        <div class="line"></div>
-        <div class="line"></div>
-        <div class="line"></div>
-        <div class="line"></div>
-        <div class="numberContainer" style="left: 5px;">
-            <div class="numberLeftEnd"></div>
-            <div class="number" style="width: 32px;">0</div>
-            <div class="number" style="margin-left: 45px;">10</div>
-            <div class="number" style="margin-left: 20px;">20</div>
-            <div class="number" style="margin-left: 23px;">30</div>
-            <div class="number" style="margin-left: 21px;">40</div>
-            <div class="number" style="margin-left: 23px;">50</div>
-            <div class="number" style="margin-left: 22px;">60</div>
-            <div class="number" style="margin-left: 23px;">70</div>
-            <div class="number" style="margin-left: 21px;">80</div>
-            <div class="number" style="margin-left: 23px;">90</div>
-            <div class="number" style="margin-left: 45px; width: 32px;">100</div>
-        </div>
-        <div style="height: 30px;"></div>
-        <div class="linestart"></div>
-        <!-- 1 -->
-        <div class="lineNoRight"></div>
-        <!-- 2 -->
-        <div class="linedown"></div>
-        <!-- 3 -->
-        <div class="lineNoRight"></div>
-        <!-- 4 -->
-        <div class="lineNoRight"></div>
-        <!-- 5 -->
-        <div class="lineNoRight"></div>
-        <!-- 6 -->
-        <div class="linedown" style="width: 105.5px;"></div>
-        <!-- 7 -->
-        <div class="lineNoRight"></div>
-        <!-- 8 -->
-        <div class="linedown"></div>
-        <!-- 9 -->
-        <div class="lineNoRight"></div>
-        <!-- 10 -->
-        <div class="linedown" style="width: 105.5px;"></div>
-        <br>
-        <div>
-            <b style="margin-left: 120px;">Bad</b>
-            <b style="margin-left: 250px;">Normal</b>
-            <b style="margin-left: 250px;">Good</b>
-            <b style="margin-left: 132px;">Very Good</b>
-        </div>
+    <div>Registration closes in <b><span id="time">60:00</span></b> minutes!</div>
 </body>
 
 </html>
