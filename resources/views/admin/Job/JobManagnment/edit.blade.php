@@ -11,15 +11,15 @@
             @csrf
             <div class="form-group">
                 <label class="required" for="name">Job Title</label>
-                <input class="form-control" type="text" name="name" id="name" placeholder="Title" value="{{ $jobapp->name }}" required>
+                <input class="form-control" type="text" name="name" id="name" placeholder="Title" value="{{ $jobapp->name }}" readonly required>
                 <span class="help-block">{{ trans('cruds.role.fields.title_helper') }}</span>
             </div>
             <div class="form-group">
                 <label class="required" for="department">Job Department</label>
-                <select class="form-control" name="department" id="department" required>
-                    <option value="">Select one Job Department</option>
+                <select class="form-control" name="department" id="department" readonly required>
+                    <option value="" readonly>Select one Job Department</option>
                 @foreach($departments as $department)
-                    <option value="{{$department->id}}" @if($jobapp->department == $department->id) selected @endif>{{$department->name}}</option>
+                    <option value="{{$department->id}}" readonly @if($jobapp->department == $department->id) selected @endif >{{$department->name}}</option>
                 @endforeach
                 </select>
                 <span class="help-block">{{ trans('cruds.role.fields.title_helper') }}</span>
@@ -44,12 +44,16 @@
             </div>
             <div class="form-group">
                 <label for="description">Job Description</label>
-                <textarea class="form-control" name="description" id="description" cols="30" rows="10">{{ $jobapp->description }}</textarea>
+                @if($jobapp->description == null)
+                    <textarea class="form-control" name="description" id="description" cols="30" rows="10"></textarea>
+                @else
+                    <textarea class="form-control" name="description" id="description" cols="30" rows="10">{{ $jobapp->description }}</textarea>
+                @endif
                 <span class="help-block">{{ trans('cruds.role.fields.title_helper') }}</span>
             </div>
             <div class="form-group">
                 <label class="required" for="CPeople">Number of the Worker</label>
-                <input class="form-control" type="number" name="CPeople" id="CPeople" min="1" max="10" value="{{ $jobapp->CPeople }}" required>   
+                <input class="form-control" type="number" name="CPeople" id="CPeople" min="1" max="10" value="{{ $jobapp->JobCPeople }}" required>   
                 <span class="help-block">{{ trans('cruds.role.fields.title_helper') }}</span>
             </div>
             <div class="form-group">

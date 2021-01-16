@@ -21,7 +21,9 @@ class CreateEvalustionAnswersTable extends Migration
             $table->string('question2');
             $table->string('question3');
             $table->string('question4');
+            $table->integer('questionNum');
             $table->integer('totalscore')->nullable();
+            $table->integer('evaluation_id');
             $table->integer('status')->nullable();
             $table->timestamps();
         });

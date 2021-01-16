@@ -32,6 +32,7 @@ class CreateProjectEvaluationsTable extends Migration
             $table->string('TrainPlan')->nullable();
             $table->string('deadline')->nullable();
             $table->string('status')->nullable();
+            $table->integer('TotalScore2')->nullable();
             $table->timestamps();
         });
     }

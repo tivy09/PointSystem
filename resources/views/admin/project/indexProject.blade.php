@@ -39,7 +39,7 @@
                     @foreach($Projects as $project)
                         <tr>
                             <td>
-                                {{ $loop -> index+1 }}
+                                {{ $loop->index+1 }}
                             </td>
                             <td>
                                 {{ $project->Name }}
@@ -48,14 +48,19 @@
                                 {{ $project->username }}
                             </td>
                             <td>
-                                @php
-                                    $string = rand(1, 50);
-                                @endphp
+                            @if($PLPL[$loop->index]==0)
                                 <div class="progress" style="height: 25px; background-color: white">
-                                    <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:{{ $string }}%">
-                                    {{ $string }}%
+                                    <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:0%; color: black;">
+                                    0%
                                     </div>
                                 </div>
+                            @else
+                                <div class="progress" style="height: 25px; background-color: white">
+                                    <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:{{ $PLPL[$loop->index] }}%">
+                                    {{ $PLPL[$loop->index] }}%
+                                    </div>
+                                </div>
+                            @endif
                             </td>
                             <td style="width: 150px;">
                                 @if($project->username != Auth::user()->name)

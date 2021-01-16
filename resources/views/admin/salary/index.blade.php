@@ -29,12 +29,8 @@
                             @foreach($users as $user)
                             <tr>
                                 <td>{{ $user->id }}</td>
-                                <td>{{ $user->name }}</td>
-                                @if($user->salary == null)
-                                    <td>0</td>
-                                @elseif($user->salary > 0)
-                                    <td>{{ $user->salary }}</td>
-                                @endif
+                                <td>{{ $user->username }}</td>
+                                <td>RM {{ $user->Salary_amount }}</td>
                                 <td>
                                     <a class="btn btn-xs btn-primary" href="{{ route('user.salary.show', ['id' => $user->id]) }}">
                                         {{ trans('global.view') }}

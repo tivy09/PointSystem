@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use Arr;
 use DB;
 use Auth;
 use App\User;
@@ -21,7 +22,27 @@ class ProjectController extends Controller
         ->leftjoin('users', 'users.id', '=', 'projects.Leader_id')
         ->select('users.name as username', 'projects.*')
         ->get();
-        return view('admin.project.indexProject')->with('Projects', $project);
+        
+        $countProject = Project::all()->count();
+        $array_list = [];
+        $countTotal = 1;
+        for ($i=1; $i <= $countProject; $i++) {
+            $countTask = DB::table('project_tasks')->where('Project_id', $i)->Sum('Status');
+            $countTotal = DB::table('project_tasks')->where('Project_id', $i)->count('Status');
+            if ($countTask == 0) {
+                $total = 0;
+            }else{
+                $total = $countTask/$countTotal;
+            }
+            
+            $array_list[] = [
+                'count'=> (int)$total
+            ];
+        }
+
+        $PLPL = Arr::flatten($array_list);
+
+        return view('admin.project.indexProject', compact('PLPL'))->with('Projects', $project);
     }
 
     public function createProject()
@@ -227,7 +248,7 @@ class ProjectController extends Controller
         $evaluation = ProjectEvaluation::create([
             'employee_name'=>$request->employee_name,
             'project_id'=>$request->project_id,
-            'task_id'=>$request->task_id,
+            'tasks_id'=>$request->tasks_id,
             'Knowledge'=>$request->Knowledge,
             'Quality'=>$request->Quality,
             'Productivity'=>$request->Productivity,
@@ -241,7 +262,7 @@ class ProjectController extends Controller
             'feedback'=>$request->feedback,
         ]);
         
-        $id = $request->task_id;
+        $id = $request->tasks_id;
         $task = ProjectTask::find($id);
         $task->Status2 = 1;
         $task->save();
@@ -254,7 +275,7 @@ class ProjectController extends Controller
     {
         $eva = DB::table('project_evaluations')
         ->join('projects', 'projects.id', '=', 'project_evaluations.project_id')
-        ->join('project_tasks', 'project_tasks.id', '=', 'project_evaluations.task_id')
+        ->join('project_tasks', 'project_tasks.id', '=', 'project_evaluations.tasks_id')
         ->select('projects.Name as project_name', 'project_tasks.name as taskname', 'project_evaluations.*')
         ->get();
 
@@ -269,7 +290,14 @@ class ProjectController extends Controller
         ->where('project_evaluations.id','=',$id)
         ->get();
 
-        return view('admin.HRAdmin.show')->with('evalus',$evalu);
+        $index = DB::table('evalustion_answers')
+        ->join('project_evaluations', 'project_evaluations.id', '=', 'evalustion_answers.evaluation_id')
+        ->join('users' , 'users.name','=','evalustion_answers.employee_name')
+        ->select('users.email as useremail', 'project_evaluations.id as evaluations_id', 'evalustion_answers.*')
+        ->where('evalustion_answers.evaluation_id','=',$id)
+        ->get();
+
+        return view('admin.HRAdmin.show')->with('evalus',$evalu)->with('indexs', $index);
     }
 
     public function updatePlan(Request $request, $id)
@@ -305,9 +333,9 @@ class ProjectController extends Controller
     {
         $evaluation = DB::table('project_evaluations')
         ->select('project_evaluations.*')
-        ->where('project_evaluations.TrainPlan','>',1)
-        ->orWhere('project_evaluations.employee_name','=',Auth::user()->name)
+        ->Where('project_evaluations.employee_name','=',Auth::user()->name)
         ->get();
+
         return view('user.training.index')->with('evaluations',$evaluation);
     }
 

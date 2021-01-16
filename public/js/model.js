@@ -104,6 +104,9 @@ function serach() {
     var userID = document.getElementById('userid').value;
     var add = "http://localhost:8000/";
     switch (keyword) {
+        case "welcome":
+            location.href = add;
+            break;
         case "dashboard":
             location.href = add + 'home';
             break;
@@ -126,11 +129,15 @@ function serach() {
         case "Create Project":
             location.href = add + 'Project/create';
             break;
+        case "Company Chart":
+            location.href = add + 'CompanyChart';
+            break;
         case "User Manual":
             // user manual
             location.href = 'http://localhost:8000/UserManual';
             break;
         default:
+            document.getElementById('id04').style.display = 'none';
             document.getElementById('id02').style.display = 'block';
     }
 }

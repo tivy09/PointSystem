@@ -27,7 +27,7 @@ class SalaryTableSeeder extends Seeder
             [
                 'id'=>3,
                 'employee_id'=>3,
-                'Salary_amount'=>1200,
+                'Salary_amount'=>1300,
                 'tax'=>6,
                 'created_at'=>'2020-12-15 09:56:13',
                 'updated_at'=>'2020-12-15 09:56:13'
@@ -35,7 +35,7 @@ class SalaryTableSeeder extends Seeder
             [
                 'id'=>4,
                 'employee_id'=>4,
-                'Salary_amount'=>1200,
+                'Salary_amount'=>1400,
                 'tax'=>6,
                 'created_at'=>'2020-12-15 09:56:13',
                 'updated_at'=>'2020-12-15 09:56:13'
@@ -43,7 +43,7 @@ class SalaryTableSeeder extends Seeder
             [
                 'id'=>5,
                 'employee_id'=>5,
-                'Salary_amount'=>1200,
+                'Salary_amount'=>1500,
                 'tax'=>6,
                 'created_at'=>'2020-12-15 09:56:13',
                 'updated_at'=>'2020-12-15 09:56:13'
@@ -59,7 +59,7 @@ class SalaryTableSeeder extends Seeder
             [
                 'id'=>7,
                 'employee_id'=>7,
-                'Salary_amount'=>1200,
+                'Salary_amount'=>1700,
                 'tax'=>6,
                 'created_at'=>'2020-12-15 09:56:13',
                 'updated_at'=>'2020-12-15 09:56:13'
@@ -67,7 +67,7 @@ class SalaryTableSeeder extends Seeder
             [
                 'id'=>8,
                 'employee_id'=>8,
-                'Salary_amount'=>1200,
+                'Salary_amount'=>1900,
                 'tax'=>6,
                 'created_at'=>'2020-12-15 09:56:13',
                 'updated_at'=>'2020-12-15 09:56:13'
@@ -75,7 +75,15 @@ class SalaryTableSeeder extends Seeder
             [
                 'id'=>9,
                 'employee_id'=>9,
-                'Salary_amount'=>1200,
+                'Salary_amount'=>2000,
+                'tax'=>6,
+                'created_at'=>'2020-12-15 09:56:13',
+                'updated_at'=>'2020-12-15 09:56:13'
+            ],
+            [
+                'id'=>10,
+                'employee_id'=>10,
+                'Salary_amount'=>3000,
                 'tax'=>6,
                 'created_at'=>'2020-12-15 09:56:13',
                 'updated_at'=>'2020-12-15 09:56:13'

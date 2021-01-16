@@ -10,28 +10,28 @@
             <table class="table table-bordered table-striped table-hover datatable datatable-Event">
                 <thead>
                     <tr>
-                        <th>
+                        <th style="width: 50px">
                             No.
                         </th>
-                        <th>
+                        <th style="width: 150px">
                             Employee name
                         </th>
-                        <th>
+                        <th style="width: 150px">
                             Leave type
                         </th>
-                        <th>
+                        <th style="width: 150px">
                             Date from
                         </th>
-                        <th>
+                        <th style="width: 150px">
                             Date to
                         </th>
-                        <th>
+                        <th style="width: 90px">
                             Number of days
                         </th>
-                        <th>
+                        <th style="width: 300px">
                             Reason
                         </th>
-                        <th>
+                        <th style="width: 150px">
                             Action
                         </th>
                         <th>

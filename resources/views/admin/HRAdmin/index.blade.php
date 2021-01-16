@@ -5,7 +5,7 @@
 @endphp
 <div class="card">
     <div class="card-header">
-        Evaluation List
+        Training Plan List
     </div>
 
     <div class="card-body">

@@ -314,7 +314,9 @@
                             <!-- After Login -->
                             @else
                             <a onclick="dashboardrobot()" class="button3" style="color: #fff;">Dashboard</a>
+                            @can('project_manager')
                             <a onclick="createProjectrobot()" class="button3" style="color: #fff;">Create Project</a>
+                            @endcan
                             <a onclick="Manualrobot()" class="button3" style="color: #fff;">User Manual</a>
                             <a onclick="leaverobot()" class="button3" style="color: #fff;">Apply for Vacation</a>
                             <a onclick="salaryrobot()" class="button3" style="color: #fff;">Salary</a>

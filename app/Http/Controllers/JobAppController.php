@@ -78,7 +78,7 @@ class JobAppController extends Controller
         $jobapp = job_app::find($id);
         $jobapp->JobCPeople = $subtotal;
         $jobapp->save();
-
+        Toastr::success('Your interview is being processed. Please check the email.🤗','Success');
         return view('welcome');
     }
     /**

@@ -59,7 +59,7 @@
                             <td>
                                 @if($task->Status != null)
                                     <div class="progress" style="height: 25px; background-color: white">
-                                        <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: {{ $task->Status }}%; color: black;">
+                                        <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: {{ $task->Status }}%; color: white;">
                                         {{ $task->Status }}%
                                         </div>
                                     </div>
@@ -84,7 +84,7 @@
                                 </form>
                                 
                             @elseif($task->User_id == Auth::user()->name)
-                                <form action="{{ route('admin.Project.ProjectTaskAction', ['id' => $task->id]) }}" id="myformQQ{{$task->id}}" method="post" onchange="submitForm()">
+                                <form action="{{ route('admin.Project.ProjectTaskAction', ['id' => $task->id]) }}" id="myformQQ{{$task->id}}" method="post" onchange="submitForm{{$task->id}}()">
                                 @csrf
                                     <select class="form-control select2" name="Status">
                                     @if($task->Status == 50)
@@ -111,7 +111,7 @@
                                     </select>
                                 </form>
                                 <script>
-                                    function submitForm() {
+                                    function submitForm{{$task->id}}() {
                                         document.getElementById('myformQQ{{$task->id}}').submit();
                                     }
                                 </script>

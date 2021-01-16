@@ -44,10 +44,10 @@
                             <td>
                                 {{ $task->name }}
                             </td>
-                            <td>
+                            <td style="width: 700px">
                                 @if($task->Status != null)
                                     <div class="progress" style="height: 25px; background-color: white">
-                                        <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: {{ $task->Status }}%; color: black;">
+                                        <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: {{ $task->Status }}%; color: white;">
                                         {{ $task->Status }}%
                                         </div>
                                     </div>

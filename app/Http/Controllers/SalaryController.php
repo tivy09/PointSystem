@@ -18,7 +18,10 @@ class SalaryController extends Controller
      */
     public function index()
     {
-        $user=user::all();
+        $user = DB::table('salaries')
+        ->join('users','users.id', '=', 'salaries.employee_id')
+        ->select('users.name as username', 'salaries.*')
+        ->get();
         return view('admin.salary.index')->with('users',$user);
     }
 

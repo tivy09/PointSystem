@@ -72,11 +72,14 @@
                         <!-- After Login -->
                         @else
                         <a onclick="dashboardrobot()" class="button3" style="color: #fff;">Dashboard</a>
-                        <a onclick="createProjectrobot()" class="button3" style="color: #fff;">Create Project</a>
+                        @can('project_manager')
+                            <a onclick="createProjectrobot()" class="button3" style="color: #fff;">Create Project</a>
+                        @endcan
                         <a onclick="Manualrobot()" class="button3" style="color: #fff;">User Manual</a>
                         <a onclick="leaverobot()" class="button3" style="color: #fff;">Apply for Vacation</a>
                         <a onclick="salaryrobot()" class="button3" style="color: #fff;">Salary</a>
-                        <a onclick="emailrobot()" class="button3" style="color: #fff;">Email</a> @endguest
+                        <a onclick="emailrobot()" class="button3" style="color: #fff;">Email</a> 
+                        @endguest
                     </div>
                 </div>
             </div>

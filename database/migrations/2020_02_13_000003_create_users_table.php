@@ -15,7 +15,6 @@ class CreateUsersTable extends Migration
             $table->String('position')->nullable();
             $table->String('project_id')->nullable();
             $table->integer('department');
-            $table->double('salary',8, 2)->default(1200);
             $table->string('phoneNumber');
             $table->string('Avater')->default("default.jpg");
             $table->string('password');

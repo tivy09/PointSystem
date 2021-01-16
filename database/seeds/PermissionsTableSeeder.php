@@ -132,6 +132,18 @@ class PermissionsTableSeeder extends Seeder
                 'id'    => '31',
                 'title' => 'Apply_leave_Employee',
             ],
+            [
+                'id'    => '32',
+                'title' => 'project_items',
+            ],
+            [
+                'id'    => '33',
+                'title' => 'project_evaluation',
+            ],
+            [
+                'id'    => '34',
+                'title' => 'employee_training',
+            ],
         ];
 
         Permission::insert($permissions);

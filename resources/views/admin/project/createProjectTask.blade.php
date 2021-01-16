@@ -16,7 +16,7 @@
                 <span class="help-block">{{ trans('cruds.role.fields.title_helper') }}</span>
             </div>
             <div class="form-group">
-                <label class="required" for="Start_date">Task Complete Date: </label><br>
+                <label class="required" for="Start_date">Task Start Date: </label><br>
                 <input class="form-control" type="date" name="Start_date" id="Start_date" value="" required>
                 <span class="help-block">{{ trans('cruds.role.fields.title_helper') }}</span>
             </div>
