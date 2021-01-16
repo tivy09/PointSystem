@@ -2,29 +2,27 @@
 @section('content')
 
 @php
-
-$string1 = rand(1, 10);
-
-if($string1 == 1)
-    $recommmed = 'method of lecture';
-elseif($string1 == 2)
-    $recommmed = 'Audio-visual technology law';
-elseif($string1 == 3)
-    $recommmed = 'discussion method';
-elseif($string1 == 4)
-    $recommmed = 'Case study method';
-elseif($string1 == 5)
-    $recommmed = 'Role playing method';
-elseif($string1 == 6)
-    $recommmed = 'Self-study method';
-elseif($string1 == 7)
-    $recommmed = 'Interactive group method';
-elseif($string1 == 8)
-    $recommmed = 'Network training method';
-elseif($string1 == 9)
-    $recommmed = 'Individual guidance method';
-elseif($string1 == 10)
-    $recommmed = 'Scene restoration method';
+    $string1 = rand(1, 10);
+    if($string1 == 1)
+        $recommmed = 'method of lecture';
+    elseif($string1 == 2)
+        $recommmed = 'Audio-visual technology law';
+    elseif($string1 == 3)
+        $recommmed = 'discussion method';
+    elseif($string1 == 4)
+        $recommmed = 'Case study method';
+    elseif($string1 == 5)
+        $recommmed = 'Role playing method';
+    elseif($string1 == 6)
+        $recommmed = 'Self-study method';
+    elseif($string1 == 7)
+        $recommmed = 'Interactive group method';
+    elseif($string1 == 8)
+        $recommmed = 'Network training method';
+    elseif($string1 == 9)
+        $recommmed = 'Individual guidance method';
+    elseif($string1 == 10)
+        $recommmed = 'Scene restoration method';
 
 @endphp
 

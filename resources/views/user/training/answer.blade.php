@@ -100,7 +100,7 @@ $string1 = rand(1, 3);
             display = document.querySelector('#time');
         startTimer(fiveMinutes, display);
     };
-    // answer = setTimeout(aleat, 3600000);
+    answer = setTimeout(aleat, 3600000);
     // answer = setTimeout(answer, 5000);
     function answer() {
         aleat("Time Out!!!");
