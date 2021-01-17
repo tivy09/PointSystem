@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use Auth;
 use DB;
 use App\Calendar;
-use App\todolist;
 use Illuminate\Http\Request;
 use Brian2694\Toastr\Facades\Toastr;
 
@@ -17,7 +17,11 @@ class calendarController extends Controller
      */
     public function index()
     {
-        $events = Calendar::all();
+        $events = DB::table('calendars')
+        ->select('calendars.*')
+        ->where('calendars.employee_id', '=', Auth::user()->id)
+        ->get();
+        
         $event = [];
 
         foreach ($events as $row){
@@ -38,7 +42,11 @@ class calendarController extends Controller
 
     public function index2()
     {
-        $calendar = Calendar::all();
+        $calendar = DB::table('calendars')
+        ->select('calendars.*')
+        ->where('calendars.employee_id', '=', Auth::user()->id)
+        ->get();
+        
         return view('admin.calendar.index')->with('calendar', $calendar);
     }
 
@@ -68,14 +76,14 @@ class calendarController extends Controller
         ]);
 
         $events = new Calendar();
+        $events -> employee_id = $request -> user_id;
         $events -> title = $request -> title;
-        $events -> color = $request -> color;
         $events -> start_date = $request -> start_date;
         $events -> end_date = $request -> end_date;
         $events -> save();
 
         Toastr::success('Event successfully added!','Success');
-        return redirect('calendar');
+        return redirect()->route('admin.calendar.index');
     }
 
     /**
@@ -112,13 +120,12 @@ class calendarController extends Controller
     {
         $calendar = Calendar::find($id);
         $calendar->title = $request->title;
-        $calendar -> color = $request -> color;
         $calendar -> start_date = $request -> start_date;
         $calendar -> end_date = $request -> end_date;
         $calendar->save();
 
         Toastr::success('Event successfully update!','Success');
-        return redirect('calendar');
+        return redirect()->route('admin.calendar.index');
     }
 
     /**

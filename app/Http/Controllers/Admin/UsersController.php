@@ -61,7 +61,7 @@ class UsersController extends Controller
         $user = User::create($request->all());
         $user->roles()->sync($request->input('roles', []));
 
-        Toastr::success('Users Create successfully :)','Success');
+        Toastr::success('Users Create successfully! 🤗','Success');
         return redirect()->route('admin.users.index');
     }
 

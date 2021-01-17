@@ -12,10 +12,6 @@
                 <input type="text" class="form-control" name="title" placeholder="Enter event name">
             </div>
             <div class="form-group">
-                <label for="exampleInputEmail1">Color</label>
-                <input type="color" class="form-control" name="color">
-            </div>
-            <div class="form-group">
                 <label>Start date</label>
                 <input type="datetime-local" class="form-control" name="start_date" id="">
             </div>

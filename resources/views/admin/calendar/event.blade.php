@@ -22,14 +22,12 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.5.1/min/dropzone.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="http://cdn.bootcss.com/toastr.js/latest/css/toastr.min.css">
     <link href="{{ asset('css/custom.css') }}" rel="stylesheet" />
-    <link href="{{ asset('css/clock.css') }}" rel="stylesheet" />
     <link href="{{ asset('css/todolist.css') }}" rel="stylesheet" />
     <link href="{{ asset('css/email.css') }}" rel="stylesheet" />
     <link href="{{ asset('css/model.css') }}" rel="stylesheet">
     <link href="{{ asset('css/hide.css') }}" rel="stylesheet">
     <link href="{{ asset('css/Evaluation.css') }}" rel="stylesheet">
     <script src="{{ asset('js/email.js')}}"></script>
-    <script src="{{ asset('js/clock.js')}}"></script>
     <script src="{{ asset('js/leave.js')}}"></script>
     <script src="{{ asset('js/model.js') }}" defer></script>
     <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
@@ -140,7 +138,9 @@
         <form id="logoutform" action="{{ route('logout') }}" method="POST" style="display: none;">
             {{ csrf_field() }}
         </form>
-    
+    @php 
+        $string = date('Y-m-d');
+    @endphp
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
@@ -175,13 +175,15 @@
             color: black;
         }
     </style>
+    
     <div class="Eventclock">
         <canvas id="canvas" width="200" height="200" style="background-color:#e5e5e6"></canvas>
         <h2 style="padding-left: 40px;"><p id="demo"></p></h2>
-        <h2 style="padding-left: 40px;">Today Day: <p id="demo1"></p></h2>
+        <h2 style="padding-left: 40px;">Today Date: <br>{{$string}}</h2>
     </div>
-    {!! $calendar->calendar() !!}
-    {!! $calendar->script() !!}
+        {!! $calendar->calendar() !!}
+        {!! $calendar->script() !!}
+    
 
     <div class="model-position">
         <a onclick="document.getElementById('id01').style.display = 'block';">
@@ -230,10 +232,6 @@
 var d = new Date();
 var days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 document.getElementById("demo").innerHTML = days[d.getDay()];
-
-var today = new Date();
-var date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
-document.getElementById("demo1").innerHTML = date;
 
 var canvas = document.getElementById("canvas");
 var ctx = canvas.getContext("2d");

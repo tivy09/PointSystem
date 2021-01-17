@@ -10,7 +10,7 @@ class calendar extends Model
     use HasFactory;
 
     protected $table = 'calendars';
-    protected $fillable = ['title','color','start_date','end_date'];
+    protected $fillable = ['title','start_date','end_date'];
     public function addEvents(){
         return $this->belongsTo('App\calendar');
     }

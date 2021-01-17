@@ -1,9 +1,12 @@
 @extends('layouts.admin')
 @section('content')
+@php 
+  $string = date('Y-m-d');
+@endphp
 <div class="clock">
     <canvas id="Ccanvas" width="200" height="200" style="background-color:#e5e5e6"></canvas>
     <h2 style="padding-left: 40px;"><p id="demo"></p></h2>
-    <h2 style="padding-left: 40px;"><p id="demo1"></p></h2>
+    <h2 style="padding-left: 40px;">Today Date: <br>{{$string}}</h2>
 </div>
 <div class="container">
     <div class="row justify-content-center">
@@ -80,10 +83,6 @@
     var p = new Date();
     var days = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
     document.getElementById("demo").innerHTML = days[p.getDay()];
-
-    var Ptoday = new Date();
-    var Pdate = Ptoday.getFullYear()+'-'+(Ptoday.getMonth()+1)+'-'+Ptoday.getDate();
-    document.getElementById("demo1").innerHTML = Pdate;
 
     var Pcanvas = document.getElementById("Ccanvas");
     var ctx = Pcanvas.getContext("2d");

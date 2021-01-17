@@ -61,7 +61,7 @@ Route::get('/event/add',[               'uses'=>'calendarController@create',    
 Route::post('/event/store',[            'uses'=>'calendarController@store',     'as'=>'calendar.store']);
 Route::get('/event',[                   'uses'=>'calendarController@index2',    'as'=>'admin.calendar.index']);
 Route::get('/event/edit/{id}',[         'uses'=>'calendarController@edit',      'as'=>'admin.calendar.edit']);
-Route::post('/event/update/{id}', [     'uses'=>'calendarController@update',    'as' => 'admin.calendar.update']);
+Route::post('/event/update/{id}', [     'uses'=>'calendarController@update',    'as'=>'admin.calendar.update']);
 Route::get('/event/destroy/{id}',[      'uses'=>'calendarController@destroy',   'as'=>'admin.calendar.destroy']);
 
 //department
