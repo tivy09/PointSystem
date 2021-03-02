@@ -47,7 +47,7 @@
         @endif
     </div>
 
-
+    @yield("content")
     <div>
         <div class="model-position">
             <a onclick="document.getElementById('id01').style.display = 'block';">
@@ -102,6 +102,6 @@
                 </div>
             </div>
 
-        @yield("content")
+        
     </body>
 </html>

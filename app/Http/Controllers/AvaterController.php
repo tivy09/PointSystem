@@ -13,6 +13,10 @@ use Symfony\Component\HttpFoundation\Response;
 use Carbon\Carbon;
 class AvaterController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -28,9 +32,12 @@ class AvaterController extends Controller
         ->where('avaters.AttDate', '=', $todayDate)
         ->get();
 
-        $count = DB::table('avaters')->select('avaters.name')->where('avaters.AttDate', '=', $todayDate)->count();
+        $count = DB::table('avaters')->select('avaters.name')
+        ->where('avaters.name', '=', Auth::user()->name)
+        ->where('avaters.AttDate', '=', $todayDate)->count();
 
         $user = User::all();
+        
         return view('admin.CheckIn.show',compact('count'))->with('avaters',$avater)->with('usersaa',$user);
     }
 

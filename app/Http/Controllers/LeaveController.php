@@ -12,6 +12,10 @@ use Illuminate\Support\Facades\Auth;
 
 class LeaveController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -53,7 +57,7 @@ class LeaveController extends Controller
 
         Toastr::success('Leave successfully requested to HR!','Success');
 
-        return redirect()->route('user.leave.index');
+        return redirect()->route('user.information.show', ['id' => Auth::user()->id]);
     }
 
     /**

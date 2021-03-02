@@ -50,10 +50,6 @@
                                 <a class="btn btn-xs btn-info" href="{{ route('admin.department.edit', [ 'id' => $department->id ]) }}">
                                     {{ trans('global.edit') }}
                                 </a>
-
-                                <a class="btn btn-xs btn-danger" href="{{ route('admin.department.destroy', [ 'id' => $department->id ]) }}" onclick="return confirm('Sure Want Delete?')">
-                                    {{ trans('global.delete') }}
-                                </a>
                             </td>
                         </tr>
                     @endforeach

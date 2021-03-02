@@ -23,6 +23,7 @@
             <br><br>
             <p><h1 style="display: block;" id="loading"><b style="margin-left: 180px;">Loading...</b></h1></p>
             <p><h1 style="display: none;" id="success"><b style="margin-left: 60px;">Check In Successfully🎉</b></h1></p>
+            <!-- <p><h1 style="display: none;" id="success"><b style="margin-left: 60px;">Unknown People</b></h1></p> -->
         @endif
         </div>
     </div>

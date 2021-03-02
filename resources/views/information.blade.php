@@ -141,7 +141,9 @@ elseif($string3 == 3)
             </div>
         </div>
 @endforeach
+
 <br><br>
+
 @foreach($salaries as $salary)
         @php
             $total_salary = 0;
@@ -212,7 +214,7 @@ elseif($string3 == 3)
                                 {{ $leave }} days / Total Leave Price = RM{{$countleave}}
                                 </td>
                             </tr>
-                            @if($user->name != 'Admin')
+                            @if($user->name != 'HR Admin')
                                 @if($string6 >= 1 && $string6 <= 50)
                                     <tr>
                                         <th style="width: 50%">

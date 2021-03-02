@@ -99,7 +99,7 @@ class JobAppController extends Controller
         ]);
         Toastr::success('Job successfully Created!','Success');
 
-        return redirect()->route('admin.Job.index');
+        return redirect()->route('admin.JobApp.index');
     }
 
     /**
