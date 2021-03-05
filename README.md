@@ -42,6 +42,16 @@ HR Admin can create the job to be interviewed here. Create the job to be intervi
 
 When the employee enrolment the task, it will be displayed and let the manager evaluate. After the manager evaluates, it automatic will send an email to the employee.  
 
+### Face Recognition
+
+![Screenshot (201)](https://user-images.githubusercontent.com/68195502/110075153-53041700-7dbd-11eb-96f7-e8417ff874ad.png)
+
+------------
+
+First, users must be taking a photo. When the user takes a photo, it will jump to the recognition page. The system will automatically recognize the face in the photo. Shows the name and face recognition rate. The closer to 0, the more accurate the facial recognition is.
+
+------------
+
 ## How to use
 
 - Clone the repository with __git clone__
