@@ -16,10 +16,10 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-          <b><h1 style="margin-left: 15px;">Take Snapshot to Check In😊</h1></b>
-            <div id="my_camera"></div>
+          <b><h1 style="margin-left: 50px;">Take Snapshot to Check In😊</h1></b>
+            <div id="my_camera" style="margin-left: 50px;"></div>
                 <form action="{{ asset('phpfile/storeImage.php') }}" method="post">
-                    <button onClick="take_snapshot()" style="width: 160px; height: 60px; text-align: center; font-size: 20px;margin-left: 170px" class="btn btn-success">Take Snapshot</button>
+                    <button onClick="take_snapshot()" style="width: 160px; height: 60px; text-align: center; font-size: 20px;margin-left: 200px" class="btn btn-success">Take Snapshot</button>
                     <input type="hidden" name="avater" class="image-tag">
                     <input type="hidden" name="name" value="{{ Auth::user()->name }}">
                     <input type="hidden" name="time" value="{{ date('H:i:s') }}">

@@ -20,7 +20,7 @@
                         <th style="width: 130px;">
                             Task Start Date
                         </th>
-                        <th style="width: 400px;">
+                        <th style="width: 200px;">
                             Description
                         </th>
                         <th style="width: 50px;">

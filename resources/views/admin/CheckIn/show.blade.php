@@ -17,12 +17,12 @@
             <p><h1 style="display: none;margin-top: 0px; margin-left: 100px;" id="late"><b>You already Late😟</b></h1></p>
             <p><h1 style="display: none;margin-top: 0px; margin-left: 100px;" id="good"><b>Good Morning🤗</b></h1></p>
             @foreach($avaters as $avater)
-                <div class="overlay" style="margin-top: 0px;display: none;" id="canvas"><canvas id="reflay" style="position: absolute;"></canvas></div>
-                <img src="{{ asset('phpfile/img/') }}/{{$avater->avaters_IMG}}" alt="" id="refimg" width="">
+                <div class="overlay" style="margin-top: 0px;display: none;" id="canvas"><canvas id="reflay" style="position: absolute;left: 50px;"></canvas></div>
+                <img src="{{ asset('phpfile/img/') }}/{{$avater->avaters_IMG}}" alt="" id="refimg" width="" style="margin-left: 35px;">
             @endforeach
             <br><br>
-            <p><h1 style="display: block;" id="loading"><b style="margin-left: 180px;">Loading...</b></h1></p>
-            <p><h1 style="display: none;" id="success"><b style="margin-left: 60px;">Check In Successfully🎉</b></h1></p>
+            <p><h1 style="display: block;" id="loading"><b style="margin-left: 200px;">Loading...</b></h1></p>
+            <p><h1 style="display: none;" id="success"><b style="margin-left: 90px;">Check In Successfully🎉</b></h1></p>
             <!-- <p><h1 style="display: none;" id="success"><b style="margin-left: 60px;">Unknown People</b></h1></p> -->
         @endif
         </div>
@@ -184,6 +184,7 @@
             faceapi.draw.drawDetections(canvas, fullFaceDescriptions)
 
             //You want make sure the photo
+            // labels is array
             const labels = []
             @foreach($usersaa as $user)
                 labels.push('{{$user->name}}')

@@ -8,7 +8,7 @@
     </div>
 </div>
 
-<div class="card" style="width: 1330px;">
+<div class="card" style="width: 1110px;">
     <div class="card-header">
         Inbox
     </div>
@@ -26,7 +26,7 @@
                             @endforeach
                     </div>
             </div>
-            <div class="row-md-8 row-md-pull-8" style="width: 900px;">
+            <div class="row-md-8 row-md-pull-8" style="width: 500px;">
             @foreach($emails as $email)
                 <div class="col-xs-8 tabcontent" id="{{$email->created_at}}" style="width: 850px;">
                     <h1>{{$email->Email_title}}</h1>

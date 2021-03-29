@@ -39,7 +39,7 @@
             </div>
         </div>
         <div class="col-lg-6">
-            <div class="card" style="min-height: 550px; max-height: 550px; overflow: scroll; white-space: normal; width: 600px">
+            <div class="card" style="min-height: 550px; max-height: 550px; overflow: scroll; white-space: normal; width: 550px">
                 <div class="card-body">
                     <div>
                         <table style="border-spacing: 0.5rem;">

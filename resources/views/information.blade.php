@@ -55,91 +55,62 @@ elseif($string3 == 3)
     }
 </style>
 @foreach($users as $user)
-    <div class="card-body">
-        <div class="row">
-            <div style="background-color: white; width: 520px;">
-                <h3 style="margin-left: 120px;margin-top: 20px;">PROFESSIONAL DETAILS</h3>
-                <hr>
-                <img src="{{ asset('Avatar/')}}/{{ $user->Avater }}" alt="" class="img-fluid avatar" style="margin-left: 110px;">
-                <br>
-                <table class="table" style="margin-top: 20px;">
-                    <tr>
-                        <td style="width: 200px;height: 50px; font-size: 25px;margin-left: 10px;"><b>NAME</b></td>
-                        <td style="font-size: 25px;">{{$user->name}}<br></td>
-                    </tr>
-                    
-                    <tr>
-                        <td style="width: 200px;height: 50px; font-size: 25px;"><b>EMAIL</b></td>
-                        <td style="font-size: 25px;">{{$user->email}}</td>
-                    </tr>
-                    <tr>
-                        <td style="width: 200px;height: 50px; font-size: 25px;"><b>LOCATION</b></td>
-                        <td style="font-size: 25px;">{{$location}}<br></td>
-                    </tr>
-                    <tr>
-                        <td style="width: 200px;height: 50px; font-size: 25px;"><b>EXPERIENCE</b></td>
-                        <td style="font-size: 25px;">{{$string2}} Years<br></td>
-                    </tr>
-                    <tr>
-                        <td style="width: 200px;height: 50px; font-size: 25px;"><b>LEVEL</b></td>
-                        <td style="font-size: 25px;">{{$level}}<br></td>
-                    </tr>
-                </table>
-            </div>
-            <div class="col-sm-7" style="background-color: white;left: 50px;height: 450px;">
-                <h2 style="margin-left: 20px;margin-top: 15px;">ABOUT ME</h2>
-                <hr>
-                <table style="margin-top: 20px;">
-                    <tr>
-                        <td style="padding-left:20px; width: 200px;height: 90px; font-size: 25px;"><b>NAME</b></td>
-                        <td style="font-size: 25px;">{{$user->name}}</td>
-                        <td style="width: 150px;height: 90px; font-size: 25px;padding-left: 30px;"><b>AGE</b></td>
-                        <td style="font-size: 25px;padding-left: 60px;">{{$string4}} Years</td>
-                    </tr>
-                    <tr>
-                        <td style="padding-left:20px; width: 200px;height: 90px; font-size: 25px;"><b>LOCATION</b></td>
-                        <td style="font-size: 25px;">{{$location}}</td>
-                        <td style="width: 150px;height: 90px; font-size: 25px;padding-left: 30px;"><b>EXPERIENCE</b></td>
-                        <td style="font-size: 25px;padding-left: 60px;">{{$string2}} Years</td>
-                    </tr>
-                    <tr>
-                        <td style="padding-left:20px; width: 200px;height: 90px; font-size: 25px;"><b>LEVEL</b></td>
-                        <td style="font-size: 25px;">{{$level}}</td>
-                        <td style="width: 200px;height: 90px; font-size: 25px;padding-left: 30px;"><b>CAREER LEVEL</b></td>
-                        <td style="font-size: 25px;padding-left: 60px;">{{$level}}</td>
-                    </tr>
-                    <tr>
-                        <td style="padding-left:20px; width: 200px;height: 90px; font-size: 25px;"><b>EMAIL</b></td>
-                        <td style="font-size: 25px;">{{$user->email}}</td>
-                        <td style="width: 150px;height: 90px; font-size: 25px;padding-left: 30px;"><b>WEBSITE</b></td>
-                        <td style="font-size: 25px;padding-left: 60px;">emample.com</td>
-                    </tr>
-                </table>
+    <div class="card">
+        <div class="card-header">
+            Personal Information
+        </div>
+
+        <div class="card-body">
+            <table class="table table-bordered table-striped">
+                <tr style="text-align: center;">
+                    <td rowspan="5"><img src="{{ asset('Avatar/')}}/{{ $user->Avater }}" alt="" width="100%"></td>
+                    <td colspan="4" style="text-align: left;">NAME:  {{$user->name}}</td>
+                </tr>
+                <tr>
+                    <td>EMAIL: {{$user->email}}</td>
+                </tr>
+                <tr>
+                    <td>AGE: {{$string4}}</td>
+                </tr>
+                <tr>
+                    <td>EXPERIENCE: {{$string2}} Years</td>
+                </tr>
+                <tr>
+                    <td>LEVEL: {{$level}}</td>
+                </tr>
+                <tr>
+                    <td>LOCATION: {{$location}}</td>
+                    <td rowspan="2">
+                        <div class="calculate">
+                            <div class="inside">
+                                <h5>Salary Calculate Formula</h5>
+                                <p>Your Basie Salary + (Your Cheak in Day * RM100/day) + (Your Total Comission cases * RM2/case) - (Your Leave * RM100/day) - (6% tax) = Your Total Salary</p>
+                                <button onclick="avatar()" style="width: 200px;">Changes Your Avatar</button>
+                                @can('Apply_leave_Employee')
+                                    <button style="width: 200px;" onclick="leavebutton()">Apply Leave</button>
+                                @endcan
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>WEBSITE: Example.com</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div id="id05" class="modal"">
+        <div class="modal-content animate">
+            <div class="modalcontainer">
+                <form action="{{ route('user.Avatar.update', ['id' => Auth::user()->id]) }}" method="post" enctype="multipart/form-data">
+                    @csrf
+                    <input type="file" name="avatar_file" id="avatar_file" onchange="return uploadavater()">
+                    <div id="avatarupload"></div>
+                    <button type="submit">Submit</button>
+                </form>
             </div>
         </div>
-        <div class="calculate">
-            <div class="inside">
-                <h5>Salary Calculate Formula</h5>
-                <p>Your Basie Salary + (Your Cheak in Day * RM100/day) + (Your Total Comission cases * RM2/case) - (Your Leave * RM100/day) - (6% tax)</p>
-                <p> = Your Total Salary</p>
-                <button onclick="avatar()" style="width: 200px;">Changes Your Avatar</button>
-                @can('Apply_leave_Employee')
-                    <button style="width: 200px;" onclick="leavebutton()">Apply Leave</button>
-                @endcan
-            </div>
-        </div>
-        <div id="id05" class="modal"">
-            <div class="modal-content animate">
-                <div class="modalcontainer">
-                    <form action="{{ route('user.Avatar.update', ['id' => Auth::user()->id]) }}" method="post" enctype="multipart/form-data">
-                        @csrf
-                        <input type="file" name="avatar_file" id="avatar_file" onchange="return uploadavater()">
-                        <div id="avatarupload"></div>
-                        <button type="submit">Submit</button>
-                    </form>
-                </div>
-            </div>
-        </div>
+    </div>
 @endforeach
 
 <br><br>
@@ -165,69 +136,69 @@ elseif($string3 == 3)
         @endphp
 
 
-        <div class="card">
-            <div class="card-header">
-                {{ trans('global.show') }} {{ trans('cruds.user.title') }} Salary
-            </div>
+    <div class="card">
+        <div class="card-header">
+            {{ trans('global.show') }} {{ trans('cruds.user.title') }} Salary
+        </div>
 
-            <div class="card-body">
-                <div class="form-group">
-                    <table class="table table-bordered table-striped">
-                        <tbody>
-                            <tr>
-                                <th style="width: 50%">
-                                    Employee {{ trans('cruds.user.fields.name') }}
-                                </th>
-                                <td>
-                                    {{ $user->name }}
-                                </td>
-                            </tr>
-                            <tr>
-                                <th style="width: 50%">
-                                    Employee Position
-                                </th>
-                                <td>
-                                    {{ $user->position }}
-                                </td>
-                            </tr>
-                            <tr>
-                                <th style="width: 50%">
-                                    Employee Salary
-                                </th>
-                                <td>
-                                   RM  {{ $salary-> Salary_amount }}
-                                </td>
-                            </tr>
-                            <tr>
-                                <th style="width: 50%">
-                                    Employee Check In Day (Total Check in Day: {{$string5}} Day)
-                                </th>
-                                <td>
-                                    RM {{ $checkin }}  {{$string6}}
-                                </td>
-                            </tr>
-                            <tr>
-                                <th style="width: 50%">
-                                    Employee Leave Apply (One day 10 hours, 1 hours RM10)
-                                </th>
-                                <td>
-                                {{ $leave }} days / Total Leave Price = RM{{$countleave}}
-                                </td>
-                            </tr>
-                            @if($user->name != 'HR Admin')
-                                @if($string6 >= 1 && $string6 <= 50)
-                                    <tr>
-                                        <th style="width: 50%">
-                                            Sales Comission (Total Cases: {{$string7}} cases,  RM2/case)
-                                        </th>
-                                        <td>
-                                            RM {{ $countcomission }}
-                                        </td>
-                                    </tr>
-                                @endif
+        <div class="card-body">
+            <div class="form-group">
+                <table class="table table-bordered table-striped">
+                    <tbody>
+                        <tr>
+                            <th style="width: 50%">
+                                Employee {{ trans('cruds.user.fields.name') }}
+                            </th>
+                            <td>
+                                {{ $user->name }}
+                            </td>
+                        </tr>
+                        <tr>
+                            <th style="width: 50%">
+                                Employee Position
+                            </th>
+                            <td>
+                                {{ $user->position }}
+                            </td>
+                        </tr>
+                        <tr>
+                            <th style="width: 50%">
+                                Employee Salary
+                            </th>
+                            <td>
+                                RM  {{ $salary-> Salary_amount }}
+                            </td>
+                        </tr>
+                        <tr>
+                            <th style="width: 50%">
+                                Employee Check In Day (Total Check in Day: {{$string5}} Day)
+                            </th>
+                            <td>
+                                RM {{ $checkin }} 
+                            </td>
+                        </tr>
+                        <tr>
+                            <th style="width: 50%">
+                                Employee Leave Apply (One day 10 hours, 1 hours RM10)
+                            </th>
+                            <td>
+                            {{ $leave }} days / Total Leave Price = RM{{$countleave}}
+                            </td>
+                        </tr>
+                        @if($user->name != 'HR Admin')
+                            @if($string6 >= 1 && $string6 <= 50)
+                                <tr>
+                                    <th style="width: 50%">
+                                        Sales Comission (Total Cases: {{$string7}} cases,  RM2/case)
+                                    </th>
+                                    <td>
+                                        RM {{ $countcomission }}
+                                    </td>
+                                </tr>
                             @endif
-                            <tr>
-                                <th style="width: 50%">
+                        @endif
+                        <tr>
+                            <th style="width: 50%">
                                     Tax (6%)
                                 </th>
                                 <td>
@@ -242,11 +213,11 @@ elseif($string3 == 3)
                                     RM {{ $total_salary }}
                                 </td>
                             </tr>
-                        </tbody>
+                        </tr>
+                    </tbody>
                     </table>
                 </div>
             </div>
         </div>
-    </div>
 @endforeach
 @endsection

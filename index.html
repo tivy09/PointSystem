@@ -1,35 +1,131 @@
 <!DOCTYPE html>
-<html>
-<title>Number Line</title>
-<script>
-    function startTimer(duration, display) {
-        var timer = duration,
-            minutes, seconds;
-        setInterval(function() {
-            minutes = parseInt(timer / 60, 10)
-            seconds = parseInt(timer % 60, 10);
+<html lang="en">
 
-            minutes = minutes < 10 ? "0" + minutes : minutes;
-            seconds = seconds < 10 ? "0" + seconds : seconds;
-
-            display.textContent = minutes + ":" + seconds;
-
-            if (--timer < 0) {
-                timer = duration;
-            }
-        }, 1000);
-    }
-
-    window.onload = function() {
-        var fiveMinutes = 60 * 60,
-            display = document.querySelector('#time');
-        startTimer(fiveMinutes, display);
-    };
-</script>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <title>Document</title>
 </head>
 
 <body>
-    <div>Registration closes in <b><span id="time">60:00</span></b> minutes!</div>
+    <div class="container">
+        <div class="card">
+            <div class="card-header">
+                Personal Information
+            </div>
+            <div class="card-body">
+                <div class="form-group">
+                    <table class="table table-bordered table-striped">
+                        <tbody>
+                            <tr>
+                                <th style="width: 50%">
+                                    Employee {{ trans('cruds.user.fields.name') }}
+                                </th>
+                                <td>
+                                    {{ $user->name }}
+                                </td>
+                            </tr>
+                            <tr>
+                                <th style="width: 50%">
+                                    Employee Position
+                                </th>
+                                <td>
+                                    {{ $user->position }}
+                                </td>
+                            </tr>
+                            <tr>
+                                <th style="width: 50%">
+                                    Employee Salary
+                                </th>
+                                <td>
+                                    RM {{ $salary-> Salary_amount }}
+                                </td>
+                            </tr>
+                            <tr>
+                                <th style="width: 50%">
+                                    Employee Check In Day (Total Check in Day: {{$string5}} Day)
+                                </th>
+                                <td>
+                                    RM {{ $checkin }} {{$string6}}
+                                </td>
+                            </tr>
+                            <tr>
+                                <th style="width: 50%">
+                                    Employee Leave Apply (One day 10 hours, 1 hours RM10)
+                                </th>
+                                <td>
+                                    {{ $leave }} days / Total Leave Price = RM{{$countleave}}
+                                </td>
+                            </tr>
+                            <tr>
+                                <th style="width: 50%">
+                                    Sales Comission (Total Cases: {{$string7}} cases, RM2/case)
+                                </th>
+                                <td>
+                                    RM {{ $countcomission }}
+                                </td>
+                            </tr>
+                            <tr>
+                                <th style="width: 50%">
+                                    Tax (6%)
+                                </th>
+                                <td>
+                                    RM {{ $counttax }}
+                                </td>
+                            </tr>
+                            <tr>
+                                <th style="width: 50%">
+                                    Total Salary
+                                </th>
+                                <td>
+                                    RM {{ $total_salary }}
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                Personal Information
+            </div>
+
+            <div class="card-body">
+                <table class="table table-bordered table-striped">
+                    <tr>
+                        <td rowspan="5">IMG</td>
+                        <td colspan="4">NAME: </td>
+                    </tr>
+                    <tr>
+                        <td>EMAIL: </td>
+                    </tr>
+                    <tr>
+                        <td>AGE: </td>
+                    </tr>
+                    <tr>
+                        <td>EXPERIENCE: </td>
+                    </tr>
+                    <tr>
+                        <td>LEVEL: </td>
+                    </tr>
+                    <tr>
+                        <td>LOCATION:</td>
+                        <td rowspan="2">NAME: </td>
+                    </tr>
+                    <tr>
+                        <td>WEBSITE:</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
 </body>
 
 </html>

@@ -165,7 +165,7 @@
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.2.7/fullcalendar.min.css"/>
     <style>
         .fc, .fc-ltr, .fc-unthemed{
-            width: 1000px;
+            width: 750px;
             margin-left:230px;
         }
         .fc-time, .fc-title{
