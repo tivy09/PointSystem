@@ -6,8 +6,9 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\MassDestroyPointSettingRequest;
 use App\Http\Requests\StorePointSettingRequest;
 use App\Http\Requests\UpdatePointSettingRequest;
+use App\Models\Point;
 use App\Models\PointSetting;
-use Gate;
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 
@@ -45,6 +46,7 @@ class PointSettingsController extends Controller
 
     public function update(UpdatePointSettingRequest $request, PointSetting $pointSetting)
     {
+        $prize = new Point();
         $prize_earn_amount=$request->input('earn_amount');
         $prize->earn_rate = 100 / $prize_earn_amount;
         $pointSetting->update($request->all());

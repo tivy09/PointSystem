@@ -8,7 +8,9 @@ use App\Http\Requests\MassDestroyPrizeRequest;
 use App\Http\Requests\StorePrizeRequest;
 use App\Http\Requests\UpdatePrizeRequest;
 use App\Models\PointRedeemType;
+use App\Models\PointSetting;
 use App\Models\Prize;
+use App\Models\RedeemConditionSetting;
 use Gate;
 use Illuminate\Http\Request;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
@@ -38,17 +40,26 @@ class PrizeController extends Controller
 
     public function store(StorePrizeRequest $request)
     {
-        $prize = Prize::create($request->all());
+        $prize = new Prize();
+        $request->input('type_id') == 1;
+        $redeemType = RedeemConditionSetting::find(1);
+        if($request->input('point_to_redeem') > $redeemType->min_point_to_redeem){
+            if ($request->input('image', false)) {
+                $prize->addMedia(storage_path('tmp/uploads/' . basename($request->input('image'))))->toMediaCollection('image');
+            }
 
-        if ($request->input('image', false)) {
-            $prize->addMedia(storage_path('tmp/uploads/' . basename($request->input('image'))))->toMediaCollection('image');
+            if ($media = $request->input('ck-media', false)) {
+                Media::whereIn('id', $media)->update(['model_id' => $prize->id]);
+            }
+            $prize = Prize::create($request->all());
+            return redirect()->route('admin.prizes.index');
+        }else{
+            return redirect()->route('admin.prizes.index');
         }
+        //get min point to redeem
 
-        if ($media = $request->input('ck-media', false)) {
-            Media::whereIn('id', $media)->update(['model_id' => $prize->id]);
-        }
 
-        return redirect()->route('admin.prizes.index');
+
     }
 
     public function edit(Prize $prize)
