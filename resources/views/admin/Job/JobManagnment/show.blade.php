@@ -178,7 +178,7 @@
                             Number of Worker
                         </th>
                         <td>
-                            {{ $jobapp->CPeople }}
+                            {{ $jobapp->JobCPeople }}
                         </td>
                     </tr>
                 </tbody>

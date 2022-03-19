@@ -14,6 +14,10 @@
                 </div>
 
                 <div class="card-body">
+                    Hi Login Successful
+                </div>
+
+                <!-- <div class="card-body">
                     <div class="slideshow-container">
 
                         <div class="mySlides fade">
@@ -35,10 +39,10 @@
                         <span class="dot"></span> 
                         <span class="dot"></span> 
                     </div>
-                </div>
+                </div> -->
             </div>
         </div>
-        <div class="col-lg-6">
+        <!-- <div class="col-lg-6">
             <div class="card" style="min-height: 550px; max-height: 550px; overflow: scroll; white-space: normal; width: 550px">
                 <div class="card-body">
                     <div>
@@ -105,7 +109,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
     </div>
 </div>
 

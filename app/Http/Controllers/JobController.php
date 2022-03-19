@@ -252,7 +252,7 @@ class JobController extends Controller
     {
         $type = job_type::find($id);
         $type->delete();
-        Toastr::success('Job Location deleted successfully :)','Success');
+        Toastr::success('Job Type deleted successfully :)','Success');
         return redirect()->route('admin.JobApp.index');
     }
 }

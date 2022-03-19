@@ -1,6 +1,6 @@
 <?php
 
-Route::get('/', function () { return view('welcome'); });
+Route::get('/', function () { return view('auth.login'); });
 
 Route::get('/home/new1', function () { return view('News.index1'); });
 

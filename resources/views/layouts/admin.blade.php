@@ -85,9 +85,9 @@
                         </svg>
                     </i> Information
                 </a>
-                <a href="{{ url('/') }}" class="nav-link" style="padding-left: 10px;" onclick="">
+                <!-- <a href="{{ url('/') }}" class="nav-link" style="padding-left: 10px;" onclick="">
                     <img src="{{ asset('Icon/house-fill.svg') }}" alt="" class="nav-icon fas fa-fw"> About Us
-                </a>
+                </a> -->
                 <a href="" class="nav-link" style="padding-left: 10px;" onclick="event.preventDefault(); document.getElementById('logoutform').submit();">
                     <i class="nav-icon fas fa-fw fa-sign-out-alt"></i>{{ trans('global.logout') }}
                 </a>
@@ -141,9 +141,10 @@
         </main>
         <div>
             <div class="model-position">
-                <a onclick="document.getElementById('id01').style.display = 'block';">
+                <!-- <a onclick="document.getElementById('id01').style.display = 'block';">
                     <model-viewer id="model" src="{{ asset('model/RobotExpressive.glb') }}" alt="A 3D model of an astronaut" animation-name="none" style="width: 150px; height: 170px;" autoplay></model-viewer>
                 </a>
+             -->
             </div>
             <div id="id01" class="modal">
                 <div class="modal-content animate">

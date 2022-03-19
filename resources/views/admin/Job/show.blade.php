@@ -8,7 +8,8 @@
 </Style>
 <div class="card">
     <div class="card-header">
-        {{ trans('global.show') }} {{ trans('cruds.role.title') }}
+        <!-- {{ trans('global.show') }} {{ trans('cruds.role.title') }} -->
+        Job Application Detail
     </div>
 
     <div class="card-body">

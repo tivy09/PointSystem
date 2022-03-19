@@ -19,7 +19,7 @@
                         </i> {{ trans('cruds.userManagement.title') }}
                 </a>
                 <ul class="nav-dropdown-items">
-                    @can('permission_access')
+                    <!-- @can('permission_access')
                     <li class="nav-item">
                         <a href="{{ route("admin.permissions.index") }}" class="nav-link {{ request()->is('admin/permissions') || request()->is('admin/permissions/*') ? 'active' : '' }}">
                             <i class="fa-fw fas fa-unlock-alt nav-icon">
@@ -36,7 +36,7 @@
                                     </i> {{ trans('cruds.role.title') }}
                         </a>
                     </li>
-                    @endcan 
+                    @endcan  -->
                     @can('user_access')
                     <li class="nav-item">
                         <a href="{{ route("admin.users.index") }}" class="nav-link {{ request()->is('admin/users') || request()->is('admin/users/*') ? 'active' : '' }}">
@@ -57,7 +57,7 @@
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-building" viewBox="0 0 16 16">
                         <path fill-rule="evenodd" d="M14.763.075A.5.5 0 0 1 15 .5v15a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5V14h-1v1.5a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5V10a.5.5 0 0 1 .342-.474L6 7.64V4.5a.5.5 0 0 1 .276-.447l8-4a.5.5 0 0 1 .487.022zM6 8.694L1 10.36V15h5V8.694zM7 15h2v-1.5a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 .5.5V15h2V1.309l-7 3.5V15z"/>
                         <path d="M2 11h1v1H2v-1zm2 0h1v1H4v-1zm-2 2h1v1H2v-1zm2 0h1v1H4v-1zm4-4h1v1H8V9zm2 0h1v1h-1V9zm-2 2h1v1H8v-1zm2 0h1v1h-1v-1zm2-2h1v1h-1V9zm0 2h1v1h-1v-1zM8 7h1v1H8V7zm2 0h1v1h-1V7zm2 0h1v1h-1V7zM8 5h1v1H8V5zm2 0h1v1h-1V5zm2 0h1v1h-1V5zm0-2h1v1h-1V3z"/>
-                        </svg></i>Company Controller
+                        </svg></i>Company
                 </a>
                 
                 <ul class="nav-dropdown-items">
@@ -79,14 +79,14 @@
                     </li>
                     <li class="nav-item">
                         <a href="{{ route("admin.JobApp.index") }}" class="nav-link {{ request()->is('admin/events') || request()->is('admin/events/*') ? 'active' : '' }}">
-                            <i class="fa-fw fas fa-cogs nav-icon"></i> Job Controller</a>
+                            <i class="fa-fw fas fa-cogs nav-icon"></i> Job Manager</a>
                     </li>
                 </ul>
             </li>
             @endcan
             @can('project_items')
             <!-- Project -->
-            <li class="nav-item nav-dropdown">
+            <!-- <li class="nav-item nav-dropdown">
                 <a class="nav-link  nav-dropdown-toggle" href="#">
                     <i class="fa-fw fas nav-icon">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-kanban-fill" viewBox="0 0 16 16">
@@ -129,7 +129,7 @@
                     </li>
                 @endcan
                 </ul>
-            </li>
+            </li> -->
             @endcan
             <!-- Calendar manager-->
             @can('manager_calendar')
@@ -162,7 +162,7 @@
                 </ul>
             </li>
             @endcan
-            @can('project_evaluation')
+            <!-- @can('project_evaluation')
             <li class="nav-item">
                 <a href="{{ route('admin.Project.EvaluationAdmin') }}" class="nav-link">
                     <i class="nav-icon fas fa-fw">
@@ -172,7 +172,7 @@
                     </i> Training Plan List
                 </a>
             </li>
-            @endcan
+            @endcan -->
             <!-- calander employee -->
             @can('employee_calendar')
             <li class="nav-item">
@@ -187,7 +187,7 @@
             </li>
             @endcan
             <!-- Training Plan Employee -->
-            @can('employee_training')
+            <!-- @can('employee_training')
             <li class="nav-item">
                 <a href="{{ route('admin.Project.EvaluationEmployee') }}" class="nav-link">
                     <i class="nav-icon fas fa-fw">
@@ -198,9 +198,9 @@
                     </i> Training Plan
                 </a>
             </li>
-            @endcan
+            @endcan -->
             <!-- Face -->
-            <li class="nav-item">
+            <!-- <li class="nav-item">
                 <a href="{{ route('user.Avatar.create') }}" class="nav-link">
                     <i class="nav-icon fas fa-fw">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check2-all" viewBox="0 0 16 16">
@@ -209,7 +209,7 @@
                         </svg>
                     </i> Check In
                 </a>
-            </li>
+            </li> -->
             <!-- Leave -->
             @can('Apply_leave_Manager')
             <li class="nav-item">
@@ -223,7 +223,7 @@
             </li>
             @endcan
             <!-- salary -->
-            @can('salary_employee')
+            <!-- @can('salary_employee')
             <li class="nav-item">
                 <a href="{{ route('user.salary.index') }}" class="nav-link">
                     <i class="nav-icon fas fa-fw">
@@ -234,9 +234,9 @@
                     </i> Salary
                 </a>
             </li>
-            @endcan
+            @endcan -->
             <!-- Email -->
-            <li class="nav-item">
+            <!-- <li class="nav-item">
                 <a href="{{ route("user.emails.index") }}" class="nav-link">
                     <i class="nav-icon fas fa-fw">
                         <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-envelope-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -244,7 +244,7 @@
                         </svg>
                     </i> Email
                 </a>
-            </li>
+            </li> -->
             <!-- logout -->
             <li class="nav-item">
                 <a href="" class="nav-link" onclick="event.preventDefault(); document.getElementById('logoutform').submit();">
