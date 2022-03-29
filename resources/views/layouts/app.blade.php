@@ -34,11 +34,11 @@
 
 <body class="header-fixed sidebar-fixed aside-menu-fixed aside-menu-hidden login-page">
     <div>
-        <div class="model-position">
+        <!-- <div class="model-position">
             <a onclick="document.getElementById('id01').style.display = 'block';">
                 <model-viewer id="model" src="{{ asset('model/RobotExpressive.glb') }}" alt="A 3D model of an astronaut" animation-name="none" style="width: 200px; height: 220px;" autoplay></model-viewer>
             </a>
-        </div>
+        </div> -->
         <div id="id01" class="modal">
             <div class="modal-content animate">
                 <div class="modalcontainer">
