@@ -104,7 +104,8 @@ elseif($string3 == 3)
             <div class="modalcontainer">
                 <form action="{{ route('user.Avatar.update', ['id' => Auth::user()->id]) }}" method="post" enctype="multipart/form-data">
                     @csrf
-                    <input type="file" name="avatar_file" id="avatar_file" onchange="return uploadavater()">
+                    <!-- <input type="file" name="avatar_file" id="avatar_file" onchange="return uploadavater()"> -->
+                    <input type="file" name="avatar_file" id="avatar_file" onchange="return uploadavater()" multiple accept="image/*">
                     <div id="avatarupload"></div>
                     <button type="submit">Submit</button>
                 </form>
