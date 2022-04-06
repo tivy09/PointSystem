@@ -121,7 +121,7 @@ class LeaveController extends Controller
             'Email_file'=>"",
             'Email_MSG'=>"Your Leave already Approved.🙂",
         ]);
-
+        Toastr::success('Leave Application Status Change Success','Success');
         return redirect()->route('user.leave.index');
     }
 
@@ -139,6 +139,7 @@ class LeaveController extends Controller
             'Email_file'=>"",
             'Email_MSG'=>"Your Leave already Reject.😟",
         ]);
+        Toastr::success('Leave Application Status Change Success','Success');
 
         return redirect()->route('user.leave.index');
     }

@@ -197,7 +197,7 @@ class JobAppController extends Controller
     {
         $job = job::find($id);
         $job->delete();
-        Toastr::success('Job Application Delated successfully 🤗','Success');
+        Toastr::success('Job Application Deleted successfully 🤗','Success');
         return redirect()->route('admin.Job.index');
     }
 
@@ -205,7 +205,7 @@ class JobAppController extends Controller
     {
         $job_app = job_app::find($id);
         $job_app->delete();
-        Toastr::success('Job Delated successfully 🤗','Success');
+        Toastr::success('Job Deleted successfully 🤗','Success');
         return redirect()->route('admin.JobApp.index');
     }
 }
