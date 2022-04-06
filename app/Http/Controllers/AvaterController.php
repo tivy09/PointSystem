@@ -101,7 +101,7 @@ class AvaterController extends Controller
         $user->Avater = $fileName;
         $user->save();
 
-        Toastr::success('Your Avatar already update!!Very Cool🤣','Success');
+        Toastr::success('Your Avatar already update!!','Success');
         return redirect()->route('user.information.show', ['id' => Auth::user()->id]);
     }
 
