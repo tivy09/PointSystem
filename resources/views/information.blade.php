@@ -54,7 +54,7 @@ elseif($string3 == 3)
         margin-left: 59px;
     }
 </style>
-@foreach($users as $user)
+<!-- @foreach($users as $user) -->
     <div class="card">
         <div class="card-header">
             Personal Information
@@ -63,11 +63,11 @@ elseif($string3 == 3)
         <div class="card-body">
             <table class="table table-bordered table-striped">
                 <tr style="text-align: center;">
-                    <td rowspan="5"><img src="{{ asset('Avatar/')}}/{{ $user->Avater }}" alt="" width="100%"></td>
-                    <td colspan="4" style="text-align: left;">NAME:  {{$user->name}}</td>
+                    <td rowspan="5"><img src="{{ asset('Avatar/')}}/{{ Auth::user()->Avater }}" alt="" width="100%"></td>
+                    <td colspan="4" style="text-align: left;">NAME:  {{ Auth::user()->name }}</td>
                 </tr>
                 <tr>
-                    <td>EMAIL: {{$user->email}}</td>
+                    <td>EMAIL: {{Auth::user()->email}}</td>
                 </tr>
                 <tr>
                     <td>AGE: {{$string4}}</td>
@@ -112,7 +112,7 @@ elseif($string3 == 3)
             </div>
         </div>
     </div>
-@endforeach
+<!-- @endforeach -->
 
 <br><br>
 
