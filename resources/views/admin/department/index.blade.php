@@ -50,6 +50,9 @@
                                 <a class="btn btn-xs btn-info" href="{{ route('admin.department.edit', [ 'id' => $department->id ]) }}">
                                     {{ trans('global.edit') }}
                                 </a>
+                                <a href="{{ route('admin.department.destroy', ['id' => $department->id]) }}" class="btn btn-xs btn-danger" onclick="return confirm('Sure Want Delete?')">
+                                    {{ trans('global.delete') }}
+                                </a>
                             </td>
                         </tr>
                     @endforeach
@@ -96,8 +99,7 @@
   }
   dtButtons.push(deleteButton)
 @endcan
-
-  $('.datatable-Role:not(.ajaxTable)').DataTable({ buttons: dtButtons })
+  $('.datatable-Role:not(.ajaxTable)').DataTable({ buttons: dtButtons, searching: false })
     $('a[data-toggle="tab"]').on('shown.bs.tab', function(e){
         $($.fn.dataTable.tables(true)).DataTable()
             .columns.adjust();

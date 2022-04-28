@@ -11,7 +11,7 @@
             @csrf
             <div class="form-group">
                 <label class="required" for="name">{{ trans('cruds.user.fields.name') }}</label>
-                <input class="form-control {{ $errors->has('name') ? 'is-invalid' : '' }}" type="text" name="name" id="name" value="{{ old('name', '') }}" required>
+                <input class="form-control {{ $errors->has('name') ? 'is-invalid' : '' }}" type="text" name="name" id="name" value="{{ old('name', '') }}">
                 @if($errors->has('name'))
                     <div class="invalid-feedback">
                         {{ $errors->first('name') }}
@@ -21,7 +21,7 @@
             </div>
             <div class="form-group">
                 <label class="required" for="email">{{ trans('cruds.user.fields.email') }}</label>
-                <input class="form-control {{ $errors->has('email') ? 'is-invalid' : '' }}" type="text" name="email" id="email" autocomplete="off" value="" required>
+                <input class="form-control {{ $errors->has('email') ? 'is-invalid' : '' }}" type="text" name="email" id="email" autocomplete="off" value="">
                 @if($errors->has('email'))
                     <div class="invalid-feedback">
                         {{ $errors->first('email') }}
@@ -31,7 +31,7 @@
             </div>
             <div class="form-group">
                 <label class="required" for="password">{{ trans('cruds.user.fields.password') }}</label>
-                <input class="form-control {{ $errors->has('password') ? 'is-invalid' : '' }}" type="password" name="password" id="password" autocomplete="off" required>
+                <input class="form-control {{ $errors->has('password') ? 'is-invalid' : '' }}" type="password" name="password" id="password" autocomplete="off">
                 @if($errors->has('password'))
                     <div class="invalid-feedback">
                         {{ $errors->first('password') }}
@@ -41,7 +41,7 @@
             </div>
             <div class="form-group">
                 <label class="required" for="phoneNumber">Phone Number</label>
-                <input class="form-control {{ $errors->has('phoneNumber') ? 'is-invalid' : '' }}" type="phoneNumber" name="phoneNumber" id="phoneNumber" required>
+                <input class="form-control {{ $errors->has('phoneNumber') ? 'is-invalid' : '' }}" type="phoneNumber" name="phoneNumber" id="phoneNumber">
                 @if($errors->has('phoneNumber'))
                     <div class="invalid-feedback">
                         {{ $errors->first('phoneNumber') }}
@@ -67,7 +67,7 @@
             @if(!request()->has('student'))
                 <div class="form-group">
                     <label class="required" for="roles">{{ trans('cruds.user.fields.roles') }}</label>
-                    <select class="form-control select2" name="roles[]" id="roles" onchange="optionSelect();"required>
+                    <select class="form-control select2" name="roles[]" id="roles" onchange="optionSelect();>
                             <option value="">Select one Roles</option>
                         @foreach($roles as $id => $roles)
                             <option value="{{ $id }}">{{ $roles }}</option>

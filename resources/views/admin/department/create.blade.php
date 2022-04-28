@@ -14,7 +14,7 @@
                 <input class="form-control" type="text" name="name" id="name" placeholder="*** Deparment" required>
                 @if($errors->has('name'))
                     <div class="invalid-feedback">
-                        {{ $errors->first('name') s}}
+                        {{ $errors->first('name') }}
                     </div>
                 @endif
                 <span class="help-block">{{ trans('cruds.role.fields.title_helper') }}</span>

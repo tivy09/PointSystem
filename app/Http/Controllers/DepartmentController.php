@@ -47,7 +47,10 @@ class DepartmentController extends Controller
         Department::create([
             'name' => $request->name,
         ]);
+        Toastr::success(' Department Create Successful','Success');
+
         Return redirect()->route('admin.department.index');
+
     }
 
     /**
@@ -59,6 +62,7 @@ class DepartmentController extends Controller
     public function show($id)
     {
         $department = Department::all()->where('id', $id);
+        
         return view('admin.department.show')->with('departments', $department);
     }
 
@@ -87,6 +91,7 @@ class DepartmentController extends Controller
         $departments = department::find($id);
         $departments->name = $request->name;
         $departments->save();
+        Toastr::success(' Department Updated Successful','Success');
 
         Return redirect()->route('admin.department.index');
     }

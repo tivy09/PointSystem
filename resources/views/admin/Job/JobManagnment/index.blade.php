@@ -193,7 +193,7 @@
 
 <div class="card">
     <div class="card-header">
-        Job Types Liat
+        Job Types List
     </div>
 
     <div class="card-body">
