@@ -90,14 +90,14 @@
                                 <span class="badge badge-pill badge-warning" style="width: 70px;">Pending</span>
                             @elseif($leave->is_approved == 1)
                                 <span class="badge badge-pill badge-success" style="width: 70px;">Approved</span>
-                                <form action="{{ route('user.leave.delete', ['id' => $leave->id]) }}" method="get" style="width: 70px;">
+                                <!-- <form action="{{ route('user.leave.delete', ['id' => $leave->id]) }}" method="get" style="width: 70px;">
                                     <button type="submit" class="badge badge-pill badge-danger" value="1" name="approved" onclick="return confirm('Are you sure want to delete leave?')">Delete</button>
-                                </form>
+                                </form> -->
                             @else
                                 <span class="badge badge-pill badge-danger" style="width: 70px;">Rejected</span>
-                                <form action="{{ route('user.leave.delete', ['id' => $leave->id]) }}" method="get" style="width: 70px;">
+                                <!-- <form action="{{ route('user.leave.delete', ['id' => $leave->id]) }}" method="get" style="width: 70px;">
                                     <button type="submit" class="badge badge-pill badge-danger" value="1" name="approved" onclick="return confirm('Are you sure want to delete leave?')">Delete</button>
-                                </form>
+                                </form> -->
                             @endif
                         </td>
                     </tr>
